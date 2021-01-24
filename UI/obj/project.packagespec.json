@@ -1,0 +1,104 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\dev\\recentHostable\\UI\\UI.csproj",
+    "projectName": "HBHplayground.UI",
+    "projectPath": "C:\\dev\\recentHostable\\UI\\UI.csproj",
+    "outputPath": "C:\\dev\\recentHostable\\UI\\obj\\",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "net50"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp5.0": {
+        "projectReferences": {
+          "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj"
+          },
+          "C:\\dev\\recentHostable\\Client\\Client.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\Client\\Client.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp5.0": {
+      "dependencies": {
+        "Microsoft.AspNetCore.Components.WebAssembly": {
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "Microsoft.Extensions.Logging.Debug": {
+          "target": "Package",
+          "version": "[5.0.0, )"
+        },
+        "MudBlazor": {
+          "target": "Package",
+          "version": "[1.2.4, )"
+        },
+        "Pluralize.NET": {
+          "target": "Package",
+          "version": "[1.0.2, )"
+        },
+        "StackExchange.Redis.Extensions.Utf8Json": {
+          "target": "Package",
+          "version": "[6.3.6, )"
+        },
+        "Stl.Fusion.Blazor": {
+          "target": "Package",
+          "version": "[0.9.17, )"
+        },
+        "UAParser": {
+          "target": "Package",
+          "version": "[3.1.44, )"
+        },
+        "Utf8Json": {
+          "target": "Package",
+          "version": "[1.3.7, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "downloadDependencies": [
+        {
+          "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+          "version": "[5.0.1, 5.0.1]"
+        }
+      ],
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+    }
+  },
+  "runtimes": {
+    "browser-wasm": {
+      "#import": []
+    }
+  }
+}

@@ -1,0 +1,208 @@
+@* @using System.Threading *@
+@* @inherits LiveComponentBase<Chat.Model, Chat.LocalsModel> *@
+@* @inject IChatService ChatService *@
+@* @inject ClientState ClientState *@
+@* @inject NavigationManager Navigator *@
+@* @inject IJSRuntime JSRuntime *@
+@* *@
+@* @{ *@
+@*     var locals = Locals.Value; *@
+@*     var state = State.LastValue; *@
+@*     var lastPage = state.LastPage; *@
+@*     var error = State.Error; *@
+@*     var actualUserName = state.ChatUser?.Name; *@
+@* } *@
+@* *@
+@* <div> *@
+@*     <span class="float-right"> *@
+@*         <span class="badge btn-primary"> *@
+@*             @(state.ActiveUserCount) <span class="oi oi-chat"></span> *@
+@*         </span> *@
+@*         <span class="badge btn-light"> *@
+@*             @(state.UserCount) <span class="oi oi-people"></span> *@
+@*         </span> *@
+@*     </span> *@
+@*     <h1>Chat</h1> *@
+@* </div> *@
+@* *@
+@* <div class="alert alert-primary"> *@
+@*     Open <a href="@Navigator.Uri" target="_blank">this page</a> or *@
+@*     <a href="/composition" target="_blank">Composition example</a> *@
+@*     in another window to see everything is updated in sync in real time. *@
+@*     Besides that, try to *@
+@*     <AuthorizeView> *@
+@*         <Authorized> *@
+@*             <button class="btn btn-primary btn-sm" @onclick="SignOut">Sign out</button> *@
+@*         </Authorized> *@
+@*         <NotAuthorized> *@
+@*             <button class="btn btn-warning btn-sm" @onclick="SignIn">Sign in</button> *@
+@*         </NotAuthorized> *@
+@*     </AuthorizeView> *@
+@* </div> *@
+@* @if (locals.Error != null) { *@
+@*     <div class="alert alert-danger" role="alert"> *@
+@*         @locals.Error.Message *@
+@*     </div> *@
+@* } *@
+@* @if (error != null) { *@
+@*     <div class="alert alert-warning" role="alert"> *@
+@*         Update error: @error.Message *@
+@*     </div> *@
+@* } *@
+@* *@
+@* <form @onsubmit="SetNameAsync"> *@
+@*     @if (actualUserName != locals.Name) { *@
+@*         <div class="input-group-prepend pb-1"> *@
+@*             @if (@actualUserName == null) { *@
+@*                 <span class="badge btn-warning">Creating user...</span> *@
+@* *@
+@*             } else { *@
+@*                 <span class="badge btn-primary">Current name: @actualUserName</span> *@
+@*             } *@
+@*         </div> *@
+@*     } *@
+@*     <div class="input-group pb-3"> *@
+@*         <div class="input-group-prepend"> *@
+@*             <span class="input-group-text">Your name</span> *@
+@*         </div> *@
+@*         <input class="form-control" @bind-value="@locals.Name" @bind-value:event="oninput" /> *@
+@*         <div class="input-group-append"> *@
+@*             <button type="submit" class="btn btn-warning">Change</button> *@
+@*         </div> *@
+@*     </div> *@
+@* </form> *@
+@* *@
+@* <table class="table table-sm table-striped"> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th scope="col">User</th> *@
+@*         <th scope="col">Message</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     @foreach(var message in lastPage.Messages) { *@
+@*         var user = lastPage.Users[message.UserId]; *@
+@*         { *@
+@*             <tr> *@
+@*                 <td style="width: 20%; max-width: 33%">@user.Name</td> *@
+@*                 <td style="width: auto; min-width: 67%">@message.Text</td> *@
+@*             </tr> *@
+@*         } *@
+@*     } *@
+@*     </tbody> *@
+@* </table> *@
+@* *@
+@* <form @onsubmit="SendMessageAsync"> *@
+@*     <div class="input-group pb-3"> *@
+@*         <div class="input-group-prepend"> *@
+@*             <span class="input-group-text">Message</span> *@
+@*         </div> *@
+@*         <input class="form-control" *@
+@*             placeholder="No ideas? Send an empty one!" *@
+@*             @bind-value="locals.Message" /> *@
+@*         <div class="input-group-append"> *@
+@*             <button type="submit" class="btn btn-success">Send</button> *@
+@*         </div> *@
+@*     </div> *@
+@* </form> *@
+@* *@
+@* @code { *@
+@*     public class LocalsModel *@
+@*     { *@
+@*         private string _name = ""; *@
+@* *@
+@*         public string Name { *@
+@*             get => _name; *@
+@*             set { *@
+@*                 _name = value; *@
+@*                 IsNameModified = true; *@
+@*             } *@
+@*         } *@
+@* *@
+@*         public bool IsNameModified { get; set; } *@
+@*         public string Message { get; set; } = ""; *@
+@*         public Exception? Error { get; set; } *@
+@*     } *@
+@* *@
+@*     public class Model *@
+@*     { *@
+@*         public long UserCount { get; set; } *@
+@*         public long ActiveUserCount { get; set; } *@
+@*         public ChatUser? ChatUser { get; set; } *@
+@*         public ChatPage LastPage { get; set; } = new(); *@
+@*     } *@
+@* *@
+@*     protected override async Task<Model> ComputeStateAsync(CancellationToken cancellationToken) *@
+@*     { *@
+@*         var userCount = await ChatService.GetUserCountAsync(cancellationToken); *@
+@*         var activeUserCount = await ChatService.GetActiveUserCountAsync(cancellationToken); *@
+@*         var chatUser = await ClientState.ChatUser.UseAsync(cancellationToken); *@
+@*         var lastPage = await ChatService.GetChatTailAsync(30, cancellationToken); *@
+@*         if (!Locals.Value.IsNameModified) *@
+@*             ResetName(chatUser?.Name ?? ""); *@
+@*         return new Model() { *@
+@*             UserCount = userCount, *@
+@*             ActiveUserCount = activeUserCount, *@
+@*             ChatUser = chatUser, *@
+@*             LastPage = lastPage, *@
+@*         }; *@
+@*     } *@
+@* *@
+@*     protected override async Task OnInitializedAsync() *@
+@*     { *@
+@*         var chatUser = await ChatService.GetCurrentUserAsync(ClientState.Session); *@
+@*         if (chatUser == null) *@
+@*             await SetNameAsync(); *@
+@*     } *@
+@* *@
+@*     private async Task SetNameAsync() *@
+@*     { *@
+@*         ResetError(); *@
+@*         var locals = Locals.Value; *@
+@*         try { *@
+@*             await ChatService.SetUserNameAsync(new(locals.Name ?? "", ClientState.Session)); *@
+@*         } *@
+@*         catch (Exception e) { *@
+@*             SetError(e); *@
+@*         } *@
+@*    } *@
+@* *@
+@*     private async Task SendMessageAsync() *@
+@*     { *@
+@*         ResetError(); *@
+@*         try { *@
+@*             if (ClientState.ChatUser.Value == null) *@
+@*                 throw new ApplicationException("Please set your name first."); *@
+@*             await ChatService.PostMessageAsync(new(Locals.Value.Message, ClientState.Session)); *@
+@*             Locals.Value.Message = ""; *@
+@*             TouchLocals(); *@
+@*         } *@
+@*         catch (Exception e) { *@
+@*             SetError(e); *@
+@*         } *@
+@*     } *@
+@* *@
+@*     private void SignIn() => JSRuntime.InvokeVoidAsync("FusionAuth.signIn"); *@
+@*     private void SignOut() => JSRuntime.InvokeVoidAsync("FusionAuth.signOut"); *@
+@* *@
+@*     // Convenience shortcuts *@
+@* *@
+@*     private void ResetError() *@
+@*         => SetError(null); *@
+@* *@
+@*     private void ResetName(string name) *@
+@*     { *@
+@*         Locals.Value.Name = name; *@
+@*         Locals.Value.IsNameModified = false; *@
+@*         TouchLocals(); *@
+@*     } *@
+@* *@
+@*     private void SetError(Exception? error) *@
+@*     { *@
+@*         Locals.Value.Error = error; *@
+@*         TouchLocals(); *@
+@*     } *@
+@* *@
+@*     private void TouchLocals() *@
+@*         => Locals.Set(Locals.AsResult()); *@
+@* } *@

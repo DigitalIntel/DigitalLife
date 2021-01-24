@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\dev\recentHostable" t="IncludeFlat">
+      <e p=".dockerignore" t="Include" />
+      <e p="Abstractions" t="IncludeRecursive">
+        <e p="Abstractions.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IChatService.cs" t="Include" />
+        <e p="IComposerService.cs" t="Include" />
+        <e p="IScreenshotService.cs" t="Include" />
+        <e p="ISumService.cs" t="Include" />
+        <e p="ITimeService.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Abstractions.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scopes.cs" t="Include" />
+      </e>
+      <e p="Blazor.sln" t="IncludeFlat" />
+      <e p="Client" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Client.csproj" t="IncludeRecursive" />
+        <e p="Clients.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Client.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="ConsoleClient" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsoleClient.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="ConsoleClient.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Server" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AuthController.cs" t="Include" />
+          <e p="BlazorModeController.cs" t="Include" />
+          <e p="ChatController.cs" t="Include" />
+          <e p="ComposerController.cs" t="Include" />
+          <e p="ScreenshotController.cs" t="Include" />
+          <e p="SumController.cs" t="Include" />
+          <e p="TimeController.cs" t="Include" />
+        </e>
+        <e p="debug.log" t="Include" />
+        <e p="Dockerfile" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Server.AssemblyInfo.cs" t="Include" />
+              <e p="Server.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_Host.cshtml" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="OpenSans-Bold.ttf" t="Include" />
+          <e p="OpenSans-Regular.ttf" t="Include" />
+          <e p="Sun.jpg" t="Include" />
+        </e>
+        <e p="Server.csproj" t="IncludeRecursive" />
+        <e p="ServerSettings.cs" t="Include" />
+        <e p="Services" t="Include">
+          <e p="AppDbContext.cs" t="Include" />
+          <e p="AuthSyncService.cs" t="Include" />
+          <e p="ChatMessageResolver.cs" t="Include" />
+          <e p="ChatService - Copy.cs" t="Include" />
+          <e p="ChatService.cs" t="Include" />
+          <e p="ComposerService.cs" t="Include" />
+          <e p="DirectBitmap.cs" t="Include" />
+          <e p="HttpContextExtensions.cs" t="Include" />
+          <e p="IForismaticClient.cs" t="Include" />
+          <e p="IUzbyClient.cs" t="Include" />
+          <e p="ScreenshotService.cs" t="Include" />
+          <e p="SumService.cs" t="Include" />
+          <e p="TimeService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="UI" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="UI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Authentication.razor" t="Include" />
+          <e p="Chat - Copy.razor" t="Include" />
+          <e p="Chat.razor" t="Include" />
+          <e p="Composition.razor" t="Include" />
+          <e p="Consistency.razor" t="Include" />
+          <e p="Home.razor" t="Include" />
+          <e p="ServerScreen.razor" t="Include" />
+          <e p="ServerTime.razor" t="Include" />
+          <e p="VirtualPlayground.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Services" t="Include">
+          <e p="ClientState.cs" t="Include" />
+          <e p="LocalComposerService.cs" t="Include" />
+          <e p="MomentsAgoService.cs" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="AccumulatorCard.razor" t="Include" />
+          <e p="BlazorModeDialog.razor" t="Include" />
+          <e p="BlazorModeSwitch.razor" t="Include" />
+          <e p="ComposedValueCard.razor" t="Include" />
+          <e p="FormatEx.cs" t="Include" />
+          <e p="MainLayout.razor" t="Include" />
+          <e p="NavMenu.razor" t="Include" />
+          <e p="StatefulComponentState.razor" t="Include" />
+          <e p="SumCard.razor" t="Include" />
+          <e p="Themes.cs" t="Include" />
+        </e>
+        <e p="UI.csproj" t="IncludeRecursive" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="app.css" t="Include" />
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="resizable-style.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="js" t="Include">
+            <e p="app.js" t="Include" />
+            <e p="cli.js" t="Include" />
+            <e p="Splitmin.js" t="Include" />
+            <e p="stInput.js" t="Include" />
+            <e p="UIman" t="Include">
+              <e p="css" t="Include">
+                <e p="glide.core.css" t="Include" />
+                <e p="glide.core.min.css" t="Include" />
+                <e p="glide.theme.css" t="Include" />
+                <e p="glide.theme.min.css" t="Include" />
+              </e>
+              <e p="glide.esm.js" t="Include" />
+              <e p="glide.js" t="Include" />
+              <e p="glide.min.js" t="Include" />
+              <e p="glide.modular.esm.js" t="Include" />
+            </e>
+            <e p="VirtualPlayground" t="Include">
+              <e p="attacker-controller.js" t="Include" />
+              <e p="entity-manager.js" t="Include" />
+              <e p="entity.js" t="Include" />
+              <e p="equip-weapon-component.js" t="Include" />
+              <e p="finite-state-machine.js" t="Include" />
+              <e p="gltf-component.js" t="Include" />
+              <e p="health-bar.js" t="Include" />
+              <e p="health-component.js" t="Include" />
+              <e p="inventory-controller.js" t="Include" />
+              <e p="level-up-component.js" t="Include" />
+              <e p="math.js" t="Include" />
+              <e p="npc-entity.js" t="Include" />
+              <e p="orbitctrl.js" t="Include" />
+              <e p="particle-system.js" t="Include" />
+              <e p="player-entity.js" t="Include" />
+              <e p="player-input.js" t="Include" />
+              <e p="player-state.js" t="Include" />
+              <e p="quest-component.js" t="Include" />
+              <e p="remotePlayer-entity.js" t="Include" />
+              <e p="remotePlayer_input.js" t="Include" />
+              <e p="spatial-grid-controller.js" t="Include" />
+              <e p="spatial-hash-grid.js" t="Include" />
+              <e p="test.js" t="Include" />
+              <e p="third-person-camera.js" t="Include" />
+              <e p="ui-controller.js" t="Include" />
+            </e>
+            <e p="VirtualPlayground.js" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="girl" t="Include">
+              <e p="peasant_girl.fbx" t="Include" />
+              <e p="readme.txt" t="Include" />
+              <e p="Standing Idle.fbx" t="Include" />
+            </e>
+            <e p="guard" t="Include">
+              <e p="castle_guard_01.fbx" t="Include" />
+              <e p="readme.txt" t="Include" />
+              <e p="Sword And Shield Death (1).fbx" t="Include" />
+              <e p="Sword And Shield Death.fbx" t="Include" />
+              <e p="Sword And Shield Idle.fbx" t="Include" />
+              <e p="Sword And Shield Impact.fbx" t="Include" />
+              <e p="Sword And Shield Jump.fbx" t="Include" />
+              <e p="Sword And Shield Kick.fbx" t="Include" />
+              <e p="Sword And Shield Run.fbx" t="Include" />
+              <e p="Sword And Shield Slash.fbx" t="Include" />
+              <e p="Sword And Shield Walk.fbx" t="Include" />
+            </e>
+            <e p="icons" t="Include">
+              <e p="readme.txt" t="Include" />
+              <e p="UI" t="Include">
+                <e p="backpack.png" t="Include" />
+                <e p="health-bar.png" t="Include" />
+                <e p="inventory-character.png" t="Include" />
+                <e p="skills.png" t="Include" />
+                <e p="tied-scroll.png" t="Include" />
+              </e>
+              <e p="weapons" t="Include">
+                <e p="pointy-sword-64.png" t="Include" />
+                <e p="pointy-sword.png" t="Include" />
+                <e p="war-axe-64.png" t="Include" />
+                <e p="war-axe.png" t="Include" />
+              </e>
+            </e>
+            <e p="monsters" t="Include">
+              <e p="Blends" t="Include">
+                <e p="Alien.blend" t="Include" />
+                <e p="Alien_Tall.blend" t="Include" />
+                <e p="Bat.blend" t="Include" />
+                <e p="Bee.blend" t="Include" />
+                <e p="Cactus.blend" t="Include" />
+                <e p="Chicken.blend" t="Include" />
+                <e p="Crab.blend" t="Include" />
+                <e p="Cthulhu.blend" t="Include" />
+                <e p="Cyclops.blend" t="Include" />
+                <e p="Deer.blend" t="Include" />
+                <e p="Demon.blend" t="Include" />
+                <e p="Ghost.blend" t="Include" />
+                <e p="GreenDemon.blend" t="Include" />
+                <e p="Mushroom.blend" t="Include" />
+                <e p="Panda.blend" t="Include" />
+                <e p="Penguin.blend" t="Include" />
+                <e p="Pig.blend" t="Include" />
+                <e p="Skull.blend" t="Include" />
+                <e p="Tree.blend" t="Include" />
+                <e p="YellowDragon.blend" t="Include" />
+                <e p="Yeti.blend" t="Include" />
+              </e>
+              <e p="FBX" t="Include">
+                <e p="Alien.fbx" t="Include" />
+                <e p="Alien_Tall.fbx" t="Include" />
+                <e p="Bat.fbx" t="Include" />
+                <e p="Bee.fbx" t="Include" />
+                <e p="Cactus.fbx" t="Include" />
+                <e p="Chicken.fbx" t="Include" />
+                <e p="Crab.fbx" t="Include" />
+                <e p="Cthulhu.fbx" t="Include" />
+                <e p="Cyclops.fbx" t="Include" />
+                <e p="Deer.fbx" t="Include" />
+                <e p="Demon.fbx" t="Include" />
+                <e p="Ghost.fbx" t="Include" />
+                <e p="GreenDemon.fbx" t="Include" />
+                <e p="Mushroom.fbx" t="Include" />
+                <e p="Panda.fbx" t="Include" />
+                <e p="Penguin.fbx" t="Include" />
+                <e p="Pig.fbx" t="Include" />
+                <e p="Skull.fbx" t="Include" />
+                <e p="Tree.fbx" t="Include" />
+                <e p="YellowDragon.fbx" t="Include" />
+                <e p="Yeti.fbx" t="Include" />
+              </e>
+              <e p="License.txt" t="Include" />
+              <e p="obj" t="Include">
+                <e p="Alien.mtl" t="Include" />
+                <e p="Alien.obj" t="Include" />
+                <e p="Alien_Tall.mtl" t="Include" />
+                <e p="Alien_Tall.obj" t="Include" />
+                <e p="Bat.mtl" t="Include" />
+                <e p="Bat.obj" t="Include" />
+                <e p="Bee.mtl" t="Include" />
+                <e p="Bee.obj" t="Include" />
+                <e p="Cactus.mtl" t="Include" />
+                <e p="Cactus.obj" t="Include" />
+                <e p="Chicken.mtl" t="Include" />
+                <e p="Chicken.obj" t="Include" />
+                <e p="Crab.mtl" t="Include" />
+                <e p="Crab.obj" t="Include" />
+                <e p="Cthulhu.mtl" t="Include" />
+                <e p="Cthulhu.obj" t="Include" />
+                <e p="Cyclops.mtl" t="Include" />
+                <e p="Cyclops.obj" t="Include" />
+                <e p="Deer.mtl" t="Include" />
+                <e p="Deer.obj" t="Include" />
+                <e p="Demon.mtl" t="Include" />
+                <e p="Demon.obj" t="Include" />
+                <e p="Ghost.mtl" t="Include" />
+                <e p="Ghost.obj" t="Include" />
+                <e p="GreenDemon.mtl" t="Include" />
+                <e p="GreenDemon.obj" t="Include" />
+                <e p="Mushroom.mtl" t="Include" />
+                <e p="Mushroom.obj" t="Include" />
+                <e p="Panda.mtl" t="Include" />
+                <e p="Panda.obj" t="Include" />
+                <e p="Penguin.mtl" t="Include" />
+                <e p="Penguin.obj" t="Include" />
+                <e p="Pig.mtl" t="Include" />
+                <e p="Pig.obj" t="Include" />
+                <e p="Skull.mtl" t="Include" />
+                <e p="Skull.obj" t="Include" />
+                <e p="Tree.mtl" t="Include" />
+                <e p="Tree.obj" t="Include" />
+                <e p="YellowDragon.mtl" t="Include" />
+                <e p="YellowDragon.obj" t="Include" />
+                <e p="Yeti.mtl" t="Include" />
+                <e p="Yeti.obj" t="Include" />
+              </e>
+              <e p="Preview.jpg" t="Include" />
+              <e p="Textures" t="Include">
+                <e p="Alien_Tall_Texture.png" t="Include" />
+                <e p="Alien_Texture.png" t="Include" />
+                <e p="Bat_Texture.png" t="Include" />
+                <e p="Bee_Texture.png" t="Include" />
+                <e p="Cactus_Texture.png" t="Include" />
+                <e p="Chicken_Texture.png" t="Include" />
+                <e p="Crab_Texture.png" t="Include" />
+                <e p="Cthulhu_Texture.png" t="Include" />
+                <e p="Cyclops_Texture.png" t="Include" />
+                <e p="Deer_Texture.png" t="Include" />
+                <e p="Demon_Texture.png" t="Include" />
+                <e p="Ghost_Texture.png" t="Include" />
+                <e p="GreenDemon_Texture.png" t="Include" />
+                <e p="Mushroom_Texture.png" t="Include" />
+                <e p="Panda_Texture.png" t="Include" />
+                <e p="Penguin_Texture.png" t="Include" />
+                <e p="Pig_Texture.png" t="Include" />
+                <e p="Skull_Texture.png" t="Include" />
+                <e p="Tree_Texture.png" t="Include" />
+                <e p="YellowDragon_Texture.png" t="Include" />
+                <e p="Yeti_Texture.png" t="Include" />
+              </e>
+            </e>
+            <e p="nature" t="Include">
+              <e p="Blends" t="Include">
+                <e p="BirchTree_1.blend" t="Include" />
+                <e p="BirchTree_2.blend" t="Include" />
+                <e p="BirchTree_3.blend" t="Include" />
+                <e p="BirchTree_4.blend" t="Include" />
+                <e p="BirchTree_5.blend" t="Include" />
+                <e p="BirchTree_Autumn_1.blend" t="Include" />
+                <e p="BirchTree_Autumn_2.blend" t="Include" />
+                <e p="BirchTree_Autumn_3.blend" t="Include" />
+                <e p="BirchTree_Autumn_4.blend" t="Include" />
+                <e p="BirchTree_Autumn_5.blend" t="Include" />
+                <e p="BirchTree_Dead_1.blend" t="Include" />
+                <e p="BirchTree_Dead_2.blend" t="Include" />
+                <e p="BirchTree_Dead_3.blend" t="Include" />
+                <e p="BirchTree_Dead_4.blend" t="Include" />
+                <e p="BirchTree_Dead_5.blend" t="Include" />
+                <e p="BirchTree_Dead_Snow_1.blend" t="Include" />
+                <e p="BirchTree_Dead_Snow_2.blend" t="Include" />
+                <e p="BirchTree_Dead_Snow_3.blend" t="Include" />
+                <e p="BirchTree_Dead_Snow_4.blend" t="Include" />
+                <e p="BirchTree_Dead_Snow_5.blend" t="Include" />
+                <e p="BirchTree_Snow_1.blend" t="Include" />
+                <e p="BirchTree_Snow_2.blend" t="Include" />
+                <e p="BirchTree_Snow_3.blend" t="Include" />
+                <e p="BirchTree_Snow_4.blend" t="Include" />
+                <e p="BirchTree_Snow_5.blend" t="Include" />
+                <e p="Bush_1.blend" t="Include" />
+                <e p="Bush_2.blend" t="Include" />
+                <e p="Bush_Snow_1.blend" t="Include" />
+                <e p="Bush_Snow_2.blend" t="Include" />
+                <e p="BushBerries_1.blend" t="Include" />
+                <e p="BushBerries_2.blend" t="Include" />
+                <e p="Cactus_1.blend" t="Include" />
+                <e p="Cactus_2.blend" t="Include" />
+                <e p="Cactus_3.blend" t="Include" />
+                <e p="Cactus_4.blend" t="Include" />
+                <e p="Cactus_5.blend" t="Include" />
+                <e p="CactusFlower_1.blend" t="Include" />
+                <e p="CactusFlowers_2.blend" t="Include" />
+                <e p="CactusFlowers_3.blend" t="Include" />
+                <e p="CactusFlowers_4.blend" t="Include" />
+                <e p="CactusFlowers_5.blend" t="Include" />
+                <e p="CommonTree_1.blend" t="Include" />
+                <e p="CommonTree_2.blend" t="Include" />
+                <e p="CommonTree_3.blend" t="Include" />
+                <e p="CommonTree_4.blend" t="Include" />
+                <e p="CommonTree_5.blend" t="Include" />
+                <e p="CommonTree_Autumn_1.blend" t="Include" />
+                <e p="CommonTree_Autumn_2.blend" t="Include" />
+                <e p="CommonTree_Autumn_3.blend" t="Include" />
+                <e p="CommonTree_Autumn_4.blend" t="Include" />
+                <e p="CommonTree_Autumn_5.blend" t="Include" />
+                <e p="CommonTree_Dead_1.blend" t="Include" />
+                <e p="CommonTree_Dead_2.blend" t="Include" />
+                <e p="CommonTree_Dead_3.blend" t="Include" />
+                <e p="CommonTree_Dead_4.blend" t="Include" />
+                <e p="CommonTree_Dead_5.blend" t="Include" />
+                <e p="CommonTree_Dead_Snow_1.blend" t="Include" />
+                <e p="CommonTree_Dead_Snow_2.blend" t="Include" />
+                <e p="CommonTree_Dead_Snow_3.blend" t="Include" />
+                <e p="CommonTree_Dead_Snow_4.blend" t="Include" />
+                <e p="CommonTree_Dead_Snow_5.blend" t="Include" />
+                <e p="CommonTree_Snow_1.blend" t="Include" />
+                <e p="CommonTree_Snow_2.blend" t="Include" />
+                <e p="CommonTree_Snow_3.blend" t="Include" />
+                <e p="CommonTree_Snow_4.blend" t="Include" />
+                <e p="CommonTree_Snow_5.blend" t="Include" />
+                <e p="Corn_1.blend" t="Include" />
+                <e p="Corn_2.blend" t="Include" />
+                <e p="Flowers.blend" t="Include" />
+                <e p="Grass.blend" t="Include" />
+                <e p="Grass_2.blend" t="Include" />
+                <e p="Grass_Short.blend" t="Include" />
+                <e p="Lilypad.blend" t="Include" />
+                <e p="PalmTree_1.blend" t="Include" />
+                <e p="PalmTree_2.blend" t="Include" />
+                <e p="PalmTree_3.blend" t="Include" />
+                <e p="PalmTree_4.blend" t="Include" />
+                <e p="PineTree_1.blend" t="Include" />
+                <e p="PineTree_2.blend" t="Include" />
+                <e p="PineTree_3.blend" t="Include" />
+                <e p="PineTree_4.blend" t="Include" />
+                <e p="PineTree_5.blend" t="Include" />
+                <e p="PineTree_Autumn_1.blend" t="Include" />
+                <e p="PineTree_Autumn_2.blend" t="Include" />
+                <e p="PineTree_Autumn_3.blend" t="Include" />
+                <e p="PineTree_Autumn_4.blend" t="Include" />
+                <e p="PineTree_Autumn_5.blend" t="Include" />
+                <e p="PineTree_Snow_1.blend" t="Include" />
+                <e p="PineTree_Snow_2.blend" t="Include" />
+                <e p="PineTree_Snow_3.blend" t="Include" />
+                <e p="PineTree_Snow_4.blend" t="Include" />
+                <e p="PineTree_Snow_5.blend" t="Include" />
+                <e p="Plant_1.blend" t="Include" />
+                <e p="Plant_2.blend" t="Include" />
+                <e p="Plant_3.blend" t="Include" />
+                <e p="Plant_4.blend" t="Include" />
+                <e p="Plant_5.blend" t="Include" />
+                <e p="Rock_1.blend" t="Include" />
+                <e p="Rock_2.blend" t="Include" />
+                <e p="Rock_3.blend" t="Include" />
+                <e p="Rock_4.blend" t="Include" />
+                <e p="Rock_5.blend" t="Include" />
+                <e p="Rock_6.blend" t="Include" />
+                <e p="Rock_7.blend" t="Include" />
+                <e p="Rock_Moss_1.blend" t="Include" />
+                <e p="Rock_Moss_2.blend" t="Include" />
+                <e p="Rock_Moss_3.blend" t="Include" />
+                <e p="Rock_Moss_4.blend" t="Include" />
+                <e p="Rock_Moss_5.blend" t="Include" />
+                <e p="Rock_Moss_6.blend" t="Include" />
+                <e p="Rock_Moss_7.blend" t="Include" />
+                <e p="Rock_Snow_1.blend" t="Include" />
+                <e p="Rock_Snow_2.blend" t="Include" />
+                <e p="Rock_Snow_3.blend" t="Include" />
+                <e p="Rock_Snow_4.blend" t="Include" />
+                <e p="Rock_Snow_5.blend" t="Include" />
+                <e p="Rock_Snow_6.blend" t="Include" />
+                <e p="Rock_Snow_7.blend" t="Include" />
+                <e p="TreeStump.blend" t="Include" />
+                <e p="TreeStump_Moss.blend" t="Include" />
+                <e p="TreeStump_Snow.blend" t="Include" />
+                <e p="Wheat.blend" t="Include" />
+                <e p="Willow_1.blend" t="Include" />
+                <e p="Willow_2.blend" t="Include" />
+                <e p="Willow_3.blend" t="Include" />
+                <e p="Willow_4.blend" t="Include" />
+                <e p="Willow_5.blend" t="Include" />
+                <e p="Willow_Autumn_1.blend" t="Include" />
+                <e p="Willow_Autumn_2.blend" t="Include" />
+                <e p="Willow_Autumn_3.blend" t="Include" />
+                <e p="Willow_Autumn_4.blend" t="Include" />
+                <e p="Willow_Autumn_5.blend" t="Include" />
+                <e p="Willow_Dead_1.blend" t="Include" />
+                <e p="Willow_Dead_2.blend" t="Include" />
+                <e p="Willow_Dead_3.blend" t="Include" />
+                <e p="Willow_Dead_4.blend" t="Include" />
+                <e p="Willow_Dead_5.blend" t="Include" />
+                <e p="Willow_Dead_Snow_1.blend" t="Include" />
+                <e p="Willow_Dead_Snow_2.blend" t="Include" />
+                <e p="Willow_Dead_Snow_3.blend" t="Include" />
+                <e p="Willow_Dead_Snow_4.blend" t="Include" />
+                <e p="Willow_Dead_Snow_5.blend" t="Include" />
+                <e p="Willow_Snow_1.blend" t="Include" />
+                <e p="Willow_Snow_2.blend" t="Include" />
+                <e p="Willow_Snow_3.blend" t="Include" />
+                <e p="Willow_Snow_4.blend" t="Include" />
+                <e p="Willow_Snow_5.blend" t="Include" />
+                <e p="WoodLog.blend" t="Include" />
+                <e p="WoodLog_Moss.blend" t="Include" />
+                <e p="WoodLog_Snow.blend" t="Include" />
+              </e>
+              <e p="FBX" t="Include">
+                <e p="BirchTree_1.fbx" t="Include" />
+                <e p="BirchTree_2.fbx" t="Include" />
+                <e p="BirchTree_3.fbx" t="Include" />
+                <e p="BirchTree_4.fbx" t="Include" />
+                <e p="BirchTree_5.fbx" t="Include" />
+                <e p="BirchTree_Autumn_1.fbx" t="Include" />
+                <e p="BirchTree_Autumn_2.fbx" t="Include" />
+                <e p="BirchTree_Autumn_3.fbx" t="Include" />
+                <e p="BirchTree_Autumn_4.fbx" t="Include" />
+                <e p="BirchTree_Autumn_5.fbx" t="Include" />
+                <e p="BirchTree_Dead_1.fbx" t="Include" />
+                <e p="BirchTree_Dead_2.fbx" t="Include" />
+                <e p="BirchTree_Dead_3.fbx" t="Include" />
+                <e p="BirchTree_Dead_4.fbx" t="Include" />
+                <e p="BirchTree_Dead_5.fbx" t="Include" />
+                <e p="BirchTree_Dead_Snow_1.fbx" t="Include" />
+                <e p="BirchTree_Dead_Snow_2.fbx" t="Include" />
+                <e p="BirchTree_Dead_Snow_3.fbx" t="Include" />
+                <e p="BirchTree_Dead_Snow_4.fbx" t="Include" />
+                <e p="BirchTree_Dead_Snow_5.fbx" t="Include" />
+                <e p="BirchTree_Snow_1.fbx" t="Include" />
+                <e p="BirchTree_Snow_2.fbx" t="Include" />
+                <e p="BirchTree_Snow_3.fbx" t="Include" />
+                <e p="BirchTree_Snow_4.fbx" t="Include" />
+                <e p="BirchTree_Snow_5.fbx" t="Include" />
+                <e p="Bush_1.fbx" t="Include" />
+                <e p="Bush_2.fbx" t="Include" />
+                <e p="Bush_Snow_1.fbx" t="Include" />
+                <e p="Bush_Snow_2.fbx" t="Include" />
+                <e p="BushBerries_1.fbx" t="Include" />
+                <e p="BushBerries_2.fbx" t="Include" />
+                <e p="Cactus_1.fbx" t="Include" />
+                <e p="Cactus_2.fbx" t="Include" />
+                <e p="Cactus_3.fbx" t="Include" />
+                <e p="Cactus_4.fbx" t="Include" />
+                <e p="Cactus_5.fbx" t="Include" />
+                <e p="CactusFlower_1.fbx" t="Include" />
+                <e p="CactusFlowers_2.fbx" t="Include" />
+                <e p="CactusFlowers_3.fbx" t="Include" />
+                <e p="CactusFlowers_4.fbx" t="Include" />
+                <e p="CactusFlowers_5.fbx" t="Include" />
+                <e p="CommonTree_1.fbx" t="Include" />
+                <e p="CommonTree_2.fbx" t="Include" />
+                <e p="CommonTree_3.fbx" t="Include" />
+                <e p="CommonTree_4.fbx" t="Include" />
+                <e p="CommonTree_5.fbx" t="Include" />
+                <e p="CommonTree_Autumn_1.fbx" t="Include" />
+                <e p="CommonTree_Autumn_2.fbx" t="Include" />
+                <e p="CommonTree_Autumn_3.fbx" t="Include" />
+                <e p="CommonTree_Autumn_4.fbx" t="Include" />
+                <e p="CommonTree_Autumn_5.fbx" t="Include" />
+                <e p="CommonTree_Dead_1.fbx" t="Include" />
+                <e p="CommonTree_Dead_2.fbx" t="Include" />
+                <e p="CommonTree_Dead_3.fbx" t="Include" />
+                <e p="CommonTree_Dead_4.fbx" t="Include" />
+                <e p="CommonTree_Dead_5.fbx" t="Include" />
+                <e p="CommonTree_Dead_Snow_1.fbx" t="Include" />
+                <e p="CommonTree_Dead_Snow_2.fbx" t="Include" />
+                <e p="CommonTree_Dead_Snow_3.fbx" t="Include" />
+                <e p="CommonTree_Dead_Snow_4.fbx" t="Include" />
+                <e p="CommonTree_Dead_Snow_5.fbx" t="Include" />
+                <e p="CommonTree_Snow_1.fbx" t="Include" />
+                <e p="CommonTree_Snow_2.fbx" t="Include" />
+                <e p="CommonTree_Snow_3.fbx" t="Include" />
+                <e p="CommonTree_Snow_4.fbx" t="Include" />
+                <e p="CommonTree_Snow_5.fbx" t="Include" />
+                <e p="Corn_1.fbx" t="Include" />
+                <e p="Corn_2.fbx" t="Include" />
+                <e p="Flowers.fbx" t="Include" />
+                <e p="Grass.fbx" t="Include" />
+                <e p="Grass_2.fbx" t="Include" />
+                <e p="Grass_Short.fbx" t="Include" />
+                <e p="Lilypad.fbx" t="Include" />
+                <e p="PalmTree_1.fbx" t="Include" />
+                <e p="PalmTree_2.fbx" t="Include" />
+                <e p="PalmTree_3.fbx" t="Include" />
+                <e p="PalmTree_4.fbx" t="Include" />
+                <e p="PineTree_1.fbx" t="Include" />
+                <e p="PineTree_2.fbx" t="Include" />
+                <e p="PineTree_3.fbx" t="Include" />
+                <e p="PineTree_4.fbx" t="Include" />
+                <e p="PineTree_5.fbx" t="Include" />
+                <e p="PineTree_Autumn_1.fbx" t="Include" />
+                <e p="PineTree_Autumn_2.fbx" t="Include" />
+                <e p="PineTree_Autumn_3.fbx" t="Include" />
+                <e p="PineTree_Autumn_4.fbx" t="Include" />
+                <e p="PineTree_Autumn_5.fbx" t="Include" />
+                <e p="PineTree_Snow_1.fbx" t="Include" />
+                <e p="PineTree_Snow_2.fbx" t="Include" />
+                <e p="PineTree_Snow_3.fbx" t="Include" />
+                <e p="PineTree_Snow_4.fbx" t="Include" />
+                <e p="PineTree_Snow_5.fbx" t="Include" />
+                <e p="Plant_1.fbx" t="Include" />
+                <e p="Plant_2.fbx" t="Include" />
+                <e p="Plant_3.fbx" t="Include" />
+                <e p="Plant_4.fbx" t="Include" />
+                <e p="Plant_5.fbx" t="Include" />
+                <e p="Rock_1.fbx" t="Include" />
+                <e p="Rock_2.fbx" t="Include" />
+                <e p="Rock_3.fbx" t="Include" />
+                <e p="Rock_4.fbx" t="Include" />
+                <e p="Rock_5.fbx" t="Include" />
+                <e p="Rock_6.fbx" t="Include" />
+                <e p="Rock_7.fbx" t="Include" />
+                <e p="Rock_Moss_1.fbx" t="Include" />
+                <e p="Rock_Moss_2.fbx" t="Include" />
+                <e p="Rock_Moss_3.fbx" t="Include" />
+                <e p="Rock_Moss_4.fbx" t="Include" />
+                <e p="Rock_Moss_5.fbx" t="Include" />
+                <e p="Rock_Moss_6.fbx" t="Include" />
+                <e p="Rock_Moss_7.fbx" t="Include" />
+                <e p="Rock_Snow_1.fbx" t="Include" />
+                <e p="Rock_Snow_2.fbx" t="Include" />
+                <e p="Rock_Snow_3.fbx" t="Include" />
+                <e p="Rock_Snow_4.fbx" t="Include" />
+                <e p="Rock_Snow_5.fbx" t="Include" />
+                <e p="Rock_Snow_6.fbx" t="Include" />
+                <e p="Rock_Snow_7.fbx" t="Include" />
+                <e p="TreeStump.fbx" t="Include" />
+                <e p="TreeStump_Moss.fbx" t="Include" />
+                <e p="TreeStump_Snow.fbx" t="Include" />
+                <e p="Wheat.fbx" t="Include" />
+                <e p="Willow_1.fbx" t="Include" />
+                <e p="Willow_2.fbx" t="Include" />
+                <e p="Willow_3.fbx" t="Include" />
+                <e p="Willow_4.fbx" t="Include" />
+                <e p="Willow_5.fbx" t="Include" />
+                <e p="Willow_Autumn_1.fbx" t="Include" />
+                <e p="Willow_Autumn_2.fbx" t="Include" />
+                <e p="Willow_Autumn_3.fbx" t="Include" />
+                <e p="Willow_Autumn_4.fbx" t="Include" />
+                <e p="Willow_Autumn_5.fbx" t="Include" />
+                <e p="Willow_Dead_1.fbx" t="Include" />
+                <e p="Willow_Dead_2.fbx" t="Include" />
+                <e p="Willow_Dead_3.fbx" t="Include" />
+                <e p="Willow_Dead_4.fbx" t="Include" />
+                <e p="Willow_Dead_5.fbx" t="Include" />
+                <e p="Willow_Dead_Snow_1.fbx" t="Include" />
+                <e p="Willow_Dead_Snow_2.fbx" t="Include" />
+                <e p="Willow_Dead_Snow_3.fbx" t="Include" />
+                <e p="Willow_Dead_Snow_4.fbx" t="Include" />
+                <e p="Willow_Dead_Snow_5.fbx" t="Include" />
+                <e p="Willow_Snow_1.fbx" t="Include" />
+                <e p="Willow_Snow_2.fbx" t="Include" />
+                <e p="Willow_Snow_3.fbx" t="Include" />
+                <e p="Willow_Snow_4.fbx" t="Include" />
+                <e p="Willow_Snow_5.fbx" t="Include" />
+                <e p="WoodLog.fbx" t="Include" />
+                <e p="WoodLog_Moss.fbx" t="Include" />
+                <e p="WoodLog_Snow.fbx" t="Include" />
+              </e>
+              <e p="License.txt" t="Include" />
+              <e p="obj" t="Include">
+                <e p="BirchTree_1.mtl" t="Include" />
+                <e p="BirchTree_1.obj" t="Include" />
+                <e p="BirchTree_2.mtl" t="Include" />
+                <e p="BirchTree_2.obj" t="Include" />
+                <e p="BirchTree_3.mtl" t="Include" />
+                <e p="BirchTree_3.obj" t="Include" />
+                <e p="BirchTree_4.mtl" t="Include" />
+                <e p="BirchTree_4.obj" t="Include" />
+                <e p="BirchTree_5.mtl" t="Include" />
+                <e p="BirchTree_5.obj" t="Include" />
+                <e p="BirchTree_Autumn_1.mtl" t="Include" />
+                <e p="BirchTree_Autumn_1.obj" t="Include" />
+                <e p="BirchTree_Autumn_2.mtl" t="Include" />
+                <e p="BirchTree_Autumn_2.obj" t="Include" />
+                <e p="BirchTree_Autumn_3.mtl" t="Include" />
+                <e p="BirchTree_Autumn_3.obj" t="Include" />
+                <e p="BirchTree_Autumn_4.mtl" t="Include" />
+                <e p="BirchTree_Autumn_4.obj" t="Include" />
+                <e p="BirchTree_Autumn_5.mtl" t="Include" />
+                <e p="BirchTree_Autumn_5.obj" t="Include" />
+                <e p="BirchTree_Dead_1.mtl" t="Include" />
+                <e p="BirchTree_Dead_1.obj" t="Include" />
+                <e p="BirchTree_Dead_2.mtl" t="Include" />
+                <e p="BirchTree_Dead_2.obj" t="Include" />
+                <e p="BirchTree_Dead_3.mtl" t="Include" />
+                <e p="BirchTree_Dead_3.obj" t="Include" />
+                <e p="BirchTree_Dead_4.mtl" t="Include" />
+                <e p="BirchTree_Dead_4.obj" t="Include" />
+                <e p="BirchTree_Dead_5.mtl" t="Include" />
+                <e p="BirchTree_Dead_5.obj" t="Include" />
+                <e p="BirchTree_Dead_Snow_1.mtl" t="Include" />
+                <e p="BirchTree_Dead_Snow_1.obj" t="Include" />
+                <e p="BirchTree_Dead_Snow_2.mtl" t="Include" />
+                <e p="BirchTree_Dead_Snow_2.obj" t="Include" />
+                <e p="BirchTree_Dead_Snow_3.mtl" t="Include" />
+                <e p="BirchTree_Dead_Snow_3.obj" t="Include" />
+                <e p="BirchTree_Dead_Snow_4.mtl" t="Include" />
+                <e p="BirchTree_Dead_Snow_4.obj" t="Include" />
+                <e p="BirchTree_Dead_Snow_5.mtl" t="Include" />
+                <e p="BirchTree_Dead_Snow_5.obj" t="Include" />
+                <e p="BirchTree_Snow_1.mtl" t="Include" />
+                <e p="BirchTree_Snow_1.obj" t="Include" />
+                <e p="BirchTree_Snow_2.mtl" t="Include" />
+                <e p="BirchTree_Snow_2.obj" t="Include" />
+                <e p="BirchTree_Snow_3.mtl" t="Include" />
+                <e p="BirchTree_Snow_3.obj" t="Include" />
+                <e p="BirchTree_Snow_4.mtl" t="Include" />
+                <e p="BirchTree_Snow_4.obj" t="Include" />
+                <e p="BirchTree_Snow_5.mtl" t="Include" />
+                <e p="BirchTree_Snow_5.obj" t="Include" />
+                <e p="Bush_1.mtl" t="Include" />
+                <e p="Bush_1.obj" t="Include" />
+                <e p="Bush_2.mtl" t="Include" />
+                <e p="Bush_2.obj" t="Include" />
+                <e p="Bush_Snow_1.mtl" t="Include" />
+                <e p="Bush_Snow_1.obj" t="Include" />
+                <e p="Bush_Snow_2.mtl" t="Include" />
+                <e p="Bush_Snow_2.obj" t="Include" />
+                <e p="BushBerries_1.mtl" t="Include" />
+                <e p="BushBerries_1.obj" t="Include" />
+                <e p="BushBerries_2.mtl" t="Include" />
+                <e p="BushBerries_2.obj" t="Include" />
+                <e p="Cactus_1.mtl" t="Include" />
+                <e p="Cactus_1.obj" t="Include" />
+                <e p="Cactus_2.mtl" t="Include" />
+                <e p="Cactus_2.obj" t="Include" />
+                <e p="Cactus_3.mtl" t="Include" />
+                <e p="Cactus_3.obj" t="Include" />
+                <e p="Cactus_4.mtl" t="Include" />
+                <e p="Cactus_4.obj" t="Include" />
+                <e p="Cactus_5.mtl" t="Include" />
+                <e p="Cactus_5.obj" t="Include" />
+                <e p="CactusFlower_1.mtl" t="Include" />
+                <e p="CactusFlower_1.obj" t="Include" />
+                <e p="CactusFlowers_2.mtl" t="Include" />
+                <e p="CactusFlowers_2.obj" t="Include" />
+                <e p="CactusFlowers_3.mtl" t="Include" />
+                <e p="CactusFlowers_3.obj" t="Include" />
+                <e p="CactusFlowers_4.mtl" t="Include" />
+                <e p="CactusFlowers_4.obj" t="Include" />
+                <e p="CactusFlowers_5.mtl" t="Include" />
+                <e p="CactusFlowers_5.obj" t="Include" />
+                <e p="CommonTree_1.mtl" t="Include" />
+                <e p="CommonTree_1.obj" t="Include" />
+                <e p="CommonTree_2.mtl" t="Include" />
+                <e p="CommonTree_2.obj" t="Include" />
+                <e p="CommonTree_3.mtl" t="Include" />
+                <e p="CommonTree_3.obj" t="Include" />
+                <e p="CommonTree_4.mtl" t="Include" />
+                <e p="CommonTree_4.obj" t="Include" />
+                <e p="CommonTree_5.mtl" t="Include" />
+                <e p="CommonTree_5.obj" t="Include" />
+                <e p="CommonTree_Autumn_1.mtl" t="Include" />
+                <e p="CommonTree_Autumn_1.obj" t="Include" />
+                <e p="CommonTree_Autumn_2.mtl" t="Include" />
+                <e p="CommonTree_Autumn_2.obj" t="Include" />
+                <e p="CommonTree_Autumn_3.mtl" t="Include" />
+                <e p="CommonTree_Autumn_3.obj" t="Include" />
+                <e p="CommonTree_Autumn_4.mtl" t="Include" />
+                <e p="CommonTree_Autumn_4.obj" t="Include" />
+                <e p="CommonTree_Autumn_5.mtl" t="Include" />
+                <e p="CommonTree_Autumn_5.obj" t="Include" />
+                <e p="CommonTree_Dead_1.mtl" t="Include" />
+                <e p="CommonTree_Dead_1.obj" t="Include" />
+                <e p="CommonTree_Dead_2.mtl" t="Include" />
+                <e p="CommonTree_Dead_2.obj" t="Include" />
+                <e p="CommonTree_Dead_3.mtl" t="Include" />
+                <e p="CommonTree_Dead_3.obj" t="Include" />
+                <e p="CommonTree_Dead_4.mtl" t="Include" />
+                <e p="CommonTree_Dead_4.obj" t="Include" />
+                <e p="CommonTree_Dead_5.mtl" t="Include" />
+                <e p="CommonTree_Dead_5.obj" t="Include" />
+                <e p="CommonTree_Dead_Snow_1.mtl" t="Include" />
+                <e p="CommonTree_Dead_Snow_1.obj" t="Include" />
+                <e p="CommonTree_Dead_Snow_2.mtl" t="Include" />
+                <e p="CommonTree_Dead_Snow_2.obj" t="Include" />
+                <e p="CommonTree_Dead_Snow_3.mtl" t="Include" />
+                <e p="CommonTree_Dead_Snow_3.obj" t="Include" />
+                <e p="CommonTree_Dead_Snow_4.mtl" t="Include" />
+                <e p="CommonTree_Dead_Snow_4.obj" t="Include" />
+                <e p="CommonTree_Dead_Snow_5.mtl" t="Include" />
+                <e p="CommonTree_Dead_Snow_5.obj" t="Include" />
+                <e p="CommonTree_Snow_1.mtl" t="Include" />
+                <e p="CommonTree_Snow_1.obj" t="Include" />
+                <e p="CommonTree_Snow_2.mtl" t="Include" />
+                <e p="CommonTree_Snow_2.obj" t="Include" />
+                <e p="CommonTree_Snow_3.mtl" t="Include" />
+                <e p="CommonTree_Snow_3.obj" t="Include" />
+                <e p="CommonTree_Snow_4.mtl" t="Include" />
+                <e p="CommonTree_Snow_4.obj" t="Include" />
+                <e p="CommonTree_Snow_5.mtl" t="Include" />
+                <e p="CommonTree_Snow_5.obj" t="Include" />
+                <e p="Corn_1.mtl" t="Include" />
+                <e p="Corn_1.obj" t="Include" />
+                <e p="Corn_2.mtl" t="Include" />
+                <e p="Corn_2.obj" t="Include" />
+                <e p="Flowers.mtl" t="Include" />
+                <e p="Flowers.obj" t="Include" />
+                <e p="Grass.mtl" t="Include" />
+                <e p="Grass.obj" t="Include" />
+                <e p="Grass_2.mtl" t="Include" />
+                <e p="Grass_2.obj" t="Include" />
+                <e p="Grass_Short.mtl" t="Include" />
+                <e p="Grass_Short.obj" t="Include" />
+                <e p="Lilypad.mtl" t="Include" />
+                <e p="Lilypad.obj" t="Include" />
+                <e p="PalmTree_1.mtl" t="Include" />
+                <e p="PalmTree_1.obj" t="Include" />
+                <e p="PalmTree_2.mtl" t="Include" />
+                <e p="PalmTree_2.obj" t="Include" />
+                <e p="PalmTree_3.mtl" t="Include" />
+                <e p="PalmTree_3.obj" t="Include" />
+                <e p="PalmTree_4.mtl" t="Include" />
+                <e p="PalmTree_4.obj" t="Include" />
+                <e p="PineTree_1.mtl" t="Include" />
+                <e p="PineTree_1.obj" t="Include" />
+                <e p="PineTree_2.mtl" t="Include" />
+                <e p="PineTree_2.obj" t="Include" />
+                <e p="PineTree_3.mtl" t="Include" />
+                <e p="PineTree_3.obj" t="Include" />
+                <e p="PineTree_4.mtl" t="Include" />
+                <e p="PineTree_4.obj" t="Include" />
+                <e p="PineTree_5.mtl" t="Include" />
+                <e p="PineTree_5.obj" t="Include" />
+                <e p="PineTree_Autumn_1.mtl" t="Include" />
+                <e p="PineTree_Autumn_1.obj" t="Include" />
+                <e p="PineTree_Autumn_2.mtl" t="Include" />
+                <e p="PineTree_Autumn_2.obj" t="Include" />
+                <e p="PineTree_Autumn_3.mtl" t="Include" />
+                <e p="PineTree_Autumn_3.obj" t="Include" />
+                <e p="PineTree_Autumn_4.mtl" t="Include" />
+                <e p="PineTree_Autumn_4.obj" t="Include" />
+                <e p="PineTree_Autumn_5.mtl" t="Include" />
+                <e p="PineTree_Autumn_5.obj" t="Include" />
+                <e p="PineTree_Snow_1.mtl" t="Include" />
+                <e p="PineTree_Snow_1.obj" t="Include" />
+                <e p="PineTree_Snow_2.mtl" t="Include" />
+                <e p="PineTree_Snow_2.obj" t="Include" />
+                <e p="PineTree_Snow_3.mtl" t="Include" />
+                <e p="PineTree_Snow_3.obj" t="Include" />
+                <e p="PineTree_Snow_4.mtl" t="Include" />
+                <e p="PineTree_Snow_4.obj" t="Include" />
+                <e p="PineTree_Snow_5.mtl" t="Include" />
+                <e p="PineTree_Snow_5.obj" t="Include" />
+                <e p="Plant_1.mtl" t="Include" />
+                <e p="Plant_1.obj" t="Include" />
+                <e p="Plant_2.mtl" t="Include" />
+                <e p="Plant_2.obj" t="Include" />
+                <e p="Plant_3.mtl" t="Include" />
+                <e p="Plant_3.obj" t="Include" />
+                <e p="Plant_4.mtl" t="Include" />
+                <e p="Plant_4.obj" t="Include" />
+                <e p="Plant_5.mtl" t="Include" />
+                <e p="Plant_5.obj" t="Include" />
+                <e p="Rock_1.mtl" t="Include" />
+                <e p="Rock_1.obj" t="Include" />
+                <e p="Rock_2.mtl" t="Include" />
+                <e p="Rock_2.obj" t="Include" />
+                <e p="Rock_3.mtl" t="Include" />
+                <e p="Rock_3.obj" t="Include" />
+                <e p="Rock_4.mtl" t="Include" />
+                <e p="Rock_4.obj" t="Include" />
+                <e p="Rock_5.mtl" t="Include" />
+                <e p="Rock_5.obj" t="Include" />
+                <e p="Rock_6.mtl" t="Include" />
+                <e p="Rock_6.obj" t="Include" />
+                <e p="Rock_7.mtl" t="Include" />
+                <e p="Rock_7.obj" t="Include" />
+                <e p="Rock_Moss_1.mtl" t="Include" />
+                <e p="Rock_Moss_1.obj" t="Include" />
+                <e p="Rock_Moss_2.mtl" t="Include" />
+                <e p="Rock_Moss_2.obj" t="Include" />
+                <e p="Rock_Moss_3.mtl" t="Include" />
+                <e p="Rock_Moss_3.obj" t="Include" />
+                <e p="Rock_Moss_4.mtl" t="Include" />
+                <e p="Rock_Moss_4.obj" t="Include" />
+                <e p="Rock_Moss_5.mtl" t="Include" />
+                <e p="Rock_Moss_5.obj" t="Include" />
+                <e p="Rock_Moss_6.mtl" t="Include" />
+                <e p="Rock_Moss_6.obj" t="Include" />
+                <e p="Rock_Moss_7.mtl" t="Include" />
+                <e p="Rock_Moss_7.obj" t="Include" />
+                <e p="Rock_Snow_1.mtl" t="Include" />
+                <e p="Rock_Snow_1.obj" t="Include" />
+                <e p="Rock_Snow_2.mtl" t="Include" />
+                <e p="Rock_Snow_2.obj" t="Include" />
+                <e p="Rock_Snow_3.mtl" t="Include" />
+                <e p="Rock_Snow_3.obj" t="Include" />
+                <e p="Rock_Snow_4.mtl" t="Include" />
+                <e p="Rock_Snow_4.obj" t="Include" />
+                <e p="Rock_Snow_5.mtl" t="Include" />
+                <e p="Rock_Snow_5.obj" t="Include" />
+                <e p="Rock_Snow_6.mtl" t="Include" />
+                <e p="Rock_Snow_6.obj" t="Include" />
+                <e p="Rock_Snow_7.mtl" t="Include" />
+                <e p="Rock_Snow_7.obj" t="Include" />
+                <e p="TreeStump.mtl" t="Include" />
+                <e p="TreeStump.obj" t="Include" />
+                <e p="TreeStump_Moss.mtl" t="Include" />
+                <e p="TreeStump_Moss.obj" t="Include" />
+                <e p="TreeStump_Snow.mtl" t="Include" />
+                <e p="TreeStump_Snow.obj" t="Include" />
+                <e p="Wheat.mtl" t="Include" />
+                <e p="Wheat.obj" t="Include" />
+                <e p="Willow_1.mtl" t="Include" />
+                <e p="Willow_1.obj" t="Include" />
+                <e p="Willow_2.mtl" t="Include" />
+                <e p="Willow_2.obj" t="Include" />
+                <e p="Willow_3.mtl" t="Include" />
+                <e p="Willow_3.obj" t="Include" />
+                <e p="Willow_4.mtl" t="Include" />
+                <e p="Willow_4.obj" t="Include" />
+                <e p="Willow_5.mtl" t="Include" />
+                <e p="Willow_5.obj" t="Include" />
+                <e p="Willow_Autumn_1.mtl" t="Include" />
+                <e p="Willow_Autumn_1.obj" t="Include" />
+                <e p="Willow_Autumn_2.mtl" t="Include" />
+                <e p="Willow_Autumn_2.obj" t="Include" />
+                <e p="Willow_Autumn_3.mtl" t="Include" />
+                <e p="Willow_Autumn_3.obj" t="Include" />
+                <e p="Willow_Autumn_4.mtl" t="Include" />
+                <e p="Willow_Autumn_4.obj" t="Include" />
+                <e p="Willow_Autumn_5.mtl" t="Include" />
+                <e p="Willow_Autumn_5.obj" t="Include" />
+                <e p="Willow_Dead_1.mtl" t="Include" />
+                <e p="Willow_Dead_1.obj" t="Include" />
+                <e p="Willow_Dead_2.mtl" t="Include" />
+                <e p="Willow_Dead_2.obj" t="Include" />
+                <e p="Willow_Dead_3.mtl" t="Include" />
+                <e p="Willow_Dead_3.obj" t="Include" />
+                <e p="Willow_Dead_4.mtl" t="Include" />
+                <e p="Willow_Dead_4.obj" t="Include" />
+                <e p="Willow_Dead_5.mtl" t="Include" />
+                <e p="Willow_Dead_5.obj" t="Include" />
+                <e p="Willow_Dead_Snow_1.mtl" t="Include" />
+                <e p="Willow_Dead_Snow_1.obj" t="Include" />
+                <e p="Willow_Dead_Snow_2.mtl" t="Include" />
+                <e p="Willow_Dead_Snow_2.obj" t="Include" />
+                <e p="Willow_Dead_Snow_3.mtl" t="Include" />
+                <e p="Willow_Dead_Snow_3.obj" t="Include" />
+                <e p="Willow_Dead_Snow_4.mtl" t="Include" />
+                <e p="Willow_Dead_Snow_4.obj" t="Include" />
+                <e p="Willow_Dead_Snow_5.mtl" t="Include" />
+                <e p="Willow_Dead_Snow_5.obj" t="Include" />
+                <e p="Willow_Snow_1.mtl" t="Include" />
+                <e p="Willow_Snow_1.obj" t="Include" />
+                <e p="Willow_Snow_2.mtl" t="Include" />
+                <e p="Willow_Snow_2.obj" t="Include" />
+                <e p="Willow_Snow_3.mtl" t="Include" />
+                <e p="Willow_Snow_3.obj" t="Include" />
+                <e p="Willow_Snow_4.mtl" t="Include" />
+                <e p="Willow_Snow_4.obj" t="Include" />
+                <e p="Willow_Snow_5.mtl" t="Include" />
+                <e p="Willow_Snow_5.obj" t="Include" />
+                <e p="WoodLog.mtl" t="Include" />
+                <e p="WoodLog.obj" t="Include" />
+                <e p="WoodLog_Moss.mtl" t="Include" />
+                <e p="WoodLog_Moss.obj" t="Include" />
+                <e p="WoodLog_Snow.mtl" t="Include" />
+                <e p="WoodLog_Snow.obj" t="Include" />
+              </e>
+              <e p="Preview.jpg" t="Include" />
+            </e>
+            <e p="nature2" t="Include">
+              <e p="Blends" t="Include">
+                <e p="BigBush.blend" t="Include" />
+                <e p="BigTreeWithLeaves.blend" t="Include" />
+                <e p="BushTexture.png" t="Include" />
+                <e p="Cloud1.blend" t="Include" />
+                <e p="Cloud1.blend1" t="Include" />
+                <e p="Cloud2.blend" t="Include" />
+                <e p="Cloud3.blend" t="Include" />
+                <e p="EveryModel.blend" t="Include" />
+                <e p="MoreNature.blend1" t="Include" />
+                <e p="SmallBush.blend" t="Include" />
+                <e p="SmallTreeWithLeave.blend" t="Include" />
+                <e p="TreeNoLeavesBig.blend" t="Include" />
+                <e p="TreeNoLeavesBig.blend1" t="Include" />
+                <e p="TreeNoLeavesSmall.blend" t="Include" />
+                <e p="TreeNoLeavesSmall.blend1" t="Include" />
+                <e p="TreeTexture.png" t="Include" />
+              </e>
+              <e p="GLTF" t="Include">
+                <e p="Cloud1.glb" t="Include" />
+                <e p="Cloud2.glb" t="Include" />
+                <e p="Cloud3.glb" t="Include" />
+              </e>
+              <e p="obj" t="Include">
+                <e p="BigBush.mtl" t="Include" />
+                <e p="BigBush.obj" t="Include" />
+                <e p="BigTreeWithLeaves.mtl" t="Include" />
+                <e p="BigTreeWithLeaves.obj" t="Include" />
+                <e p="Cloud1.mtl" t="Include" />
+                <e p="Cloud1.obj" t="Include" />
+                <e p="Cloud2.mtl" t="Include" />
+                <e p="Cloud2.obj" t="Include" />
+                <e p="Cloud3.mtl" t="Include" />
+                <e p="Cloud3.obj" t="Include" />
+                <e p="EveryModel.mtl" t="Include" />
+                <e p="EveryModel.obj" t="Include" />
+                <e p="SmallBush.mtl" t="Include" />
+                <e p="SmallBush.obj" t="Include" />
+                <e p="SmallTreeWithLeave.mtl" t="Include" />
+                <e p="SmallTreeWithLeave.obj" t="Include" />
+                <e p="TreeNoLeavesBig.mtl" t="Include" />
+                <e p="TreeNoLeavesBig.obj" t="Include" />
+                <e p="TreeNoLeavesSmall.mtl" t="Include" />
+                <e p="TreeNoLeavesSmall.obj" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+            <e p="Textures" t="Include">
+              <e p="ball.png" t="Include" />
+              <e p="fire.png" t="Include" />
+            </e>
+            <e p="weapons" t="Include">
+              <e p="Blends" t="Include">
+                <e p="Arrow.blend" t="Include" />
+                <e p="Axe.blend" t="Include" />
+                <e p="Axe_Double.blend" t="Include" />
+                <e p="Axe_Small.blend" t="Include" />
+                <e p="Bow_Evil.blend" t="Include" />
+                <e p="Bow_Golden.blend" t="Include" />
+                <e p="Bow_Wooden.blend" t="Include" />
+                <e p="Bow_Wooden2.blend" t="Include" />
+                <e p="Claymore.blend" t="Include" />
+                <e p="Dagger.blend" t="Include" />
+                <e p="Dagger_2.blend" t="Include" />
+                <e p="Hammer_Double.blend" t="Include" />
+                <e p="Hammer_Small.blend" t="Include" />
+                <e p="Scythe.blend" t="Include" />
+                <e p="Shield_Celtic_Golden.blend" t="Include" />
+                <e p="Shield_Heater.blend" t="Include" />
+                <e p="Shield_Heater_2.blend" t="Include" />
+                <e p="Shield_Round.blend" t="Include" />
+                <e p="Shield_Round_2.blend" t="Include" />
+                <e p="Spear.blend" t="Include" />
+                <e p="Sword.blend" t="Include" />
+                <e p="Sword_2.blend" t="Include" />
+                <e p="Sword_Big.blend" t="Include" />
+                <e p="Sword_Golden.blend" t="Include" />
+              </e>
+              <e p="FBX" t="Include">
+                <e p="Arrow.fbx" t="Include" />
+                <e p="Axe.fbx" t="Include" />
+                <e p="Axe_Double.fbx" t="Include" />
+                <e p="Axe_Small.fbx" t="Include" />
+                <e p="Bow_Evil.fbx" t="Include" />
+                <e p="Bow_Golden.fbx" t="Include" />
+                <e p="Bow_Wooden.fbx" t="Include" />
+                <e p="Bow_Wooden2.fbx" t="Include" />
+                <e p="Claymore.fbx" t="Include" />
+                <e p="Dagger.fbx" t="Include" />
+                <e p="Dagger_2.fbx" t="Include" />
+                <e p="Hammer_Double.fbx" t="Include" />
+                <e p="Hammer_Small.fbx" t="Include" />
+                <e p="Scythe.fbx" t="Include" />
+                <e p="Shield_Celtic_Golden.fbx" t="Include" />
+                <e p="Shield_Heater.fbx" t="Include" />
+                <e p="Shield_Heater_2.fbx" t="Include" />
+                <e p="Shield_Round.fbx" t="Include" />
+                <e p="Shield_Round_2.fbx" t="Include" />
+                <e p="Spear.fbx" t="Include" />
+                <e p="Sword.fbx" t="Include" />
+                <e p="Sword_2.fbx" t="Include" />
+                <e p="Sword_Big.fbx" t="Include" />
+                <e p="Sword_Golden.fbx" t="Include" />
+              </e>
+              <e p="License.txt" t="Include" />
+              <e p="obj" t="Include">
+                <e p="Arrow.mtl" t="Include" />
+                <e p="Arrow.obj" t="Include" />
+                <e p="Axe.mtl" t="Include" />
+                <e p="Axe.obj" t="Include" />
+                <e p="Axe_Double.mtl" t="Include" />
+                <e p="Axe_Double.obj" t="Include" />
+                <e p="Axe_Small.mtl" t="Include" />
+                <e p="Axe_Small.obj" t="Include" />
+                <e p="Bow_Evil.mtl" t="Include" />
+                <e p="Bow_Evil.obj" t="Include" />
+                <e p="Bow_Golden.mtl" t="Include" />
+                <e p="Bow_Golden.obj" t="Include" />
+                <e p="Bow_Wooden.mtl" t="Include" />
+                <e p="Bow_Wooden.obj" t="Include" />
+                <e p="Bow_Wooden2.mtl" t="Include" />
+                <e p="Bow_Wooden2.obj" t="Include" />
+                <e p="Claymore.mtl" t="Include" />
+                <e p="Claymore.obj" t="Include" />
+                <e p="Dagger.mtl" t="Include" />
+                <e p="Dagger.obj" t="Include" />
+                <e p="Dagger_2.mtl" t="Include" />
+                <e p="Dagger_2.obj" t="Include" />
+                <e p="Hammer_Double.mtl" t="Include" />
+                <e p="Hammer_Double.obj" t="Include" />
+                <e p="Hammer_Small.mtl" t="Include" />
+                <e p="Hammer_Small.obj" t="Include" />
+                <e p="Scythe.mtl" t="Include" />
+                <e p="Scythe.obj" t="Include" />
+                <e p="Shield_Celtic_Golden.mtl" t="Include" />
+                <e p="Shield_Celtic_Golden.obj" t="Include" />
+                <e p="Shield_Heater.mtl" t="Include" />
+                <e p="Shield_Heater.obj" t="Include" />
+                <e p="Shield_Heater_2.mtl" t="Include" />
+                <e p="Shield_Heater_2.obj" t="Include" />
+                <e p="Shield_Round.mtl" t="Include" />
+                <e p="Shield_Round.obj" t="Include" />
+                <e p="Shield_Round_2.mtl" t="Include" />
+                <e p="Shield_Round_2.obj" t="Include" />
+                <e p="Spear.mtl" t="Include" />
+                <e p="Spear.obj" t="Include" />
+                <e p="Sword.mtl" t="Include" />
+                <e p="Sword.obj" t="Include" />
+                <e p="Sword_2.mtl" t="Include" />
+                <e p="Sword_2.obj" t="Include" />
+                <e p="Sword_Big.mtl" t="Include" />
+                <e p="Sword_Big.obj" t="Include" />
+                <e p="Sword_Golden.mtl" t="Include" />
+                <e p="Sword_Golden.obj" t="Include" />
+              </e>
+              <e p="Preview.png" t="Include" />
+            </e>
+            <e p="Ybot" t="Include">
+              <e p="Idle.fbx" t="Include" />
+              <e p="Running.fbx" t="Include" />
+              <e p="stormtrooper.dae" t="Include" />
+              <e p="Stormtrooper_D.jpg" t="Include" />
+              <e p="StrutWalking.fbx" t="Include" />
+              <e p="Walking.fbx" t="Include" />
+              <e p="WaveHipHopDance.fbx" t="Include" />
+              <e p="xbot.fbx" t="Include" />
+              <e p="Xbot.glb" t="Include" />
+              <e p="ybot.fbx" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+    </e>
+    <e p="C:\Users\XHBH\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\XHBH\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Blazor.-201343117.00" t="ExcludeRecursive" />
+  </component>
+</project>

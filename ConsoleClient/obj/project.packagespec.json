@@ -1,0 +1,64 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\dev\\recentHostable\\ConsoleClient\\ConsoleClient.csproj",
+    "projectName": "HBHplayground.ConsoleUI",
+    "projectPath": "C:\\dev\\recentHostable\\ConsoleClient\\ConsoleClient.csproj",
+    "outputPath": "C:\\dev\\recentHostable\\ConsoleClient\\obj\\",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "net50"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp5.0": {
+        "projectReferences": {
+          "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj"
+          },
+          "C:\\dev\\recentHostable\\Client\\Client.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\Client\\Client.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp5.0": {
+      "dependencies": {
+        "Pluralize.NET": {
+          "target": "Package",
+          "version": "[1.0.2, )"
+        },
+        "Stl.Fusion.Client": {
+          "target": "Package",
+          "version": "[0.9.17, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+    }
+  }
+}

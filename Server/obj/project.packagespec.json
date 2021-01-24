@@ -1,0 +1,111 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\dev\\recentHostable\\Server\\Server.csproj",
+    "projectName": "HBHplayground.Server",
+    "projectPath": "C:\\dev\\recentHostable\\Server\\Server.csproj",
+    "outputPath": "C:\\dev\\recentHostable\\Server\\obj\\",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "net50"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp5.0": {
+        "projectReferences": {
+          "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\Abstractions\\Abstractions.csproj"
+          },
+          "C:\\dev\\recentHostable\\UI\\UI.csproj": {
+            "projectPath": "C:\\dev\\recentHostable\\UI\\UI.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp5.0": {
+      "dependencies": {
+        "AspNet.Security.OAuth.GitHub": {
+          "target": "Package",
+          "version": "[5.0.0, )"
+        },
+        "Microsoft.AspNetCore.Authentication.Cookies": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "Microsoft.EntityFrameworkCore.Sqlite": {
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+          "target": "Package",
+          "version": "[1.10.9, )"
+        },
+        "Npgsql.EntityFrameworkCore.PostgreSQL": {
+          "target": "Package",
+          "version": "[5.0.2, )"
+        },
+        "SixLabors.ImageSharp": {
+          "target": "Package",
+          "version": "[1.0.2, )"
+        },
+        "SixLabors.ImageSharp.Drawing": {
+          "target": "Package",
+          "version": "[1.0.0-beta11, )"
+        },
+        "Stl.Fusion.EntityFramework": {
+          "target": "Package",
+          "version": "[0.9.17, )"
+        },
+        "Stl.Fusion.Server": {
+          "target": "Package",
+          "version": "[0.9.17, )"
+        },
+        "Swashbuckle.AspNetCore": {
+          "target": "Package",
+          "version": "[5.6.3, )"
+        },
+        "System.Drawing.Common": {
+          "target": "Package",
+          "version": "[5.0.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.AspNetCore.App": {
+          "privateAssets": "none"
+        },
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+    }
+  }
+}
