@@ -202,7 +202,7 @@ using System.Threading;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "C:\dev\recentHostable\UI\Shared\SumCard.razor"
+#line 73 "C:\dev\recentHostable\UI\Shared\SumCard.razor"
        
     public class LocalsModel
     {

@@ -319,6 +319,8 @@
                 }
                 return false;
             }
+            
+            
 
             /**
              * Return if a mouse or keyboard state in a generic way, used internally.

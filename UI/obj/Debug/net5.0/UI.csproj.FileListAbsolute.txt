@@ -1534,3 +1534,9 @@ C:\dev\recentHostable\UI\obj\Debug\net5.0\build-gz\mn2lt8SQ.gz
 C:\dev\recentHostable\UI\obj\Debug\net5.0\build-gz\BqU+44TK.gz
 C:\dev\recentHostable\UI\obj\Debug\net5.0\build-gz\mCI80+ul.gz
 C:\dev\recentHostable\UI\obj\Debug\net5.0\build-gz\z0K1kCgl.gz
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Pages\VirtualPlaygroundV2.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Pages\VirtualPlaygroundV2.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Shared\OnlineRoom.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Shared\OnlineRoom.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Pages\VirtualPlaygroundV3Tweening.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Pages\VirtualPlaygroundV3Tweening.razor.g.cs

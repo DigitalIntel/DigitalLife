@@ -16,6 +16,7 @@ export const equip_weapon_component = (() => {
     InitComponent() {
       this._RegisterHandler('load.character', (m) => this._OnCharacterLoaded(m));
       this._RegisterHandler('inventory.equip', (m) => this._OnEquip(m));
+
     }
 
     get Name() {

@@ -1,23 +1,23 @@
-﻿@page "/"
+﻿@page "/3"
  @inject IJSRuntime JsRuntime; 
 @* @implements IAsyncDisposable *@
 
+@* *@
+@* <div id="editor" > *@
+@*       <div id="view"><canvas id="cc"></canvas></div> *@
+@*     $1$ <div id="controls" onclick="alert('clicked Controls')"> #1# *@
+@*    <div id="controls">  *@
+@*         <div> *@
+@*          *@
+@*             $1$     <MudContainer MaxWidth="MaxWidth.Small"> #1# *@
+@*                     <Chat> </Chat>  *@
+@*             $1$     </MudContainer> #1# *@
+@*        *@
+@*         </div> *@
+@*     </div> *@
+@*       </div> *@
 
-
-<div id="editor" >
-      <div id="view"><canvas id="c"></canvas></div>
-    @* <div id="controls" onclick="alert('clicked Controls')"> *@
-   <div id="controls"> 
-        <div>
-        
-            @*     <MudContainer MaxWidth="MaxWidth.Small"> *@
-                    <Chat> </Chat> 
-            @*     </MudContainer> *@
-      
-        </div>
-    </div>
-      </div>
-
+<canvas id="canvas" width="800" height="600"></canvas>
 <style>
 
 body {
@@ -31,9 +31,9 @@ body {
   /*padding: 0px;*/
   padding-left: 0px; !important;
   padding-right: 0px; !important;
-  /*// padding-top: 48px; !important;*/
-   padding-top: 0px; !important;
-    padding-bottom: 0px; !important;
+  
+   
+   
  }
  .maincontainer {
        display: flex;
@@ -58,7 +58,7 @@ body {
        overflow-y: scroll !important;
            
      }
-     #c {
+     #cc {
        width: 100%;
        height: 100vh;
        display: block;
@@ -75,7 +75,7 @@ body {
      }
      
      :root {
-         --color-bg: #151a23;
+         --color-bg: #32333D;
          --color-text: #eee;
          --color-text-subtle: #a2a2a2;
      }
@@ -320,25 +320,22 @@ h3 {
      
 </style>
 
-
-@code {
+    @code {
     
    
  
-    // private static IJSObjectReference RuntimeContainer;
-    // private static IJSObjectReference mainJS;
+   private static IJSObjectReference RuntimeContainer;
+
     //
     //
     //
     // const string ImportPath = "../js/stats.module.js";
-    // protected override async void OnAfterRender(bool firstRender)
-    // {
-    //     if (!firstRender) return;
-    //     RuntimeContainer = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "../js/VirtualPlayground.js");
-    //  
-    //     mainJS = await RuntimeContainer.InvokeAsync<IJSObjectReference>("init", DotNetObjectReference.Create(this));
-    //    
-    // }
+    protected async override void OnInitialized()
+    {
+        base.OnInitialized();
+        RuntimeContainer = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "../js/VirtualPlayground3.js");
+    }
+
     //
     //
     // [JSInvokable]

@@ -17,6 +17,7 @@ export const player_input = (() => {
   class BasicCharacterControllerInput extends entity.Component {
     constructor(params) {
       super();
+      
       this._params = params;
       this._Init();
     }
@@ -31,6 +32,8 @@ export const player_input = (() => {
         shift: false,
       };
       this._raycaster = new THREE.Raycaster();
+      this._previousState=0;
+      
       // for input (using StInput)
       
       //this._input = new StInput(window);
@@ -38,47 +41,119 @@ export const player_input = (() => {
       //document.addEventListener('keyup', (e) => this._onKeyUp(e), false);
       //document.addEventListener('mouseup', (e) => this._onMouseUp(e), false);
     }
-    _Processinputs(){
-      
-      
-      const input= this._params.localInputs;
-      // left mouse button is down
-      if (input.down('mouse_left')) {
-        console.log("Mouse is down.");
-      }
+    _Processinputs(){      
+   //  console.log("inputs");
+   //  const input= this._params.localInputs;
+   //  // left mouse button is down
+   //  if (input.down('mouse_left')) {
+   //    console.log("Mouse is down.");
+   //  }
 
-      // left mouse button was released this update call
-      if (input.released('mouse_left')) {
-        console.log("Mouse was released this update call.");
-      }
+      if (this._params.localInputs.down('z')){ this._keys.forward = true};
+      if (this._params.localInputs.down('q')){  this._keys.left= true};
+      if (this._params.localInputs.down('d')){  this._keys.right = true;};
+      if (this._params.localInputs.down('s')){  this._keys.backward = true;};
+      if (this._params.localInputs.down('shift')){   this._keys.shift = true;};
+      if (this._params.localInputs.down('space')){   this._keys.space = true;};
 
-      // left mouse button was released this update call
-      if (input.pressed('mouse_left')) {
-        console.log("Mouse was pressed this update call.");
-      }
+      if (this._params.localInputs.released('z')){ this._keys.forward = false};
+      if (this._params.localInputs.released('q')){  this._keys.left= false};
+      if (this._params.localInputs.released('d')){  this._keys.right = false;};
+      if (this._params.localInputs.released('s')){  this._keys.backward = false;};
+      if (this._params.localInputs.released('shift')){   this._keys.shift = false;};
+      if (this._params.localInputs.released('space')){   this._keys.space = false;};
 
-      // keyboard button up arrow was released
-      if (input.released('left_arrow')) {
+     if ( this._params.localInputs.pressed('mouse_left')){
+       this._previousState = 1;
+       return;
+     }
+   
+  if (this._params.localInputs.released('mouse_left') && this._previousState == 1 ) {
+     this._previousState=0;
+
        
-        console.log("Left arrow was released this update call.");
+    
+    // this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    // this._camera.updateProjectionMatrix();
+         const canvas = this._params.renderer.domElement;
+         const rect =   this._params.renderer.domElement.getBoundingClientRect();
+          //
+          // const pos = {
+          //     x: ((stinput.mousePosition.x - rect.left) / rect.width) * 2  - 1,
+          //     y: (-(stinput.mousePosition.y - rect.top ) / rect.height) * -2 + 1,
+          //
+          //
+          // };
+              //    mouse.x = (( stinput.mousePosition.x - rect.left) /  canvas.clientWidth  ) * 2 - 1;
+              //    mouse.y = - (( stinput.mousePosition.y - rect.top ) /canvas.clientHeight ) * 2 + 1;
+                   
+                   
+        const pos = {
+          x:  (( this._params.localInputs.mousePosition.x - rect.left) /  canvas.clientWidth  ) * 2 - 1,
+          y:  - (( this._params.localInputs.mousePosition.y - rect.top ) /canvas.clientHeight ) * 2 + 1,
+        };
+   
+
+
+
+
+    //console.log("mouse position X " +this._params.localInputs.mousePosition.x);
+    //  
+    //   console.log("posX" + pos.x);
+    //  
+    //   console.log("Camera position Y  " + this._params.localInputs.mousePosition.x); 
+    //   console.log("posY" + pos.y);
+    //  console.log("posY" + pos.y);
+        
+       
+    
+        this._raycaster.setFromCamera(pos, this._params.camera);
+
+        const pickables = this._parent._parent.Filter((e) => {
+          const p = e.GetComponent('PickableComponent');
+          if (!p) {
+            return false;
+          }
+          return e._mesh;
+        });
+
+        const ray = new THREE.Ray();
+        ray.origin.setFromMatrixPosition(this._params.camera.matrixWorld);
+        ray.direction.set(pos.x, pos.y, 0.5).unproject(
+            this._params.camera).sub(ray.origin).normalize();
+
+        // hack
+        //  document.getElementById('quest-ui').style.visibility = 'hidden';
+
+        for (let p of pickables) {
+          // GOOD ENOUGH
+          const box = new THREE.Box3().setFromObject(p._mesh);
+
+          if (ray.intersectsBox(box)) {
+            p.Broadcast({
+              topic: 'input.picked'
+            
+            });
+            //console.alert("clicked");
+        //    this._input._resetAll();
+            break;
+          }
+        }
+
+
       }
 
-      // mouse moved
-      if (input.mouseMoving) {
-        console.log("Mouse delta:", input.mouseDelta);
-      }
+  
 
-      // update input
-      input.endFrame();
-          
-      
       
     }
     
-    
-    
+
   
     _onMouseUp(event) {
+      
+      
+      
       const rect = document.getElementById('c').getBoundingClientRect();
       const pos = {
         x: ((event.clientX - rect.left) / rect.width) * 2  - 1,
@@ -112,7 +187,7 @@ export const player_input = (() => {
               topic: 'input.picked'
           });
           
-          console.log("input picked broadcasted");
+         
           break;
         }
       }

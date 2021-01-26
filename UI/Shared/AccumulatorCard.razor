@@ -8,37 +8,82 @@
     var error = State.Error;
 }
 
-<div class="@CssClass">
-    <div class="card-header">Accumulator</div>
 
-    <div class="card-body">
+<MudCard>
+    <MudCardMedia Image="https://source.unsplash.com/1600x900/?earth" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">Online Component</MudText>
+        <MudText Typo="Typo.body2">All active share this component</MudText>
+        <MudText Typo="Typo.body2">Try pressing the accumulate button on two tabs and observe the accumulator value</MudText>
+         <MudText Typo="Typo.h5">@accumulator</MudText>
         <StatefulComponentState Component="@this" />
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" @onclick="ResetAsync" Color="Color.Primary">Reset</MudButton>
+        <MudButton Variant="Variant.Text" @onclick="AccumulateAsync" Color="Color.Primary">Accumulate</MudButton>
+    </MudCardActions>
+</MudCard>
 
-        @if (error != null) {
-            <div class="alert alert-warning" role="alert">
-                Update error: @error.Message
-            </div>
-        }
+@* <MudCard> *@
+@*      *@
+@*     <MudCardHeader> *@
+@*         <CardHeaderAvatar> *@
+@*             <MudAvatar Color="Color.Secondary">Shared online component</MudAvatar> *@
+@*         </CardHeaderAvatar> *@
+@*         <CardHeaderContent> *@
+@*                     @if (error != null) { *@
+@*                         <MudText Typo="Typo.body1">@error.Message</MudText> *@
+@*                     } *@
+@*             <MudText Typo="Typo.body1">This value is updated for all active users in real time</MudText> *@
+@*             <MudText Typo="Typo.body2">@accumulator</MudText> *@
+@*         </CardHeaderContent> *@
+@*         <CardHeaderActions> *@
+@*              *@
+@*             <MudIconButton @onclick="AccumulateAsync" Icon="@Icons.Material.Battery20" Color="Color.Default"/> *@
+@*         </CardHeaderActions> *@
+@*     </MudCardHeader> *@
+@*     <MudCardMedia Image="https://source.unsplash.com/1600x900/?earth" Height="250"/> *@
+@*     <MudCardContent> *@
+@*     <StatefulComponentState Component="@this" /> *@
+@*         <MudText Typo="Typo.body2">This an Earth picture</MudText> *@
+@*     </MudCardContent> *@
+@*     <MudCardActions> *@
+@*       <MudIconButton @onclick="ResetAsync" Icon="@Icons.Material.Share" Color="Color.Default"/> *@
+@*     </MudCardActions> *@
+@* </MudCard> *@
 
-        <div class="mb-2">
-            Value: <b>@accumulator</b>
-            <button class="btn btn-warning btn-sm" @onclick="ResetAsync">Reset</button>
-        </div>
 
-        <form @onsubmit="AccumulateAsync">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Value</span>
-                </div>
-                <input class="form-control" @bind-value="locals.Value" />
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-success">Accumulate</button>
-                </div>
-            </div>
-        </form>
-
-    </div>
-</div>
+@* <div class="@CssClass"> *@
+@*     <div class="card-header">Accumulator</div> *@
+@* *@
+@*     <div class="card-body"> *@
+@*         <StatefulComponentState Component="@this" /> *@
+@* *@
+@*         @if (error != null) { *@
+@*             <div class="alert alert-warning" role="alert"> *@
+@*                 Update error: @error.Message *@
+@*             </div> *@
+@*         } *@
+@* *@
+@*         <div class="mb-2"> *@
+@*             Value: <b>@accumulator</b> *@
+@*             <button class="btn btn-warning btn-sm" @onclick="ResetAsync">Reset</button> *@
+@*         </div> *@
+@* *@
+@*         <form @onsubmit="AccumulateAsync"> *@
+@*             <div class="input-group"> *@
+@*                 <div class="input-group-prepend"> *@
+@*                     <span class="input-group-text">Value</span> *@
+@*                 </div> *@
+@*                 <input class="form-control" @bind-value="locals.Value" /> *@
+@*                 <div class="input-group-append"> *@
+@*                     <button type="submit" class="btn btn-success">Accumulate</button> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </form> *@
+@* *@
+@*     </div> *@
+@* </div> *@
 
 @code {
     public class LocalsModel

@@ -8,38 +8,67 @@
     var error = State.Error;
 }
 
-<div class="@CssClass">
-    <div class="card-header">@Title</div>
 
-    <div class="card-body">
+<MudCard>
+    <MudCardMedia Image="https://source.unsplash.com/1600x900/?earth" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">@Title</MudText>
+        <MudText Typo="Typo.body2">All active share this component</MudText>
+        <MudItem xs="12" sm="6" md="3">
+            <MudTextField @bind-Value=@locals.ValueA Label="Sum A" HelperText="Sum Value 1"@onkeyup="Apply" Variant="Variant.Text" />
+        </MudItem>
+         <MudItem xs="12" sm="6" md="3">
+                    @* <MudTextField @bind-value=@locals.ValueB Label="Sum B" HelperText="Sum Value 2" @onkeyup="Apply" Variant="Variant.Text" /> *@
+                </MudItem>
+
         <StatefulComponentState Component="@this" />
+            @if (error != null) {
+                    <div class="alert alert-warning" role="alert">
+                        Update error: @error.Message
+                    </div>
+                }
+         
+    </MudCardContent>
+    <MudCardActions>
+               <MudText Typo="Typo.h5"> @locals.ValueA + @locals.ValueB + Accumulator = <b>@sum</b></MudText>
+    </MudCardActions>
+</MudCard>
 
-        @if (error != null) {
-            <div class="alert alert-warning" role="alert">
-                Update error: @error.Message
-            </div>
-        }
-
-        <div class="input-group mb-1">
-            <div class="input-group-prepend">
-                <span class="input-group-text">A:</span>
-            </div>
-            <input class="form-control" @bind-value="locals.ValueA" @bind-value:event="oninput" @onkeyup="Apply"/>
-        </div>
-
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">B:</span>
-            </div>
-            <input class="form-control" @bind-value="locals.ValueB" @bind-value:event="oninput" @onkeyup="Apply"/>
-        </div>
-
-    </div>
-
-    <div class="card-footer">
-        @locals.ValueA + @locals.ValueB + Accumulator = <b>@sum</b>
-    </div>
-</div>
+@* <div class="@CssClass"> *@
+@*     <div class="card-header">@Title</div> *@
+@* *@
+@*     <div class="card-body"> *@
+@*         <StatefulComponentState Component="@this" /> *@
+@* *@
+@*         @if (error != null) { *@
+@*             <div class="alert alert-warning" role="alert"> *@
+@*                 Update error: @error.Message *@
+@*             </div> *@
+@*         } *@
+@* *@
+@*     *@
+@*                            *@
+@*                    *@
+@*         <div class="input-group mb-1"> *@
+@*             <div class="input-group-prepend"> *@
+@*                 <span class="input-group-text">A:</span> *@
+@*             </div> *@
+@*             <input class="form-control" @bind-value="locals.ValueA" @bind-value:event="oninput" @onkeyup="Apply"/> *@
+@*         </div> *@
+@* *@
+@*         <div class="input-group"> *@
+@*             <div class="input-group-prepend"> *@
+@*                 <span class="input-group-text">B:</span> *@
+@*             </div> *@
+@*             <input class="form-control" @bind-value="locals.ValueB" @bind-value:event="oninput" @onkeyup="Apply"/> *@
+@*         </div> *@
+@* *@
+@*     </div> *@
+@* *@
+@*     <div class="card-footer"> *@
+@*         @locals.ValueA + @locals.ValueB + Accumulator = <b>@sum</b> *@
+@*     </div> *@
+@* </div> *@
 
 @code {
     public class LocalsModel

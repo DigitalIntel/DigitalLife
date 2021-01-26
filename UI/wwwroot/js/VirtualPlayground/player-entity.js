@@ -11,6 +11,9 @@ export const player_entity = (() => {
 
   class CharacterFSM extends finite_state_machine.FiniteStateMachine {
     constructor(proxy) {
+       
+      
+      
       super();
       this._proxy = proxy;
       this._Init();
@@ -150,6 +153,7 @@ export const player_entity = (() => {
       }
 
       const input = this.GetComponent('BasicCharacterControllerInput');
+      input._Processinputs();
       this._stateMachine.Update(timeInSeconds, input);
 
       if (this._mixer) {

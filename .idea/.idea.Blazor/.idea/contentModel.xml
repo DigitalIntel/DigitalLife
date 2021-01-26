@@ -120,7 +120,10 @@
           <e p="Home.razor" t="Include" />
           <e p="ServerScreen.razor" t="Include" />
           <e p="ServerTime.razor" t="Include" />
+          <e p="VirtualPlayground-BackupSemiFunctional.razor" t="Include" />
           <e p="VirtualPlayground.razor" t="Include" />
+          <e p="VirtualPlaygroundV2.razor" t="Include" />
+          <e p="VirtualPlaygroundV3Tweening.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Services" t="Include">
@@ -136,6 +139,7 @@
           <e p="FormatEx.cs" t="Include" />
           <e p="MainLayout.razor" t="Include" />
           <e p="NavMenu.razor" t="Include" />
+          <e p="OnlineRoom.razor" t="Include" />
           <e p="StatefulComponentState.razor" t="Include" />
           <e p="SumCard.razor" t="Include" />
           <e p="Themes.cs" t="Include" />
@@ -167,8 +171,10 @@
           <e p="js" t="Include">
             <e p="app.js" t="Include" />
             <e p="cli.js" t="Include" />
+            <e p="create.js" t="Include" />
             <e p="Splitmin.js" t="Include" />
             <e p="stInput.js" t="Include" />
+            <e p="tweenmin.js" t="Include" />
             <e p="UIman" t="Include">
               <e p="css" t="Include">
                 <e p="glide.core.css" t="Include" />
@@ -207,8 +213,11 @@
               <e p="test.js" t="Include" />
               <e p="third-person-camera.js" t="Include" />
               <e p="ui-controller.js" t="Include" />
+              <e p="WisdomBotJs.js" t="Include" />
             </e>
             <e p="VirtualPlayground.js" t="Include" />
+            <e p="VirtualPlayground2.js" t="Include" />
+            <e p="VirtualPlayground3.js" t="Include" />
           </e>
           <e p="Resources" t="Include">
             <e p="girl" t="Include">
@@ -1020,6 +1029,11 @@
               </e>
               <e p="readme.txt" t="Include" />
             </e>
+            <e p="Simpleton" t="Include">
+              <e p="Ch32_nonPBR.fbx" t="Include" />
+              <e p="Sad Idle.fbx" t="Include" />
+              <e p="Sad Walk.fbx" t="Include" />
+            </e>
             <e p="Textures" t="Include">
               <e p="ball.png" t="Include" />
               <e p="fire.png" t="Include" />
@@ -1131,11 +1145,16 @@
               <e p="Preview.png" t="Include" />
             </e>
             <e p="Ybot" t="Include">
+              <e p="Clapping.fbx" t="Include" />
+              <e p="Falling.fbx" t="Include" />
               <e p="Idle.fbx" t="Include" />
               <e p="Running.fbx" t="Include" />
+              <e p="Sad Idle.fbx" t="Include" />
+              <e p="Sad Walk.fbx" t="Include" />
               <e p="stormtrooper.dae" t="Include" />
               <e p="Stormtrooper_D.jpg" t="Include" />
               <e p="StrutWalking.fbx" t="Include" />
+              <e p="Sword And Shield Death.fbx" t="Include" />
               <e p="Walking.fbx" t="Include" />
               <e p="WaveHipHopDance.fbx" t="Include" />
               <e p="xbot.fbx" t="Include" />

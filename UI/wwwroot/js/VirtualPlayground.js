@@ -25,9 +25,8 @@ import {attack_controller} from '../js/VirtualPlayground/attacker-controller.js'
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/controls/OrbitControls.js';
 import { SimpleOrbitControls } from '../js/VirtualPlayground/orbitctrl.js'
 
-import Glide from '../js/UIman/glide.modular.esm.js'
 
-
+import TWEEN from "../js/tweenmin.js";
 import DemoCLI from "../js/cli.js"
 
 
@@ -68,25 +67,7 @@ export function init(reference){
     caller=reference;
     caller.invokeMethodAsync('initializedfromJs');
  
-        /* global Split */
-
-        // This code is only related to handling the split.
-        // Our three.js code has not changed
-        Split(['#view', '#controls'], {  // eslint-disable-line new-cap
-        sizes: [75, 25],
-        minSize: 100,
-        elementStyle: (dimension, size, gutterSize) => {
-        return {
-        'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-    };
-    },
-        gutterStyle: (dimension, gutterSize) => {
-        return {
-        'flex-basis': `${gutterSize}px`,
-    };
-    },
-    });
- 
+    
     
   
 
@@ -107,71 +88,72 @@ class Foo {
     }
 }
 
+
 class HackNSlashDemo {
+
     constructor() {
         this._Initialize();
     }
-    
+
     _Initialize() {
+        this._GlobalCamera=false;
+        
+   
+        this._canvas = document.querySelector('#c');
+        this._view = document.querySelector('#view');
+        this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
+        this._threejs.antialias = true;
+        this._input = new StInput(window);
+        this._LoadUI();
+        this.Attention = "Canvas"
+        this._cli = new DemoCLI("#cliContainer");
+        if (this._cli) {
+            this._inputCli = new StInput(this._cli.container)
+            const h = (async () => {
+                this._cli.printPrompt()
+                await this._cli.type('echo "Intantiating Terminal"')
 
-        const canvas = document.querySelector('#c');
-        const UI = document.querySelector('#c');
-        this._threejs  = new THREE.WebGLRenderer({antialias: true ,alpha:true, canvas:canvas});
-        this._threejs.antialias=true;
+                this._cli.println("Welcome to my terminal")
+                await this._cli.type('echo "type start to start !"')
+                this._cli.println("")
+                this._cli.printPrompt()
+            })()
+            this._cli.printPrompt();
+            this._cli.print("print ")
+            this._cli.print("on same line ")
+            this._cli.enterKey()
 
-        // for input (using StInput)
-        const glideHero = new Glide('.glide', {
-            type: 'carousel',
-            animationDuration: 2000,
-            autoplay: 4500,
-            focusAt: '2',
-            startAt: 2,
-            perView: 1,
-        });
+            let colorNum = 1
+            for (let x = 0; x <= 16; x++) {
+                this._cli.printPrompt()
+                this._cli.println("colors", {className: `base0${x.toString(16)}`})
+                colorNum++
+            }
 
-        glideHero.mount();
-        this._input = new StInput(canvas);
-        this._cli= new DemoCLI("#cli")
+            this._cli.println("println")
+            this._cli.println("println")
+            this._cli.printPrompt({className: "base08"})
+        }
 
-       // new  Glide('.glide').mount();
-      
-
-      
 
         this._lastTime = (new Date()).getTime();
 
 
-        // this._threejs.setPixelRatio(window.devicePixelRatio);
-       // this._threejs.setSize(window.innerWidth, window.innerHeight);
-       // this._threejs.domElement.id = 'threejs';
-        
-        
-        
         this._threejs.outputEncoding = THREE.sRGBEncoding;
         this._threejs.gammaFactor = 2.2;
         this._threejs.shadowMap.enabled = true;
         this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
 
 
-
-        
-    
-        
-    
-
         const fov = 60;
         const aspect = 1920 / 1080;
         const near = 1.0;
         const far = 10000.0;
         this._camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-      //  this._camera.position.set(25, 10, 25);
+        this._camera.position.set(25, 10, 25);
+        //  this._camera.position.set(100,100,100);
+        this._camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-        // camera
-        //camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
-        this._camera.position.set(100,100,100);
-        this._camera.lookAt(new THREE.Vector3(0,0,0));
-        
-        
 
         this._scene = new THREE.Scene();
         this._scene.background = new THREE.Color(0x808080);
@@ -179,19 +161,17 @@ class HackNSlashDemo {
 
         // create some random cubes
         // create cube geometry
-        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
         for (var i = 0; i < 100; ++i) {
-            var material = new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
-            var cube = new THREE.Mesh( geometry, material );
-            cube.position.set(Math.random()*100 - 50, Math.random()*10, Math.random()*100 - 50);
-            cube.scale.set(1+Math.random()*5, 1+Math.random()*5, 1+Math.random()*5);
-            this._scene.add( cube );
+            var material = new THREE.MeshBasicMaterial({color: Math.random() * 0xffffff});
+            var cube = new THREE.Mesh(geometry, material);
+            cube.position.set(Math.random() * 100 - 50, Math.random() * 10, Math.random() * 100 - 50);
+            cube.scale.set(1 + Math.random() * 5, 1 + Math.random() * 5, 1 + Math.random() * 5);
+            cube.castShadow = false;
+            cube.receiveShadow = true;
+            this._scene.add(cube);
         }
-        
-        
-        
-        
-        
+
 
         let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
         light.position.set(-100, 100, 100);
@@ -210,21 +190,9 @@ class HackNSlashDemo {
         light.shadow.camera.bottom = -50;
         this._scene.add(light);
 
-   //this._OrbitControls = new OrbitControls( this._camera , this._threejs.domElement );
-   //this._OrbitControls.enablePan = true;
-   //this._OrbitControls.enableZoom = true;
-   //this._OrbitControls.target.set( 0, 1, 0 );
-   //this._OrbitControls.update();
-
-
-        // create the orbit controller
-         this._SimpleOrbitcontrols = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._camera );
-
-
-
-
+        // 
         this._sun = light;
- 
+
         const plane = new THREE.Mesh(
             new THREE.PlaneGeometry(1000, 1000, 100, 100),
             new THREE.MeshStandardMaterial({
@@ -240,21 +208,214 @@ class HackNSlashDemo {
             [[-1000, -1000], [1000, 1000]], [100, 100]);
 
 
-
-
+        this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._camera );
+        
+       // this._LoadTutorialGuy();
 
         //  this._LoadControllers();
-      //  this._LoadPlayer();
-       // this._LoadFoliage();
-      //  this._registerPlayer("masterid")
+       //this._LoadPlayer();
+        this._registerPlayer("eron");
+        // this._LoadFoliage();
+        //  this._registerPlayer("masterid")
         this._LoadClouds();
         this._LoadSky();
 
         this._previousRAF = null;
         this._RAF();
     }
- 
 
+    _UpdateGlider() {
+
+
+        // add content
+        if (this.glideHero) {
+
+
+            this.glideHero.destroy();
+
+        }
+        // this.glideHero = new Glide('.glide', {            type: 'carousel',
+        //     animationDuration: 700,
+        //     // autoplay: 10000,
+        //     autoplay: false,
+        //     startAt:0,
+        //     perView: 2,
+        // });
+
+        this.glideHero = new Glide('.glide', {
+            type: "carousel",
+            touchAngle: 45,
+            focusAt: 1,
+            startAt: 1,
+            perView: 1,
+            keyboard: false,
+            gap: 5,
+            autoplay: false,
+            peek: {
+                before: 100,
+                after: 50
+            },
+
+        })
+
+
+        // this.glideHero.on(['mount.after', 'run'], function () {
+        //   
+        //         alert("gello" +  this.glideHero.index );
+        //     })
+        this.glideHero.mount();
+        //this.glideHero.go('<');
+
+
+    }
+
+    _LoadUI() {
+
+      
+        // tween.oncomplete(function(){
+        //    
+        //     alert("done tweening!")
+        // });
+        
+        // This code is only related to handling the split.
+        // Our three.js code has not changed
+        Split(['#view', '#controls'], {  // eslint-disable-line new-cap
+            sizes: [60, 40],
+            minSize: 50,
+            elementStyle: (dimension, size, gutterSize) => {
+                return {
+                    'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+                };
+            },
+            gutterStyle: (dimension, gutterSize) => {
+                return {
+                    'flex-basis': `${gutterSize}px`,
+                };
+            },
+        });
+
+
+        var ActiveFrames = document.getElementById("ActiveFrames");
+        //
+        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?tunisia" alt="img"></li> *@
+        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?earth" alt="img"></li> *@
+
+        // <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?Germany" alt="img"></li>
+        var g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        var div = document.createElement('img');
+
+
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?dna");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+
+        var g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        var div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Life");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+
+        var g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        var div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Space");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+        var g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        var div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Aliens");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+        //  var g = document.createElement('li');
+        //  g.setAttribute("class", "slider__frame glide__slide");
+        //  var div=document.createElement('div');
+        //
+        // div.setAttribute("id","cliContainer");
+        //  div.setAttribute("class","terminal");
+        //
+        //  g.appendChild(div);
+        //
+        //  ActiveFrames.appendChild(g);
+
+        this._UpdateGlider()
+
+        document.getElementById('cliContainer').addEventListener('keydown', event => {
+
+            this.Attention = "Cli";
+            this._input._resetAll();
+            if (this._cli) {
+                if (event.key === "Enter") {
+                    this._cli.enterKey();
+                    this._cli.println("");
+                    return;
+                }
+                this._cli.type(event.key);
+                // this._cli.printPrompt();
+                //   alert(event.key);
+            }
+        })
+
+        document.getElementById('c').addEventListener('click', event => {
+
+            this.Attention = "Canvas";
+
+            this._cli.type("Attention : " + this.Attention)
+            this._cli.println("");
+            this._cli.printPrompt();
+            this._cli.printCursor();
+            // this._input._resetAll();
+        })
+
+        document.getElementById('controls').addEventListener('mousedown', event => {
+
+            this.Attention = "Controls";
+            this._cli.type("Attention : " + this.Attention);
+            this._cli.println("");
+            this._cli.printPrompt();
+            this._cli.printCursor();
+            this._input._resetAll();
+        })
+
+
+        var userSelection = document.getElementsByClassName('gutter');
+        for (var i = 0; i < userSelection.length; i++) {
+            (function (index) {
+                userSelection[index].addEventListener("mousedown", function () {
+
+                  // this.Attention = "Gutter";
+                  // this._cli.type("Attention : " + this.Attention)
+                  // this._cli.println();
+                  // this._cli.printPrompt();
+                  // this._cli.printCursor();
+
+                    //         this._input._resetAll();
+                })
+            })(i);
+        }
+
+
+        document.getElementById('cliContainer').addEventListener('mousedown', event => {
+
+            this.Attention = "Cli";
+            this._input._resetAll();
+        })
+
+
+        /* global Split */
+
+
+    }
 
     _LoadControllers() {
         const ui = new entity.Entity();
@@ -269,10 +430,10 @@ class HackNSlashDemo {
         this._scene.add(hemiLight);
 
         const uniforms = {
-            "topColor": { value: new THREE.Color(0x0077ff) },
-            "bottomColor": { value: new THREE.Color(0xffffff) },
-            "offset": { value: 33 },
-            "exponent": { value: 0.6 }
+            "topColor": {value: new THREE.Color(0x0077ff)},
+            "bottomColor": {value: new THREE.Color(0xffffff)},
+            "offset": {value: 33},
+            "exponent": {value: 0.6}
         };
         uniforms["topColor"].value.copy(hemiLight.color);
 
@@ -352,173 +513,185 @@ class HackNSlashDemo {
         const params = {
             camera: this._camera,
             scene: this._scene,
-            callback : this.BroadcastEvent,
-            localInputs: this._input
+            callback: this.BroadcastEvent({cli: this._cli,id:"_loadplayer"}),
+            localInputs: this._input,
+            renderer: this._threejs,
+            cli: this._cli,
+            SetAttention : this.SetAttention
         };
-/*
-        const levelUpSpawner = new entity.Entity();
-        levelUpSpawner.AddComponent(new level_up_component.LevelUpComponentSpawner({
-            camera: this._camera,
-            scene: this._scene,
-        }));
-        this._entityManager.Add(levelUpSpawner, 'level-up-spawner');
-
-        const axe = new entity.Entity();
-        axe.AddComponent(new inventory_controller.InventoryItem({
-            type: 'weapon',
-            damage: 3,
-            renderParams: {
-                name: 'Axe',
-                scale: 0.25,
-                icon: 'war-axe-64.png',
-            },
-        }));
-        this._entityManager.Add(axe);
-
-        const sword = new entity.Entity();
-        sword.AddComponent(new inventory_controller.InventoryItem({
-            type: 'weapon',
-            damage: 3,
-            renderParams: {
-                name: 'Sword',
-                scale: 0.25,
-                icon: 'pointy-sword-64.png',
-            },
-        }));
-        this._entityManager.Add(sword);
-
-       // const girl = new entity.Entity();
-       // girl.AddComponent(new gltf_component.AnimatedModelComponent({
-       //     scene: this._scene,
-       //     resourcePath: './resources/girl/',
-       //     resourceName: 'peasant_girl.fbx',
-       //     resourceAnimation: 'Standing Idle.fbx',
-       //     scale: 0.035,
-       //     receiveShadow: true,
-       //     castShadow: true,
-       // }));
-       // girl.AddComponent(new spatial_grid_controller.SpatialGridController({
-       //     grid: this._grid,
-       // }));
-       // girl.AddComponent(new player_input.PickableComponent());
-       // girl.AddComponent(new quest_component.QuestComponent());
-       // girl.SetPosition(new THREE.Vector3(30, 0, 0));
-       // this._entityManager.Add(girl);
-*/
+        /*
+                const levelUpSpawner = new entity.Entity();
+                levelUpSpawner.AddComponent(new level_up_component.LevelUpComponentSpawner({
+                    camera: this._camera,
+                    scene: this._scene,
+                }));
+                this._entityManager.Add(levelUpSpawner, 'level-up-spawner');
+        
+                const axe = new entity.Entity();
+                axe.AddComponent(new inventory_controller.InventoryItem({
+                    type: 'weapon',
+                    damage: 3,
+                    renderParams: {
+                        name: 'Axe',
+                        scale: 0.25,
+                        icon: 'war-axe-64.png',
+                    },
+                }));
+                this._entityManager.Add(axe);
+        
+                const sword = new entity.Entity();
+                sword.AddComponent(new inventory_controller.InventoryItem({
+                    type: 'weapon',
+                    damage: 3,
+                    renderParams: {
+                        name: 'Sword',
+                        scale: 0.25,
+                        icon: 'pointy-sword-64.png',
+                    },
+                }));
+                this._entityManager.Add(sword);
+        */
+                const girl = new entity.Entity();
+                girl.AddComponent(new gltf_component.AnimatedModelComponent({
+                    scene: this._scene,
+                    resourcePath: './resources/girl/',
+                    resourceName: 'peasant_girl.fbx',
+                    resourceAnimation: 'Standing Idle.fbx',
+                    scale: 0.035,
+                    receiveShadow: true,
+                    castShadow: true,
+                }));
+                girl.AddComponent(new spatial_grid_controller.SpatialGridController({
+                    grid: this._grid,
+                }));
+                girl.AddComponent(new player_input.PickableComponent(params));
+                girl.AddComponent(new quest_component.QuestComponent(params));
+                girl.SetPosition(new THREE.Vector3(30, 0, 0));
+                this._entityManager.Add(girl);
+        
         const player = new entity.Entity();
         player.AddComponent(new player_input.BasicCharacterControllerInput(params));
         player.AddComponent(new player_entity.BasicCharacterController(params));
-        player.AddComponent(new player_input.PickableComponent());
-        
-       /* player.AddComponent(
-       //     new equip_weapon_component.EquipWeapon({anchor: 'RightHandIndex1'}));
-     //   player.AddComponent(new inventory_controller.InventoryController(params));
-        player.AddComponent(new health_component.HealthComponent({
-            updateUI: true,
-            health: 100,
-            maxHealth: 100,
-            strength: 50,
-            wisdomness: 5,
-            benchpress: 20,
-            curl: 100,
-            experience: 0,
-            level: 1,
-        }));
-        
-        */
+        player.AddComponent(new player_input.PickableComponent(params));
+
+        /* player.AddComponent(
+        //     new equip_weapon_component.EquipWeapon({anchor: 'RightHandIndex1'}));
+      //   player.AddComponent(new inventory_controller.InventoryController(params));
+         player.AddComponent(new health_component.HealthComponent({
+             updateUI: true,
+             health: 100,
+             maxHealth: 100,
+             strength: 50,
+             wisdomness: 5,
+             benchpress: 20,
+             curl: 100,
+             experience: 0,
+             level: 1,
+         }));
+         
+         */
         player.AddComponent(
             new spatial_grid_controller.SpatialGridController({grid: this._grid}));
         player.AddComponent(new attack_controller.AttackController({timing: 0.7}));
         this._entityManager.Add(player, 'player');
+        const camera = new entity.Entity();
 
-      //  player.Broadcast({
-      //      topic: 'inventory.add',
-      //      value: axe.Name,
-      //      added: false,
-      //  });
-//
-     //   player.Broadcast({
-     //       topic: 'inventory.add',
-     //       value: sword.Name,
-     //       added: false,
-     //   });
-//
-     //   player.Broadcast({
-     //       topic: 'inventory.equip',
-     //       value: sword.Name,
-     //       added: false,
-     //   });
-//
-  
-
-       /* for (let i = 0; i < 50; ++i) {
-            const monsters = [
-                {
-                    resourceName: 'Ghost.fbx',
-                    resourceTexture: 'Ghost_Texture.png',
-                },
-                {
-                    resourceName: 'Alien.fbx',
-                    resourceTexture: 'Alien_Texture.png',
-                },
-                {
-                    resourceName: 'Skull.fbx',
-                    resourceTexture: 'Skull_Texture.png',
-                },
-                {
-                    resourceName: 'GreenDemon.fbx',
-                    resourceTexture: 'GreenDemon_Texture.png',
-                },
-                {
-                    resourceName: 'Cyclops.fbx',
-                    resourceTexture: 'Cyclops_Texture.png',
-                },
-                {
-                    resourceName: 'Cactus.fbx',
-                    resourceTexture: 'Cactus_Texture.png',
-                },
-            ];
-            const m = monsters[math.rand_int(0, monsters.length - 1)];
-
-            const npc = new entity.Entity();
-            npc.AddComponent(new npc_entity.NPCController({
+        camera.AddComponent(
+            new third_person_camera.ThirdPersonCamera({
                 camera: this._camera,
-                scene: this._scene,
-                resourceName: m.resourceName,
-                resourceTexture: m.resourceTexture,
+                target: this._entityManager.Get('player')
             }));
-         /*   npc.AddComponent(
-                new health_component.HealthComponent({
-                    health: 50,
-                    maxHealth: 50,
-                    strength: 2,
-                    wisdomness: 2,
-                    benchpress: 3,
-                    curl: 1,
-                    experience: 0,
-                    level: 1,
-                    camera: this._camera,
-                    scene: this._scene,
-                }));
-                
-          
-            npc.AddComponent(
-                new spatial_grid_controller.SpatialGridController({grid: this._grid}));
-         //  npc.AddComponent(new health_bar.HealthBar({
-         //      parent: this._scene,
-         //      camera: this._camera,
-         //  }));
-            npc.AddComponent(new attack_controller.AttackController({timing: 0.35}));
-            npc.SetPosition(new THREE.Vector3(
-                (Math.random() * 2 - 1) * 500,
-                0,
-                (Math.random() * 2 - 1) * 500));
-            this._entityManager.Add(npc);
-        }*/
+
+        this._entityManager.Add(camera, 'player-camera');
+
+        //  player.Broadcast({
+        //      topic: 'inventory.add',
+        //      value: axe.Name,
+        //      added: false,
+        //  });
+//
+        //   player.Broadcast({
+        //       topic: 'inventory.add',
+        //       value: sword.Name,
+        //       added: false,
+        //   });
+//
+        //   player.Broadcast({
+        //       topic: 'inventory.equip',
+        //       value: sword.Name,
+        //       added: false,
+        //   });
+//
+
+
+        /* for (let i = 0; i < 50; ++i) {
+             const monsters = [
+                 {
+                     resourceName: 'Ghost.fbx',
+                     resourceTexture: 'Ghost_Texture.png',
+                 },
+                 {
+                     resourceName: 'Alien.fbx',
+                     resourceTexture: 'Alien_Texture.png',
+                 },
+                 {
+                     resourceName: 'Skull.fbx',
+                     resourceTexture: 'Skull_Texture.png',
+                 },
+                 {
+                     resourceName: 'GreenDemon.fbx',
+                     resourceTexture: 'GreenDemon_Texture.png',
+                 },
+                 {
+                     resourceName: 'Cyclops.fbx',
+                     resourceTexture: 'Cyclops_Texture.png',
+                 },
+                 {
+                     resourceName: 'Cactus.fbx',
+                     resourceTexture: 'Cactus_Texture.png',
+                 },
+             ];
+             const m = monsters[math.rand_int(0, monsters.length - 1)];
+ 
+             const npc = new entity.Entity();
+             npc.AddComponent(new npc_entity.NPCController({
+                 camera: this._camera,
+                 scene: this._scene,
+                 resourceName: m.resourceName,
+                 resourceTexture: m.resourceTexture,
+             }));
+          /*   npc.AddComponent(
+                 new health_component.HealthComponent({
+                     health: 50,
+                     maxHealth: 50,
+                     strength: 2,
+                     wisdomness: 2,
+                     benchpress: 3,
+                     curl: 1,
+                     experience: 0,
+                     level: 1,
+                     camera: this._camera,
+                     scene: this._scene,
+                 }));
+                 
+           
+             npc.AddComponent(
+                 new spatial_grid_controller.SpatialGridController({grid: this._grid}));
+          //  npc.AddComponent(new health_bar.HealthBar({
+          //      parent: this._scene,
+          //      camera: this._camera,
+          //  }));
+             npc.AddComponent(new attack_controller.AttackController({timing: 0.35}));
+             npc.SetPosition(new THREE.Vector3(
+                 (Math.random() * 2 - 1) * 500,
+                 0,
+                 (Math.random() * 2 - 1) * 500));
+             this._entityManager.Add(npc);
+         }*/
     }
-    
-    _LoadRemotePlayer(id){     
-  
+
+    _LoadRemotePlayer(id) {
+
         const npc = new entity.Entity();
         npc.AddComponent(new remotePlayer_entity.NPCController({
             camera: this._camera,
@@ -527,7 +700,7 @@ class HackNSlashDemo {
         }));
         npc.AddComponent(new remotePlayer_input.BasicCharacterControllerInput());
 
-        
+
         npc.AddComponent(
             new spatial_grid_controller.SpatialGridController({grid: this._grid}));
 
@@ -537,23 +710,25 @@ class HackNSlashDemo {
             0,
             (Math.random() * 2 - 1) * 5000));
         this._entityManager.Add(npc);
-        
-        
+
+
     }
+
+
+
 
     _OnWindowResize() {
         this._camera.aspect = window.innerWidth / window.innerHeight;
         this._camera.updateProjectionMatrix();
         this._threejs.setSize(window.innerWidth, window.innerHeight);
     }
-    
+
     _UpdateSun() {
 
-      
-        
+
         const player = this._entityManager.Get('player');
-       
-        if( player ) {
+
+        if (player) {
             const pos = player._position;
             this._sun.position.copy(pos);
             this._sun.position.add(new THREE.Vector3(-100, 100, 100));
@@ -561,7 +736,11 @@ class HackNSlashDemo {
             this._sun.updateMatrixWorld();
             this._sun.target.updateMatrixWorld();
         }
-        
+
+    }
+
+    _SetAttention(element) {
+        this.Attention = element;
     }
 
     _resizeRendererToDisplaySize(renderer) {
@@ -571,11 +750,12 @@ class HackNSlashDemo {
         const needResize = canvas.width !== width || canvas.height !== height;
         if (needResize) {
             renderer.setSize(width, height, false);
+            //glideHero.mount();
         }
         return needResize;
     }
-    
-    
+
+
     _RAF() {
         requestAnimationFrame((t) => {
             if (this._previousRAF === null) {
@@ -583,115 +763,168 @@ class HackNSlashDemo {
             }
 
 
-
             this._RAF();
             if (this._resizeRendererToDisplaySize(this._threejs)) {
                 const canvas = this._threejs.domElement;
                 this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
                 this._camera.updateProjectionMatrix();
+                this._UpdateGlider();
             }
 
-
-            ///////////////handle local inputs
-
-
-            // // left mouse button is down
-            // if (this._input.down('mouse_left')) {
-            //     console.log("Mouse is down.");
-            // }
-            //
-            // // left mouse button was released this update call
-            // if (this._input.released('mouse_left')) {
-            //     console.log("Mouse was released this update call.");
-            // }
-            //
-            // // left mouse button was released this update call
-            // if (this._input.pressed('mouse_left')) {
-            //     console.log("Mouse was pressed this update call.");
-            // }
-            //
-            // keyboard button up arrow was released
-            if (this._input.released( 'tab')) {
+            if (this._input.released('h')) {
                 const h = (async () => {
                     this._cli.printPrompt()
-                    await  this._cli.type('echo "testing this"')
-                    this._cli.println("testing this")
+                    await this._cli.type('echo "Intantiating Terminal"')
+                    this._LoadPlayer();
+                    this._cli.println("Welcome to my terminal")
+                    await this._cli.type('echo "type start to start !"')
+                    this._cli.println("")
                     this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
                 })()
-                this._cli.printPrompt()
-                this._cli.print("print ")
-                this._cli.print("on same line ")
-                this._cli.enterKey()
-
-                let colorNum = 1
-                for(let x = 0; x <= 16; x++) {
-                    this._cli.printPrompt()
-                    this._cli.println("colors", {className: `base0${x.toString(16)}`})
-                    colorNum++
-                }
-
-                this._cli.println("println")
-                this._cli.println("println")
-                this._cli.printPrompt({className: "base08"})
-
-              console.log("Left arrow was released this update call.");
             }
-           
-            // // mouse moved
-            // if (this._input.mouseMoving) {
-            //   //  console.log("Mouse delta:", this._input.mouseDelta);
-            // }
+            if (this._input.released('c')) {
+                const h = (async () => {
+                    this._cli.printPrompt()
+                    await this._cli.type('Loading Camera man"')
+                                
+                    this._LoadGlobalCamera();
+                    this._cli.println("I am the camera man , I assist you with the views")
+                    await this._cli.type('..... Loaded!')
+                    this._cli.println("")
+                    this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
+                })()
+                
+            }
+            if (this._input.released('f')) {
+                const h = (async () => {
+                    this._cli.printPrompt()
+                    await this._cli.type('fps view"')
 
-          
-            
-            
-            
-            
-            
+                   // this._LoadGlobalCamera();
+                    this._cli.println("I am the camera man , I follow you")
+                    await this._cli.type('..... Loaded!')
+                    this._cli.println("")
+                    this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
+                    this._LoadPlayer();
+                    this._LoadFoliage();
+                })()
+
+            }
+
+
+            if (this._input.released('b')) {
+                const h = (async () => {
+                    this._cli.printPrompt()
+                    await this._cli.type('bird eye view view"')
+
+                 this._LoadGlobalCamera();
+                    this._cli.println("I am the camera man , I follow you")
+                    await this._cli.type('..... Loaded!')
+                    this._cli.println("")
+                    this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
+                   // this._LoadPlayer();
+                    this._registerPlayer("eros")
+                    //  this._LoadFoliage();
+                })()
+
+            }
+
+
+
+            if (this._input.released('r')) {
+                const h = (async () => {
+                    this._cli.printPrompt()
+                    await this._cli.type('bird eye view view"')
+
+                    this._LoadGlobalCamera();
+                    this._cli.println("I am the camera man , I follow you")
+                    await this._cli.type('..... Loaded!')
+                    this._cli.println("")
+                    this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
+                    // this._LoadPlayer();
+                    this._LoadRemotePlayer("erosine")
+                    //  this._LoadFoliage();
+                })()
+
+            }
+
+
+
+            if (this._input.released('g')) {
+                const h = (async () => {
+                    this._cli.printPrompt()
+                    await this._cli.type('Loading Random "')
+
+                    this._registerPlayer("ee");
+                    this._cli.println("I am the random camera man , I follow you")
+                    await this._cli.type('..... Loaded!')
+                    this._cli.println("")
+                    this._cli.printPrompt()
+                    var elem = this._cli.container;
+                    elem.scrollTop = elem.scrollHeight;
+                    this._LoadPlayer();
+                    this._LoadFoliage();
+                })()
+
+            }
+
+
             this._threejs.render(this._scene, this._camera);
             this._Step(t - this._previousRAF);
             this._previousRAF = t;
+
+            //  if (this._input.anyKeyDown){
+
+            //      const h = (async () => {
+            //          this._cli.printPrompt()
+            //        //  await this._cli.type(this._input.anyKeyDown2())
+
+            //      })()
+            //  }
             this._input.endFrame();
+            //this._inputCli.endFrame();
+
+
         });
     }
+
     _UpdateOrbitControls(timeElapsed) {
 
-
-       // const timeNow = (new Date()).getTime();
-       // const deltaTime = (timeNow - this._lastTime) / 1000.0;
-       // this._lastTime = timeNow;
-       // 
-        // decide what to move and get mouse delta
-        var rotateCamera = this._input .mouseDown(this._input.MouseButtons.right);
-        var moveCamera = this._input.mouseDown(this._input.MouseButtons.left);
-        var mouseDelta = this._input.mouseDelta;
-
-        // zoom value
-        var zoom = this._input.mouseWheel;
-        if (this._input.down('page_up')) zoom += 10;
-        else if (this._input.down('page_down')) zoom -= 10;
-
-       // update controls
-        this._SimpleOrbitcontrols.update({deltaTime: timeElapsed/1000 ,
-           rotateHorizontally: rotateCamera ? -mouseDelta.x : 0,
-           rotateVertically: rotateCamera ? -mouseDelta.y : 0,
-           moveOffsetVertically: (moveCamera ? -mouseDelta.y : 0) * 10,
-           moveOffsetHorizontally: (moveCamera ? mouseDelta.x : 0) * 10,
-           zoom: zoom * 10,
-        });
+        if (this.Attention === "Canvas") {
 
 
+            // decide what to move and get mouse delta
+            var rotateCamera = this._input.mouseDown(this._input.MouseButtons.right);
+            var moveCamera = this._input.mouseDown(this._input.MouseButtons.left);
+            var mouseDelta = this._input.mouseDelta;
 
-   
+            // zoom value
+            var zoom = this._input.mouseWheel;
+            if (this._input.down('page_up')) zoom += 10;
+            else if (this._input.down('page_down')) zoom -= 10;
 
-       // }
-        ///////////////handle local inputs
-    
-      
+            // update controls
+            this._SimpleOrbitControls.update({
+                deltaTime: timeElapsed / 1000,
+                rotateHorizontally: rotateCamera ? -mouseDelta.x : 0,
+                rotateVertically: rotateCamera ? -mouseDelta.y : 0,
+                moveOffsetVertically: (moveCamera ? -mouseDelta.y : 0) * 10,
+                moveOffsetHorizontally: (moveCamera ? mouseDelta.x : 0) * 10,
+                zoom: zoom * 10,
+            });
 
 
-
-        
+        }
 
 
     }
@@ -699,65 +932,319 @@ class HackNSlashDemo {
     _Step(timeElapsed) {
         const timeElapsedS = Math.min(1.0 / 30.0, timeElapsed * 0.001);
 
-       
-        
-        this._UpdateOrbitControls(timeElapsed);
+
+        // 
+         if (this._GlobalCamera) {
+             this._UpdateOrbitControls(timeElapsed);
+         }
         this._UpdateSun();
-        
+
 
         this._entityManager.Update(timeElapsedS);
+        TWEEN.update(timeElapsed);
     }
     
-    
-    
 
-     _registerPlayer(id){
-            
+    _registerPlayer(id) {
+
         console.log("registered player id" + id);
         //  this._LoadControllers();
-          this._LoadPlayer(id);
-         const camera = new entity.Entity();
-         camera.AddComponent(
-             new third_person_camera.ThirdPersonCamera({
-                 camera: this._camera,
-                 target: this._entityManager.Get('player')}));
-         this._entityManager.Add(camera, 'player-camera');
+        this._LoadPlayer(id);
+        const camera = new entity.Entity();
+        camera.AddComponent(
+            new third_person_camera.ThirdPersonCamera({
+                camera: this._camera,
+                target: this._entityManager.Get('player')
+            }));
+
+        this._entityManager.Add(camera, 'player-camera');
 
     }
+  
 
-
-    _ToggleCamera(){
+    _ToggleCamera() {
 
         console.log("Toggling Camera");
         //  this._LoadControllers();
         this._LoadPlayer(id);
 
     }
-    getEntitymanager(){
-        
+
+    getEntitymanager() {
+
         return this._entityManager;
-        
+
     }
-    helloFromLiveComponent(caller){
+
+    helloFromLiveComponent(caller) {
         console.log("Hello From Live Component");
         //this._registerPlayer();
-        livestateman= caller;
+        livestateman = caller;
         var obj = {
-            ID:  "99",
+            ID: "99",
             RequestType: 969,
             Data: "ooxx"
         };
-        livestateman.invokeMethodAsync('hello_LiveStateHandler',new Object());
-        
+        livestateman.invokeMethodAsync('hello_LiveStateHandler', new Object());
+
     }
 
-    BroadcastEvent(event){
+    BroadcastEvent(params) {
 //        console.log("Broadcasting event");
 
-        caller.invokeMethodAsync('hello_LiveStateHandler',event);
+        
+       params.cli.println("")
+        params.cli.type("executing C# function")
+        params.cli.type(params.id)
+        params.cli.printCursor()
+        params.cli.println("")
+        params.cli.printCursor()
+       // this._LoadGlobalCamera();
+       // this._caller.invokeMethodAsync('hello_LiveStateHandler');
 
     }
+
+    SetAttention(params){
+
+        let position = { x : 60, y: 40 };
+        let target = { x : 10, y: 90 };
+        let tween = new TWEEN.Tween(position).to(target, 2000);
+        tween.onUpdate(function(){
+            Split.sizes=[ position.x, position.y]
+            this._camera.position = position.x;
+        });
+        
+        
+       this.Attention=string;
+     //   params._
+        params._cli.type("Attention : " + this.Attention)
+        params._cli.println("");
+        params._cli.printPrompt();
+        params._cli.printCursor();
+        
+    }
+    LoadMouseTester() {
+        let renderer, scene, camera, stats;
+        let pointclouds;
+        let raycaster;
+        let intersection = null;
+        let spheresIndex = 0;
+        let clock;
+        let toggle = 0;
+
+
+        const pcBuffer = generatePointcloud(new THREE.Color(1, 0, 0), width, length);
+        pcBuffer.scale.set(5, 10, 10);
+        pcBuffer.position.set(-5, 0, 0);
+        this._scene.add(pcBuffer);
+
+        const pcIndexed = generateIndexedPointcloud(new THREE.Color(0, 1, 0), width, length);
+        pcIndexed.scale.set(5, 10, 10);
+        pcIndexed.position.set(0, 0, 0);
+        this._scene.add(pcIndexed);
+
+        const pcIndexedOffset = generateIndexedWithOffsetPointcloud(new THREE.Color(0, 1, 1), width, length);
+        pcIndexedOffset.scale.set(5, 10, 10);
+        pcIndexedOffset.position.set(5, 0, 0);
+        this._scene.add(pcIndexedOffset);
+
+        pointclouds = [pcBuffer, pcIndexed, pcIndexedOffset];
+
+        //
+
+        const sphereGeometry = new THREE.SphereBufferGeometry(0.1, 32, 32);
+        const sphereMaterial = new THREE.MeshBasicMaterial({color: 0xff0000});
+
+        for (let i = 0; i < 40; i++) {
+
+            const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+            this._scene.add(sphere);
+            spheres.push(sphere);
+
+            const spheres = [];
+
+            const threshold = 0.1;
+            const pointSize = 0.05;
+            const width = 80;
+            const length = 160;
+            const rotateY = new THREE.Matrix4().makeRotationY(0.005);
+
+        }
+
+
+    }
+    generatePointCloudGeometry( color, width, length ) {
+
+        const geometry = new THREE.BufferGeometry();
+        const numPoints = width * length;
+
+        const positions = new Float32Array( numPoints * 3 );
+        const colors = new Float32Array( numPoints * 3 );
+
+        let k = 0;
+
+        for ( let i = 0; i < width; i ++ ) {
+
+            for ( let j = 0; j < length; j ++ ) {
+
+                const u = i / width;
+                const v = j / length;
+                const x = u - 0.5;
+                const y = ( Math.cos( u * Math.PI * 4 ) + Math.sin( v * Math.PI * 8 ) ) / 20;
+                const z = v - 0.5;
+
+                positions[ 3 * k ] = x;
+                positions[ 3 * k + 1 ] = y;
+                positions[ 3 * k + 2 ] = z;
+
+                const intensity = ( y + 0.1 ) * 5;
+                colors[ 3 * k ] = color.r * intensity;
+                colors[ 3 * k + 1 ] = color.g * intensity;
+                colors[ 3 * k + 2 ] = color.b * intensity;
+
+                k ++;
+
+            }
+
+        }
+
+        geometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+        geometry.setAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
+        geometry.computeBoundingBox();
+
+        return geometry;
+
+    }
+    generatePointcloud( color, width, length ) {
+
+        const geometry = generatePointCloudGeometry( color, width, length );
+        const material = new THREE.PointsMaterial( { size: pointSize, vertexColors: true } );
+
+        return new THREE.Points( geometry, material );
+
+    }
+
+    generateIndexedPointcloud( color, width, length ) {
+
+        const geometry = generatePointCloudGeometry( color, width, length );
+        const numPoints = width * length;
+        const indices = new Uint16Array( numPoints );
+
+        let k = 0;
+
+        for ( let i = 0; i < width; i ++ ) {
+
+            for ( let j = 0; j < length; j ++ ) {
+
+                indices[ k ] = k;
+                k ++;
+
+            }
+
+        }
+
+        geometry.setIndex( new THREE.BufferAttribute( indices, 1 ) );
+
+        const material = new THREE.PointsMaterial( { size: pointSize, vertexColors: true } );
+
+        return new THREE.Points( geometry, material );
+
+    }
+    generateIndexedWithOffsetPointcloud( color, width, length ) {
+
+        const geometry = generatePointCloudGeometry( color, width, length );
+        const numPoints = width * length;
+        const indices = new Uint16Array( numPoints );
+
+        let k = 0;
+
+        for ( let i = 0; i < width; i ++ ) {
+
+            for ( let j = 0; j < length; j ++ ) {
+
+                indices[ k ] = k;
+                k ++;
+
+            }
+
+        }
+
+        geometry.setIndex( new THREE.BufferAttribute( indices, 1 ) );
+        geometry.addGroup( 0, indices.length );
+
+        const material = new THREE.PointsMaterial( { size: pointSize, vertexColors: true } );
+
+        return new THREE.Points( geometry, material );
+
+    }
+
+    _LoadTutorialGuy() {
+        const params = {
+            camera: this._camera,
+            scene: this._scene,
+            callback: this.BroadcastEvent,
+            localInputs: this._input,
+            renderer: this._threejs,
+            cli: this._cli,
+            csharp: this.caller,
+            SetAttention : this.SetAttention
+        };
+        
+        const npc = new entity.Entity();
+        npc.AddComponent(new remotePlayer_entity.NPCController(params));
+        npc.AddComponent(new remotePlayer_input.BasicCharacterControllerInput());
+
+        npc.AddComponent(new remotePlayer_input.PickableComponent( params));
+        npc.AddComponent(new quest_component.QuestComponent( params));
+
+        npc.AddComponent(
+            new spatial_grid_controller.SpatialGridController({grid: this._grid}));
+
+        //npc.AddComponent(new attack_controller.AttackController({timing: 0.35}));
+        npc.SetPosition(new THREE.Vector3(
+            (Math.random() * 2 - 1) * 9000,
+            0,
+            (Math.random() * 2 - 1) * 2000));
+        this._entityManager.Add(npc);
+        this._LoadGlobalCamera();
+        const girl = new entity.Entity();
+        girl.AddComponent(new gltf_component.AnimatedModelComponent({
+            scene: this._scene,
+            resourcePath: './resources/girl/',
+            resourceName: 'peasant_girl.fbx',
+            resourceAnimation: 'Standing Idle.fbx',
+            scale: 0.035,
+            receiveShadow: true,
+            castShadow: true,
+        }));
+        girl.AddComponent(new spatial_grid_controller.SpatialGridController({
+            grid: this._grid,
+        }));
+        girl.AddComponent(new player_input.PickableComponent(params));
+        girl.AddComponent(new quest_component.QuestComponent(params));
+        girl.SetPosition(new THREE.Vector3(30, 0, 0));
+        this._entityManager.Add(girl);
+
+    }
+    _LoadGlobalCamera(){
+
+
+        if (this._GlobalCamera==true)
+        {
+
+            this._GlobalCamera=false;
+            var cam= this._entityManager.Get('player-camera');
+            cam.Toggle();
+        }
+       
+    
+
+        
+        
+    }
 }
+
+     
 
 
 

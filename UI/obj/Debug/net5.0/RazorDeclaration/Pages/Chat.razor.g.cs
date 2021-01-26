@@ -209,7 +209,7 @@ using StackExchange.Redis.Extensions.Utf8Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "C:\dev\recentHostable\UI\Pages\Chat.razor"
+#line 178 "C:\dev\recentHostable\UI\Pages\Chat.razor"
         
     
     
@@ -326,7 +326,7 @@ using StackExchange.Redis.Extensions.Utf8Json;
         // Console.WriteLine(ob);
         UpdateRequest a = Utf8Json.JsonSerializer.Deserialize<UpdateRequest>(ob.ToString());
         //Console.WriteLine("deserialized" + a.ID + " " + a.RequestType);
-
+        await mainJS.InvokeVoidAsync("_registerPlayer", "idMaster");
 
         //  Console.WriteLine(a.Data.ToString() + " " + a.RequestType.ToString());
         ResetError();

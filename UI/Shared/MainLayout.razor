@@ -7,23 +7,23 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar  Dense="true" Elevation="25">
-        <MudIconButton Icon="@Icons.Material.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@DrawerToggle" />
-        <MudText Typo="Typo.h5" Class="ml-3">HBH Playground @customString</MudText>
-        <MudAppBarSpacer />
-        <MudTooltip Text="Toggle light/dark theme">
-            <MudIconButton Icon="@Icons.Material.Brightness4" Color="Color.Inherit" OnClick="@ThemeToggle" />
-        </MudTooltip>
-        <MudTooltip Text="Change Blazor mode">
-            <MudIconButton Icon="@Icons.Material.Settings" Color="Color.Inherit" OnClick="@ChangeBlazorMode" />
-        </MudTooltip>
-    </MudAppBar>
-    <MudDrawer @bind-Open="@IsDrawerOpen" Elevation="25" Clipped="true">
-        <MudDrawerHeader LinkToIndex="true">
-            <MudText Typo="Typo.h6">Menu</MudText>
-        </MudDrawerHeader>
-        <NavMenu />
-    </MudDrawer>
+    @* <MudAppBar  Dense="true" Elevation="25"> *@
+    @*     <MudIconButton Icon="@Icons.Material.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@DrawerToggle" /> *@
+    @*     <MudText Typo="Typo.h5" Class="ml-3">HBH Playground @customString</MudText> *@
+    @*     <MudAppBarSpacer /> *@
+    @*     <MudTooltip Text="Toggle light/dark theme"> *@
+    @*         <MudIconButton Icon="@Icons.Material.Brightness4" Color="Color.Inherit" OnClick="@ThemeToggle" /> *@
+    @*     </MudTooltip> *@
+    @*     <MudTooltip Text="Change Blazor mode"> *@
+    @*         <MudIconButton Icon="@Icons.Material.Settings" Color="Color.Inherit" OnClick="@ChangeBlazorMode" /> *@
+    @*     </MudTooltip> *@
+    @* </MudAppBar> *@
+    @* <MudDrawer @bind-Open="@IsDrawerOpen" Elevation="25" Clipped="true"> *@
+    @*     <MudDrawerHeader LinkToIndex="true"> *@
+    @*         <MudText Typo="Typo.h6">Menu</MudText> *@
+    @*     </MudDrawerHeader> *@
+    @*     <NavMenu /> *@
+    @* </MudDrawer> *@
 
     <MudMainContent id="Mudmainlayout">
         @Body

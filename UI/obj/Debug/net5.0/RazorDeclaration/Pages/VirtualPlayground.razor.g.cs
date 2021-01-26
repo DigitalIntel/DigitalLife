@@ -187,7 +187,7 @@ using MudBlazor.Dialog;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/VirtualPlayground")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class VirtualPlayground : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -196,7 +196,7 @@ using MudBlazor.Dialog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 321 "C:\dev\recentHostable\UI\Pages\VirtualPlayground.razor"
+#line 324 "C:\dev\recentHostable\UI\Pages\VirtualPlayground.razor"
        
     
    
@@ -262,6 +262,7 @@ using MudBlazor.Dialog;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
     }
 }
 #pragma warning restore 1591
