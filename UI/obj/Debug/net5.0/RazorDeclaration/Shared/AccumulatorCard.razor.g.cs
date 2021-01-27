@@ -202,7 +202,7 @@ using System.Threading;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 88 "C:\dev\recentHostable\UI\Shared\AccumulatorCard.razor"
+#line 97 "C:\dev\recentHostable\UI\Shared\AccumulatorCard.razor"
        
     public class LocalsModel
     {

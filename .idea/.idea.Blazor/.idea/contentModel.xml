@@ -112,6 +112,7 @@
           </e>
         </e>
         <e p="Pages" t="Include">
+          <e p="ActiveComponents.razor" t="Include" />
           <e p="Authentication.razor" t="Include" />
           <e p="Chat - Copy.razor" t="Include" />
           <e p="Chat.razor" t="Include" />
@@ -137,8 +138,10 @@
           <e p="BlazorModeSwitch.razor" t="Include" />
           <e p="ComposedValueCard.razor" t="Include" />
           <e p="FormatEx.cs" t="Include" />
+          <e p="LightSwitch.razor" t="Include" />
           <e p="MainLayout.razor" t="Include" />
           <e p="NavMenu.razor" t="Include" />
+          <e p="NicePage.razor" t="Include" />
           <e p="OnlineRoom.razor" t="Include" />
           <e p="StatefulComponentState.razor" t="Include" />
           <e p="SumCard.razor" t="Include" />

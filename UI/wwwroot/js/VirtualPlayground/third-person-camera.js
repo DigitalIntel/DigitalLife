@@ -10,7 +10,7 @@ export const third_person_camera = (() => {
 
       this._params = params;
       this._camera = params.camera;
-      this.Active  = false;
+
       this._currentPosition = new THREE.Vector3();
       this._currentLookat = new THREE.Vector3();
     }
@@ -30,10 +30,8 @@ export const third_person_camera = (() => {
     }
 
     Update(timeElapsed) {
-      if (!this.Active){
-return;
-      }
-       const idealOffset = this._CalculateIdealOffset();
+      
+      const idealOffset = this._CalculateIdealOffset();
       const idealLookat = this._CalculateIdealLookat();
 
       // const t = 0.05;
@@ -45,11 +43,6 @@ return;
 
       this._camera.position.copy(this._currentPosition);
       this._camera.lookAt(this._currentLookat);
-    }
-    Toggle() {
-        
-      this.Active=true;
-     return;
     }
   }
 

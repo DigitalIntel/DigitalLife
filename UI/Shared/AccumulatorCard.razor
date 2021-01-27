@@ -9,13 +9,19 @@
 }
 
 
+
+
 <MudCard>
     <MudCardMedia Image="https://source.unsplash.com/1600x900/?earth" />
     <MudCardContent>
-        <MudText Typo="Typo.h5">Online Component</MudText>
-        <MudText Typo="Typo.body2">All active share this component</MudText>
+      <h1 class="display-4">
+                        Live Component
+                        <a href="https://digitalPlayground.ben-hassen.com" target="_blank"></a> 
+                    </h1>
+  
+        <MudText Typo="Typo.body2">All active users share this component</MudText>
         <MudText Typo="Typo.body2">Try pressing the accumulate button on two tabs and observe the accumulator value</MudText>
-         <MudText Typo="Typo.h5">@accumulator</MudText>
+        <MudText Typo="Typo.h5">@accumulator</MudText>
         <StatefulComponentState Component="@this" />
     </MudCardContent>
     <MudCardActions>
@@ -23,6 +29,9 @@
         <MudButton Variant="Variant.Text" @onclick="AccumulateAsync" Color="Color.Primary">Accumulate</MudButton>
     </MudCardActions>
 </MudCard>
+
+
+
 
 @* <MudCard> *@
 @*      *@

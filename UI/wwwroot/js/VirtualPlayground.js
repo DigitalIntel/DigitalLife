@@ -207,14 +207,18 @@ class HackNSlashDemo {
         this._grid = new spatial_hash_grid.SpatialHashGrid(
             [[-1000, -1000], [1000, 1000]], [100, 100]);
 
-
-        this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._camera );
+  
+        this._BirdViewCAM = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        this._BirdViewCAM.position.set(100, 100, 25);
+        //  this._camera.position.set(100,100,100);
+        this._BirdViewCAM.lookAt(new THREE.Vector3(0, 0, 0));
+        this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
         
        // this._LoadTutorialGuy();
 
         //  this._LoadControllers();
        //this._LoadPlayer();
-        this._registerPlayer("eron");
+     //   this._registerPlayer("eron");
         // this._LoadFoliage();
         //  this._registerPlayer("masterid")
         this._LoadClouds();
@@ -269,154 +273,7 @@ class HackNSlashDemo {
 
     }
 
-    _LoadUI() {
-
-      
-        // tween.oncomplete(function(){
-        //    
-        //     alert("done tweening!")
-        // });
-        
-        // This code is only related to handling the split.
-        // Our three.js code has not changed
-        Split(['#view', '#controls'], {  // eslint-disable-line new-cap
-            sizes: [60, 40],
-            minSize: 50,
-            elementStyle: (dimension, size, gutterSize) => {
-                return {
-                    'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-                };
-            },
-            gutterStyle: (dimension, gutterSize) => {
-                return {
-                    'flex-basis': `${gutterSize}px`,
-                };
-            },
-        });
-
-
-        var ActiveFrames = document.getElementById("ActiveFrames");
-        //
-        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?tunisia" alt="img"></li> *@
-        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?earth" alt="img"></li> *@
-
-        // <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?Germany" alt="img"></li>
-        var g = document.createElement('li');
-        g.setAttribute("class", "slider__frame glide__slide");
-        var div = document.createElement('img');
-
-
-        div.setAttribute("src", "https://source.unsplash.com/1600x900/?dna");
-        g.appendChild(div);
-
-        ActiveFrames.appendChild(g);
-
-
-        var g = document.createElement('li');
-        g.setAttribute("class", "slider__frame glide__slide");
-        var div = document.createElement('img');
-        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Life");
-        g.appendChild(div);
-
-        ActiveFrames.appendChild(g);
-
-
-        var g = document.createElement('li');
-        g.setAttribute("class", "slider__frame glide__slide");
-        var div = document.createElement('img');
-        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Space");
-        g.appendChild(div);
-
-        ActiveFrames.appendChild(g);
-
-        var g = document.createElement('li');
-        g.setAttribute("class", "slider__frame glide__slide");
-        var div = document.createElement('img');
-        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Aliens");
-        g.appendChild(div);
-
-        ActiveFrames.appendChild(g);
-
-        //  var g = document.createElement('li');
-        //  g.setAttribute("class", "slider__frame glide__slide");
-        //  var div=document.createElement('div');
-        //
-        // div.setAttribute("id","cliContainer");
-        //  div.setAttribute("class","terminal");
-        //
-        //  g.appendChild(div);
-        //
-        //  ActiveFrames.appendChild(g);
-
-        this._UpdateGlider()
-
-        document.getElementById('cliContainer').addEventListener('keydown', event => {
-
-            this.Attention = "Cli";
-            this._input._resetAll();
-            if (this._cli) {
-                if (event.key === "Enter") {
-                    this._cli.enterKey();
-                    this._cli.println("");
-                    return;
-                }
-                this._cli.type(event.key);
-                // this._cli.printPrompt();
-                //   alert(event.key);
-            }
-        })
-
-        document.getElementById('c').addEventListener('click', event => {
-
-            this.Attention = "Canvas";
-
-            this._cli.type("Attention : " + this.Attention)
-            this._cli.println("");
-            this._cli.printPrompt();
-            this._cli.printCursor();
-            // this._input._resetAll();
-        })
-
-        document.getElementById('controls').addEventListener('mousedown', event => {
-
-            this.Attention = "Controls";
-            this._cli.type("Attention : " + this.Attention);
-            this._cli.println("");
-            this._cli.printPrompt();
-            this._cli.printCursor();
-            this._input._resetAll();
-        })
-
-
-        var userSelection = document.getElementsByClassName('gutter');
-        for (var i = 0; i < userSelection.length; i++) {
-            (function (index) {
-                userSelection[index].addEventListener("mousedown", function () {
-
-                  // this.Attention = "Gutter";
-                  // this._cli.type("Attention : " + this.Attention)
-                  // this._cli.println();
-                  // this._cli.printPrompt();
-                  // this._cli.printCursor();
-
-                    //         this._input._resetAll();
-                })
-            })(i);
-        }
-
-
-        document.getElementById('cliContainer').addEventListener('mousedown', event => {
-
-            this.Attention = "Cli";
-            this._input._resetAll();
-        })
-
-
-        /* global Split */
-
-
-    }
-
+ 
     _LoadControllers() {
         const ui = new entity.Entity();
         ui.AddComponent(new ui_controller.UIController());
@@ -706,9 +563,9 @@ class HackNSlashDemo {
 
         npc.AddComponent(new attack_controller.AttackController({timing: 0.35}));
         npc.SetPosition(new THREE.Vector3(
-            (Math.random() * 2 - 1) * 5000,
+            (Math.random() * 2 - 1) * 7000,
             0,
-            (Math.random() * 2 - 1) * 5000));
+            (Math.random() * 2 - 1) * 6900));
         this._entityManager.Add(npc);
 
 
@@ -768,16 +625,21 @@ class HackNSlashDemo {
                 const canvas = this._threejs.domElement;
                 this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
                 this._camera.updateProjectionMatrix();
+                this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
+                this._BirdViewCAM.updateProjectionMatrix();
                 this._UpdateGlider();
             }
 
             if (this._input.released('h')) {
                 const h = (async () => {
                     this._cli.printPrompt()
-                    await this._cli.type('echo "Intantiating Terminal"')
+                    await this._cli.type('let cli= new cli()')
+                    this._cli.printPrompt("cli : I exist !")
                     this._LoadPlayer();
-                    this._cli.println("Welcome to my terminal")
-                    await this._cli.type('echo "type start to start !"')
+                    
+                    this._cli.println("Welcome to Digital Playground, A visual OS")
+                    await this._cli.type('Version: 0.8 pre Alpha' + 'Build'+'00068');
+                    this._cli.println("Press B to load the camera man")
                     this._cli.println("")
                     this._cli.printPrompt()
                     var elem = this._cli.container;
@@ -823,22 +685,34 @@ class HackNSlashDemo {
                     this._cli.printPrompt()
                     await this._cli.type('bird eye view view"')
 
-                 this._LoadGlobalCamera();
+                // this._LoadGlobalCamera();
                     this._cli.println("I am the camera man , I follow you")
                     await this._cli.type('..... Loaded!')
                     this._cli.println("")
                     this._cli.printPrompt()
                     var elem = this._cli.container;
                     elem.scrollTop = elem.scrollHeight;
-                   // this._LoadPlayer();
-                    this._registerPlayer("eros")
+
+                    this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
+                    
+                   // this._registerPlayer("eros")
+                  
+                    
+                    this._entityManager.Get('player-camera').remove();
+                    this._scene.activeCamera= this._BirdViewCAM;
+                  //  this._registerPlayer("eros")
                     //  this._LoadFoliage();
                 })()
 
             }
 
+       
+            if (this._input.released('t')) {
 
-
+                this._LoadTutorialGuy();
+               // this._scene.activeCamera= this._camera;
+                
+            }
             if (this._input.released('r')) {
                 const h = (async () => {
                     this._cli.printPrompt()
@@ -934,9 +808,10 @@ class HackNSlashDemo {
 
 
         // 
-         if (this._GlobalCamera) {
-             this._UpdateOrbitControls(timeElapsed);
-         }
+        
+    
+        this._UpdateOrbitControls(timeElapsed);
+     
         this._UpdateSun();
 
 
@@ -1229,13 +1104,13 @@ class HackNSlashDemo {
     _LoadGlobalCamera(){
 
 
-        if (this._GlobalCamera==true)
-        {
+     //  if (this._GlobalCamera==true)
+     //  {
 
-            this._GlobalCamera=false;
-            var cam= this._entityManager.Get('player-camera');
-            cam.Toggle();
-        }
+     ////      this._GlobalCamera=false;
+     //      var cam= this._entityManager.Get('player-camera');
+     //      cam.Toggle();
+     //  }
        
     
 

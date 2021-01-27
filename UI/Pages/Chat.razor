@@ -57,7 +57,26 @@
 @*     *@
 @* *@
 
+<MudCard>
+    <MudCardMedia Image="https://source.unsplash.com/1600x900/?mars" />
+    <MudCardContent>
+        <h1 class="display-4">
+            Front End Manager 
+            <a href="https://digitalPlayground.ben-hassen.com" target="_blank"></a>
 
+        </h1>
+        
+        <ActiveComponents>@this</ActiveComponents>
+  
+        <MudText Typo="Typo.body2">This component loads some useful utilities</MudText>
+        <MudText Typo="Typo.body2">a place holder for now</MudText>
+       
+        <StatefulComponentState Component="@this" />
+    </MudCardContent>
+    <MudCardActions>
+   
+    </MudCardActions>
+</MudCard>
 <div class="example " data-component="example" data-active-class="example--active">
     <div class="example__frame">
         <div class="space space--medium">
@@ -85,7 +104,7 @@
                                                                                  <div  id="cliContainer" tabIndex="-1"></div>
                                                                                              </MudCardContent>
                         </MudCard></li> 
-                 
+                             <li class="slider__frame glide__slide"> <LightSwitch></LightSwitch> </li> 
                              <li class="slider__frame glide__slide">  <Home></Home> </li> 
                         <li class="slider__frame glide__slide">     <AccumulatorCard></AccumulatorCard></li> 
                    

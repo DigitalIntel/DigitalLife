@@ -14,90 +14,175 @@
 }
 
 
-<MudCard>
-      <MudText Typo="Typo.h5">Online Chat Room</MudText>
-    <MudCardContent>
-        <MudBadge Content=@(state.ActiveUserCount) Color="Color.Primary" Overlap="true">
-            <MudIcon Icon="@Icons.Material.VerifiedUser" class="float-right" Color="Color.Default"/>
-        </MudBadge>
-        <MudBadge Content=@(state.UserCount) Color="Color.Primary" Overlap="true">
-            <MudIcon Icon="@Icons.Material.Analytics" class="float-right" Color="Color.Default"/>
-        </MudBadge>
-     
-                
-        <AuthorizeView>
-            <Authorized>
-                <button class="btn btn-primary btn-sm" @onclick="SignOut">Sign out</button>
-            </Authorized>
-            <NotAuthorized>
-                <button class="btn btn-warning btn-sm" @onclick="SignIn">Sign in</button>
-            </NotAuthorized>
-        </AuthorizeView>
-        
-        @if (locals.Error != null) {
-            <div class="alert alert-danger" role="alert">
-                @locals.Error.Message
-            </div>
-        }
-        @if (error != null) {
-            <div class="alert alert-warning" role="alert">
-                Update error: @error.Message
-            </div>
-        }
-        <form @onsubmit="SetNameAsync">
-            @if (actualUserName != locals.Name) {
-                <div class="input-group-prepend pb-1">
-                    @if (@actualUserName == null) {
-                        <span class="badge btn-warning">Creating user...</span>
-        
-                    } else {
-                        <span class="badge btn-primary">Current name: @actualUserName</span>
-                    }
-                </div>
-            }
-            <div class="input-group pb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Your name</span>
-                </div>
-                <input class="form-control" @bind-value="@locals.Name" @bind-value:event="oninput" />
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-warning">Change</button>
-                </div>
-            </div>
-        </form>
-        <MudTable Items="@lastPage.Messages" FixedHeader="@true" Height="@(true?"400px":"")">
-            <HeaderContent>
-                <MudTh>User</MudTh>
-                <MudTh>Message</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                     <MudTd DataLabel="User">@lastPage.Users[context.UserId].Name </MudTd>
-                     <MudTd DataLabel="Message">@context.Text</MudTd>
-                </RowTemplate>
-            
-             <PagerContent>
-                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
-            </PagerContent>
-        </MudTable>
-   
-        
-        <StatefulComponentState Component="@this"/>
-        <form @onsubmit="SendMessageAsync">
-            <div class="input-group pb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Message</span>
-                </div>
-                <input class="form-control"
-                    placeholder="No ideas? Send an empty one!"
-                    @bind-value="locals.Message" />
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-success">Send</button>
-                </div>
-            </div>
-        </form>
 
+
+<MudCard>
+    <MudCardMedia Image="https://source.unsplash.com/1600x900/?mars" />
+    <MudCardContent>
+        <h1 class="display-4">
+           Online Chat Room
+            <a href="https://digitalPlayground.ben-hassen.com" target="_blank"></a> 
+        </h1>
+  
+        <MudText Typo="Typo.body2">This component loads the C# reference to perform queries to the data base and to remote api's </MudText>
+        <MudText Typo="Typo.body2">Try sending an empty message to see it in action!</MudText>
+        
+                @if (locals.Error != null) {
+                    <div class="alert alert-danger" role="alert">
+                        @locals.Error.Message
+                    </div>
+                }
+                @if (error != null) {
+                    <div class="alert alert-warning" role="alert">
+                        Update error: @error.Message
+                    </div>
+                }
+                <form @onsubmit="SetNameAsync">
+                    @if (actualUserName != locals.Name) {
+                        <div class="input-group-prepend pb-1">
+                            @if (@actualUserName == null) {
+                                <span class="badge btn-warning">Creating user...</span>
+                
+                            } else {
+                                <span class="badge btn-primary">Current name: @actualUserName</span>
+                            }
+                        </div>
+                    }
+                    <div class="input-group pb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Your name</span>
+                        </div>
+                        <input class="form-control" @bind-value="@locals.Name" @bind-value:event="oninput" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-warning">Change</button>
+                        </div>
+                    </div>
+                </form>
+                <MudTable Items="@lastPage.Messages" Dense="true" FixedHeader="@true" Height="@(true?"400px":"")">
+                    <HeaderContent>
+                        <MudTh>User</MudTh>
+                        <MudTh>Message</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                             <MudTd DataLabel="User">@lastPage.Users[context.UserId].Name </MudTd>
+                             <MudTd DataLabel="Message">@context.Text</MudTd>
+                        </RowTemplate>
+                    
+                     <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                    </PagerContent>
+                </MudTable>
+        
+      
+                <StatefulComponentState Component="@this" />
+                       <form @onsubmit="SendMessageAsync">
+                            <div class="input-group pb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Message</span>
+                                </div>
+                                <input class="form-control"
+                                    placeholder="No ideas? Send an empty one!"
+                                    @bind-value="locals.Message" />
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success">Send</button>
+                                </div>
+                            </div>
+                        </form>
     </MudCardContent>
+    <MudCardActions>
+        
+        <MudButton Variant="Variant.Text"  Color="Color.Primary">Reset</MudButton>
+       
+    </MudCardActions>
 </MudCard>
+
+
+
+@* <MudCard> *@
+@*       <MudText Typo="Typo.h5">Online Chat Room</MudText> *@
+@*     <MudCardContent> *@
+@*         <MudBadge Content=@(state.ActiveUserCount) Color="Color.Primary" Overlap="true"> *@
+@*             <MudIcon Icon="@Icons.Material.VerifiedUser" class="float-right" Color="Color.Default"/> *@
+@*         </MudBadge> *@
+@*         <MudBadge Content=@(state.UserCount) Color="Color.Primary" Overlap="true"> *@
+@*             <MudIcon Icon="@Icons.Material.Analytics" class="float-right" Color="Color.Default"/> *@
+@*         </MudBadge> *@
+@*       *@
+@*                  *@
+@*         <AuthorizeView> *@
+@*             <Authorized> *@
+@*                 <button class="btn btn-primary btn-sm" @onclick="SignOut">Sign out</button> *@
+@*             </Authorized> *@
+@*             <NotAuthorized> *@
+@*                 <button class="btn btn-warning btn-sm" @onclick="SignIn">Sign in</button> *@
+@*             </NotAuthorized> *@
+@*         </AuthorizeView> *@
+@*          *@
+@*         @if (locals.Error != null) { *@
+@*             <div class="alert alert-danger" role="alert"> *@
+@*                 @locals.Error.Message *@
+@*             </div> *@
+@*         } *@
+@*         @if (error != null) { *@
+@*             <div class="alert alert-warning" role="alert"> *@
+@*                 Update error: @error.Message *@
+@*             </div> *@
+@*         } *@
+@*         <form @onsubmit="SetNameAsync"> *@
+@*             @if (actualUserName != locals.Name) { *@
+@*                 <div class="input-group-prepend pb-1"> *@
+@*                     @if (@actualUserName == null) { *@
+@*                         <span class="badge btn-warning">Creating user...</span> *@
+@*          *@
+@*                     } else { *@
+@*                         <span class="badge btn-primary">Current name: @actualUserName</span> *@
+@*                     } *@
+@*                 </div> *@
+@*             } *@
+@*             <div class="input-group pb-3"> *@
+@*                 <div class="input-group-prepend"> *@
+@*                     <span class="input-group-text">Your name</span> *@
+@*                 </div> *@
+@*                 <input class="form-control" @bind-value="@locals.Name" @bind-value:event="oninput" /> *@
+@*                 <div class="input-group-append"> *@
+@*                     <button type="submit" class="btn btn-warning">Change</button> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </form> *@
+@*         <MudTable Items="@lastPage.Messages" FixedHeader="@true" Height="@(true?"400px":"")"> *@
+@*             <HeaderContent> *@
+@*                 <MudTh>User</MudTh> *@
+@*                 <MudTh>Message</MudTh> *@
+@*             </HeaderContent> *@
+@*             <RowTemplate> *@
+@*                      <MudTd DataLabel="User">@lastPage.Users[context.UserId].Name </MudTd> *@
+@*                      <MudTd DataLabel="Message">@context.Text</MudTd> *@
+@*                 </RowTemplate> *@
+@*              *@
+@*              <PagerContent> *@
+@*                 <MudTablePager PageSizeOptions="new int[]{50, 100}" /> *@
+@*             </PagerContent> *@
+@*         </MudTable> *@
+@*     *@
+@*          *@
+@*         <StatefulComponentState Component="@this"/> *@
+@*          *@
+@*         <form @onsubmit="SendMessageAsync"> *@
+@*             <div class="input-group pb-3"> *@
+@*                 <div class="input-group-prepend"> *@
+@*                     <span class="input-group-text">Message</span> *@
+@*                 </div> *@
+@*                 <input class="form-control" *@
+@*                     placeholder="No ideas? Send an empty one!" *@
+@*                     @bind-value="locals.Message" /> *@
+@*                 <div class="input-group-append"> *@
+@*                     <button type="submit" class="btn btn-success">Send</button> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </form> *@
+@* *@
+@*     </MudCardContent> *@
+@* </MudCard> *@
 @* *@
 @* <div> *@
 @*     <span class="float-right"> *@

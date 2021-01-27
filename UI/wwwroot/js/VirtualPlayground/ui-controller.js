@@ -11,6 +11,152 @@ export const ui_controller = (() => {
     }
   
     InitComponent() {
+      this._LoadUI() {
+
+
+        // tween.oncomplete(function(){
+        //    
+        //     alert("done tweening!")
+        // });
+
+        // This code is only related to handling the split.
+        // Our three.js code has not changed
+        Split(['#view', '#controls'], {  // eslint-disable-line new-cap
+          sizes: [60, 40],
+          minSize: 50,
+          elementStyle: (dimension, size, gutterSize) => {
+            return {
+              'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+            };
+          },
+          gutterStyle: (dimension, gutterSize) => {
+            return {
+              'flex-basis': `${gutterSize}px`,
+            };
+          },
+        });
+
+
+        let ActiveFrames = document.getElementById("ActiveFrames");
+        //
+        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?tunisia" alt="img"></li> *@
+        // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?earth" alt="img"></li> *@
+
+        // <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?Germany" alt="img"></li>
+        let g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        let div = document.createElement('img');
+
+
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?dna");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+
+       g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+       div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Life");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+
+         g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Space");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+        g = document.createElement('li');
+        g.setAttribute("class", "slider__frame glide__slide");
+        div = document.createElement('img');
+        div.setAttribute("src", "https://source.unsplash.com/1600x900/?Aliens");
+        g.appendChild(div);
+
+        ActiveFrames.appendChild(g);
+
+        //  var g = document.createElement('li');
+        //  g.setAttribute("class", "slider__frame glide__slide");
+        //  var div=document.createElement('div');
+        //
+        // div.setAttribute("id","cliContainer");
+        //  div.setAttribute("class","terminal");
+        //
+        //  g.appendChild(div);
+        //
+        //  ActiveFrames.appendChild(g);
+
+        this._UpdateGlider()
+
+        document.getElementById('cliContainer').addEventListener('keydown', event => {
+
+          this.Attention = "Cli";
+          this._input._resetAll();
+          if (this._cli) {
+            if (event.key === "Enter") {
+              this._cli.enterKey();
+              this._cli.println("");
+              return;
+            }
+            this._cli.type(event.key);
+            // this._cli.printPrompt();
+            //   alert(event.key);
+          }
+        })
+
+        document.getElementById('c').addEventListener('click', event => {
+
+          this.Attention = "Canvas";
+
+          this._cli.type("Attention : " + this.Attention)
+          this._cli.println("");
+          this._cli.printPrompt();
+          this._cli.printCursor();
+          // this._input._resetAll();
+        })
+
+        document.getElementById('controls').addEventListener('mousedown', event => {
+
+          this.Attention = "Controls";
+          this._cli.type("Attention : " + this.Attention);
+          this._cli.println("");
+          this._cli.printPrompt();
+          this._cli.printCursor();
+          this._input._resetAll();
+        })
+
+
+        var userSelection = document.getElementsByClassName('gutter');
+        for (var i = 0; i < userSelection.length; i++) {
+          (function (index) {
+            userSelection[index].addEventListener("mousedown", function () {
+
+              // this.Attention = "Gutter";
+              // this._cli.type("Attention : " + this.Attention)
+              // this._cli.println();
+              // this._cli.printPrompt();
+              // this._cli.printCursor();
+
+              //         this._input._resetAll();
+            })
+          })(i);
+        }
+        document.getElementById('cliContainer').addEventListener('mousedown', event => {
+
+          this.Attention = "Cli";
+          this._input._resetAll();
+        })
+
+
+        /* global Split */
+
+
+      }
+
       this._iconBar = {
         stats: document.getElementById('icon-bar-stats'),
         inventory: document.getElementById('icon-bar-inventory'),

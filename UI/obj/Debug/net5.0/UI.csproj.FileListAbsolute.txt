@@ -1540,3 +1540,11 @@ C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Shared\OnlineRoom.raz
 C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Shared\OnlineRoom.razor.g.cs
 C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Pages\VirtualPlaygroundV3Tweening.razor.g.cs
 C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Pages\VirtualPlaygroundV3Tweening.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Pages\VirtualPlayground-BackupSemiFunctional.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Pages\VirtualPlayground-BackupSemiFunctional.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Shared\LightSwitch.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Shared\LightSwitch.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Pages\ActiveComponents.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Pages\ActiveComponents.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\RazorDeclaration\Shared\NicePage.razor.g.cs
+C:\dev\recentHostable\UI\obj\Debug\net5.0\Razor\Shared\NicePage.razor.g.cs

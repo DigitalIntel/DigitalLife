@@ -1,385 +1,385 @@
-﻿@page "/"
- @inject IJSRuntime JsRuntime; 
-@* @implements IAsyncDisposable *@
-
-
-
-<div id="editor" >
-      <div id="view"><canvas id="c"></canvas></div>
-    @* <div id="controls" onclick="alert('clicked Controls')"> *@
-   <div id="controls"> 
-        <div>
-        
-            @*     <MudContainer MaxWidth="MaxWidth.Small"> *@
-                    <Chat> </Chat> 
-            @*     </MudContainer> *@
-      
-        </div>
-    </div>
-      </div>
-
-<style>
-
-body {
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-    
-}
-
-<!--region fine--> 
-.mud-layout .mud-main-content{
-  /*padding: 0px;*/
-  padding-left: 0px; !important;
-  padding-right: 0px; !important;
-  /*// padding-top: 48px; !important;*/
-   padding-top: 0px; !important;
-    padding-bottom: 0px; !important;
- }
- .maincontainer {
-       display: flex;
-       width: 100vw;
-       height: 100vh;
-      
-     }
-     /*html, body {*/
-     /*    height: 100%;*/
-     /*  margin: 0;*/
-     /*  font-size: 16pt;*/
-     /*}*/
-     #editor {
-       display: flex;
-       width: 100%;
-       height: 100vh;
-      
-     }
-     #controls {   
-   
-        display: block;
-       overflow-y: scroll !important;
-           
-     }
-     #c {
-       width: 100%;
-       height: 100vh;
-       display: block;
-     }
-     
-     .gutter {
-         background-color: #eee;
-         background-repeat: no-repeat;
-         background-position: 50%;
-     }
-     .gutter.gutter-horizontal {
-         cursor: ew-resize;
-         background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==')
-     }
-     
-     :root {
-         --color-bg: #151a23;
-         --color-text: #eee;
-         --color-text-subtle: #a2a2a2;
-     }
-     
-     .terminal {
-         width: 100%;
-         min-height: 300px;
-         margin-bottom: 40px;
-         height: 100vh;
-         background: var(--color-bg);
-         color: var(--color-text);
-         box-shadow: rgba(0, 0, 0, 0.42) 5px 5px 25px;
-         font-size: 13px;
-         font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
-         border-radius: 4px;
-         padding: 75px 25px 35px;
-         position: relative;
-             overflow-y: scroll;  !important;
-                  display: block;                             
-         -webkit-box-sizing: border-box;
-                 box-sizing: border-box;
-     
-         -ms-overflow-style: none;  // IE 10+
-        
-      
-         /*overflow: -moz-scrollbars-none;  // Firefox*/
-     
-         &::-webkit-scrollbar {
-           display: none;
-         }
-     }
-     
-     .terminal:before {
-         content: '';
-         position: absolute;
-         top: 15px;
-         left: 15px;
-         display: inline-block;
-         width: 15px;
-         height: 15px;
-         border-radius: 50%;
-         /* A little hack to display the window buttons in one pseudo element. */
-         background: #d9515d;
-         -webkit-box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
-                 box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
-     }
-     
-     [data-ty] {
-         min-width: 720px;
-         display: block;
-         line-height: 1.4;
-         overflow-wrap: unset;
-     }
-     
-     [data-ty]:before {
-         /* Set up defaults and ensure empty lines are displayed. */
-         content: '';
-         display: inline-block;
-         vertical-align: middle;
-     }
-     
-     [data-ty="input"]:before,
-     [data-ty="reset-input"]:before,
-     [data-ty-prompt]:before {
-         margin-right: 0.75em;
-         color: var(--color-text-subtle);
-     }
-     
-     [data-ty="input"]:before,
-     [data-ty="reset-input"]:before {
-         content: '$';
-     }
-     
-     [data-ty][data-ty-prompt]:before {
-         content: attr(data-ty-prompt);
-     }
-     
-     [data-cli-cursor]:after {
-         content: attr(data-cli-cursor);
-         font-family: monospace;
-         -webkit-animation: blink 1s infinite;
-                 animation: blink 1s infinite;
-     }
-     
-     
-     /* Cursor animation */
-     
-     @@-webkit-keyframes blink {
-         50% {
-             opacity: 0;
-         }
-     }
-     
-     @@keyframes blink {
-         50% {
-             opacity: 0;
-         }
-     }
-<!--endregion-->
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  text-rendering: optimizeLegibility;
-  line-height: 1.5;
-  height: 100vw;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
- 
- 
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
- 
-
- .page {
-   overflow: hidden;
-   header {
-     width: 100vw;
-     height: 100vh;
-     overflow: hidden;
-   }
- }
- 
- img {
-   display: block;
-   width: 100%;
-   height: 100vh;
-   object-fit: cover;
- }
- 
-  video {
-    display: block;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
- 
-
-
- 
-
-@@media only screen and (min-width: 768px) {
-  section {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
-  .body {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  pre {
-    min-width: 768px;
-  }
-
-}
-
-nav {
-  border-bottom: 1px solid #ddd;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
-  margin-bottom: 50px;
-}
-
-pre {
-  font-family: monospace;
-  padding: 10px;
-  background-color: #efefef;
-}
-
-section {
-  max-width: 959px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  max-width: 1200px;
-  border-bottom: 1px solid #ddd;
-
-}
-
-h1 {
-  padding-bottom: 20px;
-  font-size: 42px;
-  font-weight: 600;
-  text-align: center;
-}
-
-h2 {
-  font-size: 22px;
-  color: #999;
-  text-align: center;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 20px;
-}
-
-.base00 { color: #181818; }
-.base01 { color: #282828; }
-.base02 { color: #383838; }
-.base03 { color: #585858; }
-.base04 { color: #b8b8b8; }
-.base05 { color: #d8d8d8; }
-.base06 { color: #e8e8e8; }
-.base07 { color: #f8f8f8; }
-.base08 { color: #ab4642; }
-.base09 { color: #dc9656; }
-.base0A { color: #f7ca88; }
-.base0B { color: #a1b56c; }
-.base0C { color: #86c1b9; }
-.base0D { color: #7cafc2; }
-.base0E { color: #ba8baf; }
-.base0F { color: #a16946; }
-
-.base00-background { background-color: #181818; }
-.base01-background { background-color: #282828; }
-.base02-background { background-color: #383838; }
-.base03-background { background-color: #585858; }
-.base04-background { background-color: #b8b8b8; }
-.base05-background { background-color: #d8d8d8; }
-.base06-background { background-color: #e8e8e8; }
-.base07-background { background-color: #f8f8f8; }
-.base08-background { background-color: #ab4642; }
-.base09-background { background-color: #dc9656; }
-.base0A-background { background-color: #f7ca88; }
-.base0B-background { background-color: #a1b56c; }
-.base0C-background { background-color: #86c1b9; }
-.base0D-background { background-color: #7cafc2; }
-.base0E-background { background-color: #ba8baf; }
-.base0F-background { background-color: #a16946; }
-
-
-     
-</style>
-
-
-@code {
-    
-   
- 
-    // private static IJSObjectReference RuntimeContainer;
-    // private static IJSObjectReference mainJS;
-    //
-    //
-    //
-    // const string ImportPath = "../js/stats.module.js";
-    // protected override async void OnAfterRender(bool firstRender)
-    // {
-    //     if (!firstRender) return;
-    //     RuntimeContainer = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "../js/VirtualPlayground.js");
-    //  
-    //     mainJS = await RuntimeContainer.InvokeAsync<IJSObjectReference>("init", DotNetObjectReference.Create(this));
-    //    
-    // }
-    //
-    //
-    // [JSInvokable]
-    // public async void initializedfromJs()
-    // {
-    //     Console.WriteLine(("initialized in dotnet"));
-    // }
-    //
-    //
-    // public async ValueTask DisposeAsync()
-    // {
-    //
-    //     await mainJS.DisposeAsync();
-    //     await RuntimeContainer.DisposeAsync();
-    //   Console.WriteLine(("disposed"));
-    //
-    // }
-    //
-    // async void  Start()
-    // {
-    //     
-    //     await mainJS.InvokeVoidAsync("_registerPlayer", "idMaster");
-    //
-    //     
-    // }
-    //
-    // async void  AddRemotePlayer()
-    // {
-    //     
-    //  await mainJS.InvokeVoidAsync("_LoadRemotePlayer", "idremote");
-    //
-    //     
-    // }
-    //
-    // async void RegisterLocalPlayer()
-    // {
-    //     
-    //     
-    //     
-    // }
-
-
-    
-}
+﻿@* *@
+@*  @inject IJSRuntime JsRuntime;  *@
+@* $1$ @implements IAsyncDisposable #1# *@
+@* *@
+@* *@
+@* *@
+@* <div id="editor" > *@
+@*       <div id="view"><canvas id="c"></canvas></div> *@
+@*     $1$ <div id="controls" onclick="alert('clicked Controls')"> #1# *@
+@*    <div id="controls">  *@
+@*         <div> *@
+@*          *@
+@*             $1$     <MudContainer MaxWidth="MaxWidth.Small"> #1# *@
+@*                     <Chat> </Chat>  *@
+@*             $1$     </MudContainer> #1# *@
+@*        *@
+@*         </div> *@
+@*     </div> *@
+@*       </div> *@
+@* *@
+@* <style> *@
+@* *@
+@* body { *@
+@*     overflow-x: hidden !important; *@
+@*     overflow-y: hidden !important; *@
+@*      *@
+@* } *@
+@* *@
+@* <!--region fine-->  *@
+@* .mud-layout .mud-main-content{ *@
+@*   /*padding: 0px;*/ *@
+@*   padding-left: 0px; !important; *@
+@*   padding-right: 0px; !important; *@
+@*   /*// padding-top: 48px; !important;*/ *@
+@*    padding-top: 0px; !important; *@
+@*     padding-bottom: 0px; !important; *@
+@*  } *@
+@*  .maincontainer { *@
+@*        display: flex; *@
+@*        width: 100vw; *@
+@*        height: 100vh; *@
+@*        *@
+@*      } *@
+@*      /*html, body {*/ *@
+@*      /*    height: 100%;*/ *@
+@*      /*  margin: 0;*/ *@
+@*      /*  font-size: 16pt;*/ *@
+@*      /*}*/ *@
+@*      #editor { *@
+@*        display: flex; *@
+@*        width: 100%; *@
+@*        height: 100vh; *@
+@*        *@
+@*      } *@
+@*      #controls {    *@
+@*     *@
+@*         display: block; *@
+@*        overflow-y: scroll !important; *@
+@*             *@
+@*      } *@
+@*      #c { *@
+@*        width: 100%; *@
+@*        height: 100vh; *@
+@*        display: block; *@
+@*      } *@
+@*       *@
+@*      .gutter { *@
+@*          background-color: #eee; *@
+@*          background-repeat: no-repeat; *@
+@*          background-position: 50%; *@
+@*      } *@
+@*      .gutter.gutter-horizontal { *@
+@*          cursor: ew-resize; *@
+@*          background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==') *@
+@*      } *@
+@*       *@
+@*      :root { *@
+@*          --color-bg: #151a23; *@
+@*          --color-text: #eee; *@
+@*          --color-text-subtle: #a2a2a2; *@
+@*      } *@
+@*       *@
+@*      .terminal { *@
+@*          width: 100%; *@
+@*          min-height: 300px; *@
+@*          margin-bottom: 40px; *@
+@*          height: 100vh; *@
+@*          background: var(--color-bg); *@
+@*          color: var(--color-text); *@
+@*          box-shadow: rgba(0, 0, 0, 0.42) 5px 5px 25px; *@
+@*          font-size: 13px; *@
+@*          font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace; *@
+@*          border-radius: 4px; *@
+@*          padding: 75px 25px 35px; *@
+@*          position: relative; *@
+@*              overflow-y: scroll;  !important; *@
+@*                   display: block;                              *@
+@*          -webkit-box-sizing: border-box; *@
+@*                  box-sizing: border-box; *@
+@*       *@
+@*          -ms-overflow-style: none;  // IE 10+ *@
+@*          *@
+@*        *@
+@*          /*overflow: -moz-scrollbars-none;  // Firefox*/ *@
+@*       *@
+@*          &::-webkit-scrollbar { *@
+@*            display: none; *@
+@*          } *@
+@*      } *@
+@*       *@
+@*      .terminal:before { *@
+@*          content: ''; *@
+@*          position: absolute; *@
+@*          top: 15px; *@
+@*          left: 15px; *@
+@*          display: inline-block; *@
+@*          width: 15px; *@
+@*          height: 15px; *@
+@*          border-radius: 50%; *@
+@*          /* A little hack to display the window buttons in one pseudo element. */ *@
+@*          background: #d9515d; *@
+@*          -webkit-box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930; *@
+@*                  box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930; *@
+@*      } *@
+@*       *@
+@*      [data-ty] { *@
+@*          min-width: 720px; *@
+@*          display: block; *@
+@*          line-height: 1.4; *@
+@*          overflow-wrap: unset; *@
+@*      } *@
+@*       *@
+@*      [data-ty]:before { *@
+@*          /* Set up defaults and ensure empty lines are displayed. */ *@
+@*          content: ''; *@
+@*          display: inline-block; *@
+@*          vertical-align: middle; *@
+@*      } *@
+@*       *@
+@*      [data-ty="input"]:before, *@
+@*      [data-ty="reset-input"]:before, *@
+@*      [data-ty-prompt]:before { *@
+@*          margin-right: 0.75em; *@
+@*          color: var(--color-text-subtle); *@
+@*      } *@
+@*       *@
+@*      [data-ty="input"]:before, *@
+@*      [data-ty="reset-input"]:before { *@
+@*          content: '$'; *@
+@*      } *@
+@*       *@
+@*      [data-ty][data-ty-prompt]:before { *@
+@*          content: attr(data-ty-prompt); *@
+@*      } *@
+@*       *@
+@*      [data-cli-cursor]:after { *@
+@*          content: attr(data-cli-cursor); *@
+@*          font-family: monospace; *@
+@*          -webkit-animation: blink 1s infinite; *@
+@*                  animation: blink 1s infinite; *@
+@*      } *@
+@*       *@
+@*       *@
+@*      /* Cursor animation */ *@
+@*       *@
+@*      @@-webkit-keyframes blink { *@
+@*          50% { *@
+@*              opacity: 0; *@
+@*          } *@
+@*      } *@
+@*       *@
+@*      @@keyframes blink { *@
+@*          50% { *@
+@*              opacity: 0; *@
+@*          } *@
+@*      } *@
+@* <!--endregion--> *@
+@* *@
+@* body { *@
+@*   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; *@
+@*   text-rendering: optimizeLegibility; *@
+@*   line-height: 1.5; *@
+@*   height: 100vw; *@
+@*   position: relative; *@
+@*   display: flex; *@
+@*   flex-direction: column; *@
+@* } *@
+@* *@
+@*   *@
+@*   *@
+@*  * { *@
+@*    margin: 0; *@
+@*    padding: 0; *@
+@*    box-sizing: border-box; *@
+@*  } *@
+@*   *@
+@* *@
+@*  .page { *@
+@*    overflow: hidden; *@
+@*    header { *@
+@*      width: 100vw; *@
+@*      height: 100vh; *@
+@*      overflow: hidden; *@
+@*    } *@
+@*  } *@
+@*   *@
+@*  img { *@
+@*    display: block; *@
+@*    width: 100%; *@
+@*    height: 100vh; *@
+@*    object-fit: cover; *@
+@*  } *@
+@*   *@
+@*   video { *@
+@*     display: block; *@
+@*     width: 100%; *@
+@*     height: 100vh; *@
+@*     object-fit: cover; *@
+@*   } *@
+@*   *@
+@* *@
+@* *@
+@*   *@
+@* *@
+@* @@media only screen and (min-width: 768px) { *@
+@*   section { *@
+@*     margin-left: 10%; *@
+@*     margin-right: 10%; *@
+@*   } *@
+@* *@
+@*   .body { *@
+@*     align-items: center; *@
+@*     display: flex; *@
+@*     flex-direction: column; *@
+@*   } *@
+@* *@
+@*   pre { *@
+@*     min-width: 768px; *@
+@*   } *@
+@* *@
+@* } *@
+@* *@
+@* nav { *@
+@*   border-bottom: 1px solid #ddd; *@
+@*   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px; *@
+@*   margin-bottom: 50px; *@
+@* } *@
+@* *@
+@* pre { *@
+@*   font-family: monospace; *@
+@*   padding: 10px; *@
+@*   background-color: #efefef; *@
+@* } *@
+@* *@
+@* section { *@
+@*   max-width: 959px; *@
+@*   padding-top: 40px; *@
+@*   padding-bottom: 40px; *@
+@*   padding-left: 20px; *@
+@*   padding-right: 20px; *@
+@*   max-width: 1200px; *@
+@*   border-bottom: 1px solid #ddd; *@
+@* *@
+@* } *@
+@* *@
+@* h1 { *@
+@*   padding-bottom: 20px; *@
+@*   font-size: 42px; *@
+@*   font-weight: 600; *@
+@*   text-align: center; *@
+@* } *@
+@* *@
+@* h2 { *@
+@*   font-size: 22px; *@
+@*   color: #999; *@
+@*   text-align: center; *@
+@* } *@
+@* *@
+@* h3 { *@
+@*   font-size: 20px; *@
+@*   font-weight: bold; *@
+@*   padding-bottom: 20px; *@
+@* } *@
+@* *@
+@* .base00 { color: #181818; } *@
+@* .base01 { color: #282828; } *@
+@* .base02 { color: #383838; } *@
+@* .base03 { color: #585858; } *@
+@* .base04 { color: #b8b8b8; } *@
+@* .base05 { color: #d8d8d8; } *@
+@* .base06 { color: #e8e8e8; } *@
+@* .base07 { color: #f8f8f8; } *@
+@* .base08 { color: #ab4642; } *@
+@* .base09 { color: #dc9656; } *@
+@* .base0A { color: #f7ca88; } *@
+@* .base0B { color: #a1b56c; } *@
+@* .base0C { color: #86c1b9; } *@
+@* .base0D { color: #7cafc2; } *@
+@* .base0E { color: #ba8baf; } *@
+@* .base0F { color: #a16946; } *@
+@* *@
+@* .base00-background { background-color: #181818; } *@
+@* .base01-background { background-color: #282828; } *@
+@* .base02-background { background-color: #383838; } *@
+@* .base03-background { background-color: #585858; } *@
+@* .base04-background { background-color: #b8b8b8; } *@
+@* .base05-background { background-color: #d8d8d8; } *@
+@* .base06-background { background-color: #e8e8e8; } *@
+@* .base07-background { background-color: #f8f8f8; } *@
+@* .base08-background { background-color: #ab4642; } *@
+@* .base09-background { background-color: #dc9656; } *@
+@* .base0A-background { background-color: #f7ca88; } *@
+@* .base0B-background { background-color: #a1b56c; } *@
+@* .base0C-background { background-color: #86c1b9; } *@
+@* .base0D-background { background-color: #7cafc2; } *@
+@* .base0E-background { background-color: #ba8baf; } *@
+@* .base0F-background { background-color: #a16946; } *@
+@* *@
+@* *@
+@*       *@
+@* </style> *@
+@* *@
+@* *@
+@* @code { *@
+@*      *@
+@*     *@
+@*   *@
+@*     // private static IJSObjectReference RuntimeContainer; *@
+@*     // private static IJSObjectReference mainJS; *@
+@*     // *@
+@*     // *@
+@*     // *@
+@*     // const string ImportPath = "../js/stats.module.js"; *@
+@*     // protected override async void OnAfterRender(bool firstRender) *@
+@*     // { *@
+@*     //     if (!firstRender) return; *@
+@*     //     RuntimeContainer = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "../js/VirtualPlayground.js"); *@
+@*     //   *@
+@*     //     mainJS = await RuntimeContainer.InvokeAsync<IJSObjectReference>("init", DotNetObjectReference.Create(this)); *@
+@*     //     *@
+@*     // } *@
+@*     // *@
+@*     // *@
+@*     // [JSInvokable] *@
+@*     // public async void initializedfromJs() *@
+@*     // { *@
+@*     //     Console.WriteLine(("initialized in dotnet")); *@
+@*     // } *@
+@*     // *@
+@*     // *@
+@*     // public async ValueTask DisposeAsync() *@
+@*     // { *@
+@*     // *@
+@*     //     await mainJS.DisposeAsync(); *@
+@*     //     await RuntimeContainer.DisposeAsync(); *@
+@*     //   Console.WriteLine(("disposed")); *@
+@*     // *@
+@*     // } *@
+@*     // *@
+@*     // async void  Start() *@
+@*     // { *@
+@*     //      *@
+@*     //     await mainJS.InvokeVoidAsync("_registerPlayer", "idMaster"); *@
+@*     // *@
+@*     //      *@
+@*     // } *@
+@*     // *@
+@*     // async void  AddRemotePlayer() *@
+@*     // { *@
+@*     //      *@
+@*     //  await mainJS.InvokeVoidAsync("_LoadRemotePlayer", "idremote"); *@
+@*     // *@
+@*     //      *@
+@*     // } *@
+@*     // *@
+@*     // async void RegisterLocalPlayer() *@
+@*     // { *@
+@*     //      *@
+@*     //      *@
+@*     //      *@
+@*     // } *@
+@* *@
+@* *@
+@*      *@
+@* } *@

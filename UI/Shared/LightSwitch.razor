@@ -1,0 +1,65 @@
+﻿@inherits LayoutComponentBase
+@inject IDialogService Dialog
+@inject NavigationManager Navigation
+
+<MudThemeProvider Theme="@CurrentTheme" />
+<MudDialogProvider FullWidth="true" MaxWidth="MaxWidth.ExtraSmall" />
+<MudSnackbarProvider />
+
+
+
+<MudCard>
+    <MudCardMedia Image="https://source.unsplash.com/1600x900/?earth" />
+    <MudCardContent>
+      <h1 class="display-4">
+                         Light Switch
+                        <a href="https://digitalPlayground.ben-hassen.com" target="_blank"></a> 
+                    </h1>
+  
+        <MudText Typo="Typo.body2">This is a local component, that controls the light switch</MudText>
+        <MudText Typo="Typo.body2">Try pressing the ThemeToggle button on two tabs and observe how this is Just Js, or is it ? </MudText>
+        <MudText Typo="Typo.body2">Version 0.8a , Build 129</MudText>
+        <MudText Typo="Typo.body2">Creator Hamza Ben Hassen</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" @onclick="@ThemeToggle" Color="Color.Primary">Toggle Theme</MudButton>
+        <MudButton Variant="Variant.Text" @onclick="@ChangeBlazorMode" Color="Color.Primary">Change Blazor mode</MudButton>
+    </MudCardActions>
+</MudCard>
+
+
+
+
+
+<MudLayout>
+    @* <MudAppBar  Dense="true" Elevation="25"> *@
+    @*     <MudIconButton Icon="@Icons.Material.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@DrawerToggle" /> *@
+    @*     <MudText Typo="Typo.h5" Class="ml-3">HBH Playground @customString</MudText> *@
+    @*     <MudAppBarSpacer /> *@
+    @*     <MudTooltip Text="Toggle light/dark theme"> *@
+    @*         <MudIconButton Icon="@Icons.Material.Brightness4" Color="Color.Inherit" OnClick="@ThemeToggle" /> *@
+    @*     </MudTooltip> *@
+    @*     <MudTooltip Text="Change Blazor mode"> *@
+    @*         <MudIconButton Icon="@Icons.Material.Settings" Color="Color.Inherit" OnClick="@ChangeBlazorMode" /> *@
+    @*     </MudTooltip> *@
+    @* </MudAppBar> *@
+    @* <MudDrawer @bind-Open="@IsDrawerOpen" Elevation="25" Clipped="true"> *@
+    @*     <MudDrawerHeader LinkToIndex="true"> *@
+    @*         <MudText Typo="Typo.h6">Menu</MudText> *@
+    @*     </MudDrawerHeader> *@
+    @*     <NavMenu /> *@
+    @* </MudDrawer> *@
+
+    <MudMainContent id="Mudmainlayout">
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code { private bool IsDrawerOpen { get; set; } = true;
+    private string customString { get; set; } = "Empty";
+    private bool IsDarkTheme { get; set; }
+    private MudTheme CurrentTheme => IsDarkTheme ? Themes.Dark : Themes.Default;
+
+    private void DrawerToggle() => IsDrawerOpen = !IsDrawerOpen;
+    private void ThemeToggle() => IsDarkTheme = !IsDarkTheme;
+    private void ChangeBlazorMode() => Dialog.Show<BlazorModeDialog>("Change Blazor Mode"); }
