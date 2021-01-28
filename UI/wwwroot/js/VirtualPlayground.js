@@ -14,7 +14,7 @@ import {remotePlayer_input} from '../js/VirtualPlayground/remotePlayer_input.js'
 import {npc_entity} from '../js/VirtualPlayground/npc-entity.js';
 import {math} from '../js/VirtualPlayground/math.js';
 import {spatial_hash_grid} from '../js/VirtualPlayground/spatial-hash-grid.js';
-import {ui_controller} from '../js/VirtualPlayground/ui-controller.js';
+//import {ui_controller} from '../js/VirtualPlayground/ui-controller.js';
 import {health_bar} from '../js/VirtualPlayground/health-bar.js';
 import {level_up_component} from '../js/VirtualPlayground/level-up-component.js';
 import {quest_component} from '../js/VirtualPlayground/quest-component.js';
@@ -25,12 +25,13 @@ import {attack_controller} from '../js/VirtualPlayground/attacker-controller.js'
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/controls/OrbitControls.js';
 import { SimpleOrbitControls } from '../js/VirtualPlayground/orbitctrl.js'
 
-import {CLI_Guy} from "../js/VirtualPlayground/CliGuy.js";
+//import {CLI_Guy} from "../js/VirtualPlayground/CliGuy.js";
 import TWEEN from "../js/tweenmin.js";
+//import {HBH00} from "../js/VirtualPlayground/HBH01.js";
 //
 //
 
-
+import { HBH02} from '../js/VirtualPlayground/HBH02.js';
 
 
 const _VS = `
@@ -112,12 +113,14 @@ class HackNSlashDemo {
     _Initialize() {
         this._GlobalCamera=false;
         this._ui=null;
+        this._cli=null;
+        this.HBH01=null;
    
         this._canvas = document.querySelector('#c');
         this._view = document.querySelector('#view');
         this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
         this._threejs.antialias = true;
-        this._input = new StInput(window);
+     //   
         //this._LoadUI();
         this.Attention = "Canvas"
 
@@ -215,20 +218,91 @@ class HackNSlashDemo {
         this._RAF();
     }
 
- 
     _LoadControllers() {
-        const ui = new entity.Entity();
-         ui.AddComponent(new ui_controller.UIController());
-       // const cli = this._entityManager.Add(ui, 'ui');
-        this._entityManager.Add( ui,'ui');
-        this._ui=this._entityManager.Get('ui').GetComponent('UIController');;
-      
-        this._cli= new entity.Entity();
-        this._cli.AddComponent(new CLI_Guy.CLI_Guy());
-        this._entityManager.Add( this._cli,'cli');
-      
-       // this._cli = this._entityManager.Get('ui').GetComponent('UIController');
-      
+        const params = {
+            camera: this._camera,
+            scene: this._scene,
+            callback: this.BroadcastEvent,
+            localInputs: this._input,
+            renderer: this._threejs,
+            cli: this._cli,
+            csharp: this.caller,
+            SetAttention : this.SetAttention
+        };
+        this.HBH01 = new entity.Entity();
+
+       this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
+      //  this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
+       
+        this._entityManager.Add( this.HBH01,'HBH01');
+       
+       // this.HBH01.AddComponent(new player_entity.BasicCharacterController(params));
+       // this.HBH01.AddComponent(new player_input.PickableComponent(params));
+//
+        
+        
+       // this.HBH01.AddComponent(this.HBH01,HBH00);
+     //  this.HBH01.AddComponent('UIController');
+       // 
+        
+        
+    
+
+
+        ;
+      // const HBH01 = new entity.Entity();
+      // HBH01.AddComponent(new HBH00().HBH01());
+       // HBH01.AddComponent(new gltf_component.AnimatedModelComponent({
+       //     scene: this._scene,
+       //     resourcePath: './resources/girl/',
+       //     resourceName: 'peasant_girl.fbx',
+       //     resourceAnimation: 'Standing Idle.fbx',
+       //     scale: 0.035,
+       //     receiveShadow: true,
+       //     castShadow: true,
+       // }));
+       // HBH01.AddComponent(new spatial_grid_controller.SpatialGridController({
+       //     grid: this._grid,
+       // }));
+       // HBH01.AddComponent(new player_input.PickableComponent(params));
+       // HBH01.AddComponent(new quest_component.QuestComponent(params));
+     //  HBH01.SetPosition(new THREE.Vector3(30, 0, 0));
+     //  this._entityManager.Add(HBH01);
+       
+        //this.HBH01.SayHI();
+       // this._cli = new entity.Entity();
+       // this._cli
+      //  this.HBH01.AddComponent();
+        //this.HBH01.SetPosition(new THREE.Vector3(60, 0, 0));
+       // this.HBH01.SetPosition(pos);
+       // this._entityManager.Add(this.HBH01);
+        
+        
+        //this.HBH01.AddComponent(this.HBH01 ,'HBH01');
+     //   this.HBH01.AddComponent()
+     // this._entityManager.Add(  this.HBH01,'HBH01');
+       // this._ui=this._entityManager.Get('HBH01').GetComponent('UIController');
+       // this._cli=this._entityManager.Get('HBH01').GetComponent('CLI_Guy')
+      // // const cli = this._entityManager.Add(ui, 'ui');
+      //
+      //  this._ui=this._entityManager.Get('ui').GetComponent('UIController');;
+//
+      //  const cli= new entity.Entity();
+      //  cli.AddComponent(new CLI_Guy.CLI_Guy());
+      //  this._entityManager.Add( cli,'cli');
+      //
+      // // this._cli = this._entityManager.Get('ui').GetComponent('UIController');
+      //  this._cli=this._entityManager.Get('cli').GetComponent('CLI_Guy');
+//
+//
+      //  const att= new entity.Entity();
+      //  att.AddComponent(new CLI_Guy.CLI_Guy());
+      //  this._entityManager.Add( att,'CONTEXT_Guy');
+      //  this._context= this._entityManager.Get('CONTEXT_Guy').GetComponent('Context_Guy');
+      //  
+        // this._cli = this._entityManager.Get('ui').GetComponent('UIController');
+      //  this._cli=this._entityManager.Get('cli').GetComponent('CLI_Guy');
+        
     }
 
     _LoadSky() {
@@ -327,6 +401,25 @@ class HackNSlashDemo {
             cli: this._cli,
             SetAttention : this.SetAttention
         };
+        const girl = new entity.Entity();
+        girl.AddComponent(new gltf_component.AnimatedModelComponent({
+            scene: this._scene,
+            resourcePath: './resources/girl/',
+            resourceName: 'peasant_girl.fbx',
+            resourceAnimation: 'Standing Idle.fbx',
+            scale: 0.035,
+            receiveShadow: true,
+            castShadow: true,
+        }));
+        girl.AddComponent(new spatial_grid_controller.SpatialGridController({
+            grid: this._grid,
+        }));
+        girl.AddComponent(new player_input.PickableComponent(params));
+        girl.AddComponent(new quest_component.QuestComponent(params));
+        girl.SetPosition(new THREE.Vector3(30, 0, 0));
+        this._entityManager.Add(girl);
+        
+        
         /*
                 const levelUpSpawner = new entity.Entity();
                 levelUpSpawner.AddComponent(new level_up_component.LevelUpComponentSpawner({
@@ -359,23 +452,7 @@ class HackNSlashDemo {
                 }));
                 this._entityManager.Add(sword);
         */
-                const girl = new entity.Entity();
-                girl.AddComponent(new gltf_component.AnimatedModelComponent({
-                    scene: this._scene,
-                    resourcePath: './resources/girl/',
-                    resourceName: 'peasant_girl.fbx',
-                    resourceAnimation: 'Standing Idle.fbx',
-                    scale: 0.035,
-                    receiveShadow: true,
-                    castShadow: true,
-                }));
-                girl.AddComponent(new spatial_grid_controller.SpatialGridController({
-                    grid: this._grid,
-                }));
-                girl.AddComponent(new player_input.PickableComponent(params));
-                girl.AddComponent(new quest_component.QuestComponent(params));
-                girl.SetPosition(new THREE.Vector3(30, 0, 0));
-                this._entityManager.Add(girl);
+ 
         
         const player = new entity.Entity();
         player.AddComponent(new player_input.BasicCharacterControllerInput(params));
@@ -411,6 +488,11 @@ class HackNSlashDemo {
             }));
 
         this._entityManager.Add(camera, 'player-camera');
+        
+        
+        
+        
+        
 
         //  player.Broadcast({
         //      topic: 'inventory.add',
@@ -738,7 +820,7 @@ class HackNSlashDemo {
 
             //      })()
             //  }
-            this._input.endFrame();
+          
             //this._inputCli.endFrame();
 
 
@@ -783,12 +865,12 @@ class HackNSlashDemo {
         // 
         
     
-        this._UpdateOrbitControls(timeElapsed);
+      //  this._UpdateOrbitControls(timeElapsed);
      
         this._UpdateSun();
 
 
-        this._entityManager.Update(timeElapsedS);
+        this._entityManager.Update(timeElapsed);
         TWEEN.update(timeElapsed);
     }
     

@@ -2,7 +2,7 @@ import {entity} from './entity.js';
 import DemoCLI from "./cli.js"
 
 
-export const CLI_Guy = (() => {
+export const CameraGuy = (() => {
 
   class CLI_Guy extends entity.Component {
     constructor(params) {
@@ -17,7 +17,7 @@ export const CLI_Guy = (() => {
      // this._LoadUI();
      
       if (this._cli) {
-       // this._inputCli = new StInput(this._cli.container)
+        this._inputCli = new StInput(this._cli.container)
         const h = (async () => {
           this._cli.printPrompt()
           await this._cli.type('echo "Creating Terminal"')
@@ -28,16 +28,11 @@ export const CLI_Guy = (() => {
     
  
     Update(timeInSeconds) {
-      const h = (async () => {
-        this._cli.printPrompt()
-        await this._cli.type('echo "Creating Terminal"')
-
-      })()
     }
   };
  
   return {
-    CLI_Guy: CLI_Guy,
+    CameraGuy: CameraGuy,
   };
 
 })();

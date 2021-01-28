@@ -191,13 +191,17 @@
             </e>
             <e p="VirtualPlayground" t="Include">
               <e p="attacker-controller.js" t="Include" />
+              <e p="CameraGuy.js" t="Include" />
               <e p="cli.js" t="Include" />
               <e p="CliGuy.js" t="Include" />
+              <e p="ContextGuy.js" t="Include" />
               <e p="entity-manager.js" t="Include" />
               <e p="entity.js" t="Include" />
               <e p="equip-weapon-component.js" t="Include" />
               <e p="finite-state-machine.js" t="Include" />
               <e p="gltf-component.js" t="Include" />
+              <e p="HBH01.js" t="Include" />
+              <e p="HBH02.js" t="Include" />
               <e p="health-bar.js" t="Include" />
               <e p="health-component.js" t="Include" />
               <e p="inventory-controller.js" t="Include" />
