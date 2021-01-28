@@ -70,10 +70,18 @@
     <MudText>Spacing: @spacing</MudText>
 </MudPaper>
 @code {
-    
+
     [Parameter]
-    private IJSObjectReference Bot { get; set; }
+    public IJSObjectReference mainLocalJs { get; set; }
+
+    private IJSObjectReference UIbot { get; set; }
+    private IJSObjectReference CLIbot { get; set; }
+
+
+
+
     public int spacing { get; set; } = 2;
+
     void AddSpacing()
     {
         if (spacing >= 10)
@@ -87,15 +95,32 @@
         StateHasChanged();
     }
 
-    async void  Reboot()
+    async void Reboot()
     {
-        await Bot.InvokeAsync<IJSObjectReference>("HelloFromC#", DotNetObjectReference.Create(this));
+
+        UIbot = await mainLocalJs.InvokeAsync<IJSObjectReference>("HelloFromLiveState", "ActiveComponentBot", DotNetObjectReference.Create(this));
 
     }
 
-    protected override void OnInitialized()
+    public class UpdateRequest
     {
-        base.OnInitialized();
+        public IJSObjectReference CLIman { get; set; }
+        public IJSObjectReference UIman { get; set; }
+        public string Exchange { get; set; }
+
+    }
+
+
+    [JSInvokable]
+    public async Task helloBack_LiveStateHandler(object ob)
+    {
+    // Console.WriteLine(ob);
+        UpdateRequest a = Utf8Json.JsonSerializer.Deserialize<UpdateRequest>(ob.ToString());
+        Console.WriteLine("deserialized" + a.CLIman.ToString() + " " + a.UIman.ToString());
+
+
+
+
     }
 
 }

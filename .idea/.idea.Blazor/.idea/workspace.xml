@@ -24,13 +24,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="Good progress">
-      <change afterPath="$PROJECT_DIR$/UI/Pages/ActiveComponents.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/Shared/LightSwitch.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/Shared/NicePage.razor" afterDir="false" />
+    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="Refactor1">
+      <change afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/CliGuy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Blazor/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Blazor/v16/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Pages/_Host.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net5.0/HBHplayground.Server.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net5.0/HBHplayground.Server.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net5.0/HBHplayground.Server.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net5.0/HBHplayground.Server.Views.pdb" afterDir="false" />
@@ -46,11 +43,8 @@
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Razor/Pages/_Host.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Razor/Pages/_Host.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net5.0/staticwebassets/HBHplayground.Server.StaticWebAssets.Manifest.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net5.0/staticwebassets/HBHplayground.Server.StaticWebAssets.Manifest.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Pages/ActiveComponents.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Pages/ActiveComponents.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/Pages/Chat.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Pages/Chat.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Pages/Home.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Pages/VirtualPlayground-BackupSemiFunctional.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Pages/VirtualPlayground-BackupSemiFunctional.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Shared/AccumulatorCard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Shared/AccumulatorCard.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Shared/OnlineRoom.razor" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Shared/OnlineRoom.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/bin/Debug/net5.0/HBHplayground.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UI/bin/Debug/net5.0/HBHplayground.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/bin/Debug/net5.0/HBHplayground.UI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UI/bin/Debug/net5.0/HBHplayground.UI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/bin/Debug/net5.0/ref/HBHplayground.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UI/bin/Debug/net5.0/ref/HBHplayground.UI.dll" afterDir="false" />
@@ -61,21 +55,15 @@
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/HBHplayground.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/HBHplayground.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/HBHplayground.UI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/HBHplayground.UI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Pages/Chat.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Pages/Chat.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Pages/Home.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Pages/Home.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Shared/AccumulatorCard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/Razor/Shared/AccumulatorCard.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/HBHplayground.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/HBHplayground.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/HBHplayground.UI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/HBHplayground.UI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/Pages/Chat.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/Pages/Chat.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/Shared/AccumulatorCard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/RazorDeclaration/Shared/AccumulatorCard.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.RazorComponent.input.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/blazor.boot.json" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/blazor.boot.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/ref/HBHplayground.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/ref/HBHplayground.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/third-person-camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/third-person-camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/cli.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ConsoleClient/Program.cs" />
-        <option value="$PROJECT_DIR$/UI/wwwroot/js/grid-split.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/Resizable.js-master/resizable.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/Resizable.js-master/demo.html" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/split.min.js" />
@@ -139,13 +125,15 @@
         <option value="$PROJECT_DIR$/UI/Shared/LightSwitch.razor" />
         <option value="$PROJECT_DIR$/Server/Startup.cs" />
         <option value="$PROJECT_DIR$/UI/Shared/OnlineRoom.razor" />
-        <option value="$PROJECT_DIR$/Server/Pages/_Host.cshtml" />
         <option value="$PROJECT_DIR$/UI/Pages/Home.razor" />
         <option value="$PROJECT_DIR$/UI/Shared/NicePage.razor" />
         <option value="$PROJECT_DIR$/UI/Pages/Chat.razor" />
+        <option value="$PROJECT_DIR$/UI/wwwroot/js/UIman/CliGuy.js" />
+        <option value="$PROJECT_DIR$/Server/Pages/_Host.cshtml" />
+        <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" />
+        <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/CliGuy.js" />
         <option value="$PROJECT_DIR$/UI/Pages/ActiveComponents.razor" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" />
-        <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" />
       </list>
     </option>
   </component>
@@ -240,7 +228,8 @@
       <workItem from="1611453750368" duration="42903000" />
       <workItem from="1611578224886" duration="100005000" />
       <workItem from="1611689288658" duration="1299000" />
-      <workItem from="1611733299843" duration="6525000" />
+      <workItem from="1611733299843" duration="33186000" />
+      <workItem from="1611833093983" duration="1194000" />
     </task>
     <task id="LOCAL-00001" summary="Good progress">
       <created>1611672686355</created>
@@ -249,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611672686355</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactor1">
+      <created>1611742451581</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611742451581</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +268,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Good progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Good progress" />
+    <MESSAGE value="Refactor1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611191297013">
@@ -283,26 +280,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611180795334" />
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom" timestamp="1611738213732">
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom" timestamp="1611833703444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="922" height="201" key="GridCell.Tab.0.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611603212843" />
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611738213732" />
-    <state width="1877" height="211" key="GridCell.Tab.0.center" timestamp="1611738213732">
+    <state width="1878" height="210" key="GridCell.Tab.0.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611833703444" />
+    <state width="1877" height="192" key="GridCell.Tab.0.center" timestamp="1611833703444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="922" height="201" key="GridCell.Tab.0.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611603212843" />
-    <state width="1877" height="211" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611738213732" />
-    <state width="1877" height="211" key="GridCell.Tab.0.left" timestamp="1611738213732">
+    <state width="1878" height="210" key="GridCell.Tab.0.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
+    <state width="1877" height="192" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611833703444" />
+    <state width="1877" height="192" key="GridCell.Tab.0.left" timestamp="1611833703443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="922" height="201" key="GridCell.Tab.0.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611603212842" />
-    <state width="1877" height="211" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611738213732" />
-    <state width="1877" height="211" key="GridCell.Tab.0.right" timestamp="1611738213732">
+    <state width="1878" height="210" key="GridCell.Tab.0.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
+    <state width="1877" height="192" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611833703443" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right" timestamp="1611833703444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="922" height="201" key="GridCell.Tab.0.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611603212843" />
-    <state width="1877" height="211" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611738213732" />
+    <state width="1878" height="210" key="GridCell.Tab.0.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611833703444" />
     <state width="938" height="374" key="GridCell.Tab.1.bottom" timestamp="1611688045110">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -415,22 +412,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
-          <line>774</line>
+          <line>747</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
-          <line>616</line>
+          <line>577</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
-          <line>602</line>
+          <line>563</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
-          <line>682</line>
+          <line>655</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">

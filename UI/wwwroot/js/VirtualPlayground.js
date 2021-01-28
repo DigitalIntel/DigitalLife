@@ -25,9 +25,10 @@ import {attack_controller} from '../js/VirtualPlayground/attacker-controller.js'
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/controls/OrbitControls.js';
 import { SimpleOrbitControls } from '../js/VirtualPlayground/orbitctrl.js'
 
-
+import {CLI_Guy} from "../js/VirtualPlayground/CliGuy.js";
 import TWEEN from "../js/tweenmin.js";
-import DemoCLI from "../js/cli.js"
+//
+//
 
 
 
@@ -78,15 +79,28 @@ export function init(reference){
 }
 
 
-class Foo {
+class LiveStateHandler {
     constructor() {
         this._Initialize();
     }
     _Initialize() {
-        this.message="empty";
-        
+        this.message = "empty";
+        this._HelloFromLiveState(params);
+
     }
+
+    _HelloFromLiveState(params){
+        
+        //let a=params""
+        
+        
+        }
+
+    
 }
+
+
+
 
 
 class HackNSlashDemo {
@@ -97,43 +111,15 @@ class HackNSlashDemo {
 
     _Initialize() {
         this._GlobalCamera=false;
-        
+        this._ui=null;
    
         this._canvas = document.querySelector('#c');
         this._view = document.querySelector('#view');
         this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
         this._threejs.antialias = true;
         this._input = new StInput(window);
-        this._LoadUI();
+        //this._LoadUI();
         this.Attention = "Canvas"
-        this._cli = new DemoCLI("#cliContainer");
-        if (this._cli) {
-            this._inputCli = new StInput(this._cli.container)
-            const h = (async () => {
-                this._cli.printPrompt()
-                await this._cli.type('echo "Intantiating Terminal"')
-
-                this._cli.println("Welcome to my terminal")
-                await this._cli.type('echo "type start to start !"')
-                this._cli.println("")
-                this._cli.printPrompt()
-            })()
-            this._cli.printPrompt();
-            this._cli.print("print ")
-            this._cli.print("on same line ")
-            this._cli.enterKey()
-
-            let colorNum = 1
-            for (let x = 0; x <= 16; x++) {
-                this._cli.printPrompt()
-                this._cli.println("colors", {className: `base0${x.toString(16)}`})
-                colorNum++
-            }
-
-            this._cli.println("println")
-            this._cli.println("println")
-            this._cli.printPrompt({className: "base08"})
-        }
 
 
         this._lastTime = (new Date()).getTime();
@@ -206,7 +192,7 @@ class HackNSlashDemo {
         this._entityManager = new entity_manager.EntityManager();
         this._grid = new spatial_hash_grid.SpatialHashGrid(
             [[-1000, -1000], [1000, 1000]], [100, 100]);
-
+      //  this._cliGuy = new CLI_Guy.UIController();
   
         this._BirdViewCAM = new THREE.PerspectiveCamera(fov, aspect, near, far);
         this._BirdViewCAM.position.set(100, 100, 25);
@@ -216,68 +202,33 @@ class HackNSlashDemo {
         
        // this._LoadTutorialGuy();
 
-        //  this._LoadControllers();
+         this._LoadControllers();
+         
        //this._LoadPlayer();
      //   this._registerPlayer("eron");
         // this._LoadFoliage();
         //  this._registerPlayer("masterid")
-        this._LoadClouds();
-        this._LoadSky();
-
-        this._previousRAF = null;
+      // this._LoadClouds();
+      // this._LoadSky();
+//
+      this._previousRAF = null;
         this._RAF();
-    }
-
-    _UpdateGlider() {
-
-
-        // add content
-        if (this.glideHero) {
-
-
-            this.glideHero.destroy();
-
-        }
-        // this.glideHero = new Glide('.glide', {            type: 'carousel',
-        //     animationDuration: 700,
-        //     // autoplay: 10000,
-        //     autoplay: false,
-        //     startAt:0,
-        //     perView: 2,
-        // });
-
-        this.glideHero = new Glide('.glide', {
-            type: "carousel",
-            touchAngle: 45,
-            focusAt: 1,
-            startAt: 1,
-            perView: 1,
-            keyboard: false,
-            gap: 5,
-            autoplay: false,
-            peek: {
-                before: 100,
-                after: 50
-            },
-
-        })
-
-
-        // this.glideHero.on(['mount.after', 'run'], function () {
-        //   
-        //         alert("gello" +  this.glideHero.index );
-        //     })
-        this.glideHero.mount();
-        //this.glideHero.go('<');
-
-
     }
 
  
     _LoadControllers() {
         const ui = new entity.Entity();
-        ui.AddComponent(new ui_controller.UIController());
-        this._entityManager.Add(ui, 'ui');
+         ui.AddComponent(new ui_controller.UIController());
+       // const cli = this._entityManager.Add(ui, 'ui');
+        this._entityManager.Add( ui,'ui');
+        this._ui=this._entityManager.Get('ui').GetComponent('UIController');;
+      
+        this._cli= new entity.Entity();
+        this._cli.AddComponent(new CLI_Guy.CLI_Guy());
+        this._entityManager.Add( this._cli,'cli');
+      
+       // this._cli = this._entityManager.Get('ui').GetComponent('UIController');
+      
     }
 
     _LoadSky() {
@@ -583,6 +534,8 @@ class HackNSlashDemo {
     _UpdateSun() {
 
 
+     
+
         const player = this._entityManager.Get('player');
 
         if (player) {
@@ -593,6 +546,14 @@ class HackNSlashDemo {
             this._sun.updateMatrixWorld();
             this._sun.target.updateMatrixWorld();
         }
+        //const ui = this._entityManager.Get('ui').GetComponent('');
+
+
+        //if (ui) {
+        //    ui.UIController.Isgliding = false;
+        //}
+        
+   
 
     }
 
@@ -618,142 +579,154 @@ class HackNSlashDemo {
             if (this._previousRAF === null) {
                 this._previousRAF = t;
             }
-
-
+        
+            
             this._RAF();
-            if (this._resizeRendererToDisplaySize(this._threejs)) {
-                const canvas = this._threejs.domElement;
-                this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
-                this._camera.updateProjectionMatrix();
-                this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
-                this._BirdViewCAM.updateProjectionMatrix();
-                this._UpdateGlider();
-            }
+             if (this._resizeRendererToDisplaySize(this._threejs)) {
+                // ui.UpdateGlider();
+                 const canvas = this._threejs.domElement;
+                 this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                 this._camera.updateProjectionMatrix();
+                 this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
+                 this._BirdViewCAM.updateProjectionMatrix();
+                 
+                 // ui.AddQuest(quest);
+                 if (this._ui){
 
-            if (this._input.released('h')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('let cli= new cli()')
-                    this._cli.printPrompt("cli : I exist !")
-                    this._LoadPlayer();
-                    
-                    this._cli.println("Welcome to Digital Playground, A visual OS")
-                    await this._cli.type('Version: 0.8 pre Alpha' + 'Build'+'00068');
-                    this._cli.println("Press B to load the camera man")
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-                })()
-            }
-            if (this._input.released('c')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('Loading Camera man"')
-                                
-                    this._LoadGlobalCamera();
-                    this._cli.println("I am the camera man , I assist you with the views")
-                    await this._cli.type('..... Loaded!')
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-                })()
+                     this._ui.glideHero.update();
+                 }
                 
-            }
-            if (this._input.released('f')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('fps view"')
+               // if (ui) {
+               //     ui.UIController.Isgliding = true;
+               // }
+               
+                // this._ui.UpdateGlider();
+             }
+          //
+          //   if (this._input.released('h')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('let cli= new cli()')
+          //           this._cli.printPrompt("cli : I exist !")
+          //           this._LoadPlayer();
+          //          
+          //           this._cli.println("Welcome to Digital Playground, A visual OS")
+          //           await this._cli.type('Version: 0.8 pre Alpha' + 'Build'+'00068');
+          //           this._cli.println("Press B to load the camera man")
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //       })()
+          //   }
+          //   if (this._input.released('c')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('Loading Camera man"')
+          //                      
+          //           this._LoadGlobalCamera();
+          //           this._cli.println("I am the camera man , I assist you with the views")
+          //           await this._cli.type('..... Loaded!')
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //       })()
+          //      
+          //   }
+          //   if (this._input.released('f')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('fps view"')
+          //
+          //          // this._LoadGlobalCamera();
+          //           this._cli.println("I am the camera man , I follow you")
+          //           await this._cli.type('..... Loaded!')
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //           this._LoadPlayer();
+          //           this._LoadFoliage();
+          //       })()
+          //
+          //   }
+          //
+          //
+          //   if (this._input.released('b')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('bird eye view view"')
+          //
+          //       // this._LoadGlobalCamera();
+          //           this._cli.println("I am the camera man , I follow you")
+          //           await this._cli.type('..... Loaded!')
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //
+          //           this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
+          //          
+          //          // this._registerPlayer("eros")
+          //        
+          //          
+          //           this._entityManager.Get('player-camera').remove();
+          //           this._scene.activeCamera= this._BirdViewCAM;
+          //         //  this._registerPlayer("eros")
+          //           //  this._LoadFoliage();
+          //       })()
+          //
+          //   }
+          //
+          //
+          //   if (this._input.released('t')) {
+          //
+          //       this._LoadTutorialGuy();
+          //      // this._scene.activeCamera= this._camera;
+          //      
+          //   }
+          //   if (this._input.released('r')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('bird eye view view"')
+          //
+          //           this._LoadGlobalCamera();
+          //           this._cli.println("I am the camera man , I follow you")
+          //           await this._cli.type('..... Loaded!')
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //           // this._LoadPlayer();
+          //           this._LoadRemotePlayer("erosine")
+          //           //  this._LoadFoliage();
+          //       })()
+          //
+          //   }
+          //
+          //
+          //
+          //   if (this._input.released('g')) {
+          //       const h = (async () => {
+          //           this._cli.printPrompt()
+          //           await this._cli.type('Loading Random "')
+          //
+          //           this._registerPlayer("ee");
+          //           this._cli.println("I am the random camera man , I follow you")
+          //           await this._cli.type('..... Loaded!')
+          //           this._cli.println("")
+          //           this._cli.printPrompt()
+          //           var elem = this._cli.container;
+          //           elem.scrollTop = elem.scrollHeight;
+          //           this._LoadPlayer();
+          //           this._LoadFoliage();
+          //       })()
+          //
+          //   }
 
-                   // this._LoadGlobalCamera();
-                    this._cli.println("I am the camera man , I follow you")
-                    await this._cli.type('..... Loaded!')
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-                    this._LoadPlayer();
-                    this._LoadFoliage();
-                })()
 
-            }
-
-
-            if (this._input.released('b')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('bird eye view view"')
-
-                // this._LoadGlobalCamera();
-                    this._cli.println("I am the camera man , I follow you")
-                    await this._cli.type('..... Loaded!')
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-
-                    this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
-                    
-                   // this._registerPlayer("eros")
-                  
-                    
-                    this._entityManager.Get('player-camera').remove();
-                    this._scene.activeCamera= this._BirdViewCAM;
-                  //  this._registerPlayer("eros")
-                    //  this._LoadFoliage();
-                })()
-
-            }
-
-       
-            if (this._input.released('t')) {
-
-                this._LoadTutorialGuy();
-               // this._scene.activeCamera= this._camera;
-                
-            }
-            if (this._input.released('r')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('bird eye view view"')
-
-                    this._LoadGlobalCamera();
-                    this._cli.println("I am the camera man , I follow you")
-                    await this._cli.type('..... Loaded!')
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-                    // this._LoadPlayer();
-                    this._LoadRemotePlayer("erosine")
-                    //  this._LoadFoliage();
-                })()
-
-            }
-
-
-
-            if (this._input.released('g')) {
-                const h = (async () => {
-                    this._cli.printPrompt()
-                    await this._cli.type('Loading Random "')
-
-                    this._registerPlayer("ee");
-                    this._cli.println("I am the random camera man , I follow you")
-                    await this._cli.type('..... Loaded!')
-                    this._cli.println("")
-                    this._cli.printPrompt()
-                    var elem = this._cli.container;
-                    elem.scrollTop = elem.scrollHeight;
-                    this._LoadPlayer();
-                    this._LoadFoliage();
-                })()
-
-            }
-
-
-            this._threejs.render(this._scene, this._camera);
+            this._threejs.render(this._scene, this._BirdViewCAM);
             this._Step(t - this._previousRAF);
             this._previousRAF = t;
 
@@ -852,15 +825,15 @@ class HackNSlashDemo {
     }
 
     helloFromLiveComponent(caller) {
-        console.log("Hello From Live Component");
-        //this._registerPlayer();
-        livestateman = caller;
-        var obj = {
-            ID: "99",
-            RequestType: 969,
-            Data: "ooxx"
-        };
-        livestateman.invokeMethodAsync('hello_LiveStateHandler', new Object());
+       //console.log("Hello From Live Component");
+       ////this._registerPlayer();
+       livestateman = caller;
+       //var obj = {
+       //    ID: "99",
+       //    RequestType: 969,
+       //    Data: "ooxx"
+       //};
+        //livestateman.invokeMethodAsync('helloBack_LiveStateHandler', {this._ui,this.UI });
 
     }
 

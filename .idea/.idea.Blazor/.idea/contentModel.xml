@@ -173,7 +173,6 @@
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">
             <e p="app.js" t="Include" />
-            <e p="cli.js" t="Include" />
             <e p="create.js" t="Include" />
             <e p="Splitmin.js" t="Include" />
             <e p="stInput.js" t="Include" />
@@ -192,6 +191,8 @@
             </e>
             <e p="VirtualPlayground" t="Include">
               <e p="attacker-controller.js" t="Include" />
+              <e p="cli.js" t="Include" />
+              <e p="CliGuy.js" t="Include" />
               <e p="entity-manager.js" t="Include" />
               <e p="entity.js" t="Include" />
               <e p="equip-weapon-component.js" t="Include" />
