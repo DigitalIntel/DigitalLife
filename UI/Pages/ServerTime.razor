@@ -8,10 +8,9 @@
     var error = State.Error;
 }
 
-<h1>Server Time</h1>
+
 
 <StatefulComponentState Component="@this" />
-
 @if (error != null) {
     <div class="alert alert-warning" role="alert">
         Update error: @error.Message
@@ -20,7 +19,7 @@
 
 <p>Server Time: @time</p>
 
-<button class="btn btn-primary" @onclick="() => State.CancelUpdateDelay()">Refresh</button>
+<button class="btn btn-primary" @onclick="() => State.CancelUpdateDelay()">Diconnect</button>
 
 @code {
     protected override void OnInitialized()
