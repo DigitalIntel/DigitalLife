@@ -10,16 +10,16 @@
 
 
 
-<StatefulComponentState Component="@this" />
-@if (error != null) {
-    <div class="alert alert-warning" role="alert">
-        Update error: @error.Message
-    </div>
-}
+@* <StatefulComponentState Component="@this" /> *@
+@* @if (error != null) { *@
+@*     <div class="alert alert-warning" role="alert"> *@
+@*         Update error: @error.Message *@
+@*     </div> *@
+@* } *@
 
-<p>Server Time: @time</p>
+ @time
 
-<button class="btn btn-primary" @onclick="() => State.CancelUpdateDelay()">Diconnect</button>
+@* <button class="btn btn-primary" @onclick="() => State.CancelUpdateDelay()">Diconnect</button> *@
 
 @code {
     protected override void OnInitialized()
