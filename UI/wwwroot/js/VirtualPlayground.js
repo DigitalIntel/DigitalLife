@@ -214,7 +214,7 @@ class HackNSlashDemo {
       // this._LoadClouds();
       // this._LoadSky();
 //
-      this._previousRAF = null;
+        this._previousRAF = null;
         this._RAF();
     }
 
@@ -235,7 +235,7 @@ class HackNSlashDemo {
       //  this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
        
         this._entityManager.Add( this.HBH01,'HBH01');
-       
+        //this._ui =this._entityManager.Get ('HBH01').
        // this.HBH01.AddComponent(new player_entity.BasicCharacterController(params));
        // this.HBH01.AddComponent(new player_input.PickableComponent(params));
 //
@@ -860,7 +860,7 @@ class HackNSlashDemo {
 
     _Step(timeElapsed) {
         const timeElapsedS = Math.min(1.0 / 30.0, timeElapsed * 0.001);
-
+       // this.HBH01.BasicCharacterControllerInput().HeartBeat();
 
         // 
         
@@ -871,7 +871,7 @@ class HackNSlashDemo {
 
 
         this._entityManager.Update(timeElapsed);
-        TWEEN.update(timeElapsed);
+       // TWEEN.update(timeElapsed);
     }
     
 

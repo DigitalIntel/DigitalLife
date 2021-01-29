@@ -23,6 +23,8 @@ export const ui_controller = (() => {
         },
      
       })
+
+      this.InitComponent();
     }
   
     InitComponent() {

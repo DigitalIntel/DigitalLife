@@ -153,12 +153,40 @@ export const HBH02 = (() => {
 
       
     }
-    
-    Update() {
+    Update(timeInSeconds) {
+     this.CLIGuy.Update();
       
-     // super.Update(_);
-  //    this._ui_controller.Update();
+      
+     // if (!this._stateMachine._currentState) {
+     //   return;
+     // }
+//
+     // this._input._keys.space = false;
+     // this._input._keys.forward = false;
+//
+     // this._UpdateAI(timeInSeconds);
+//
+     // this._stateMachine.Update(timeInSeconds, this._input);
+//
+     // // HARDCODED
+     // if (this._stateMachine._currentState._action) {
+     //   this.Broadcast({
+     //     topic: 'player.action',
+     //     action: this._stateMachine._currentState.Name,
+     //     time: this._stateMachine._currentState._action.time,
+     //   });
+     // }
+//
+     // if (this._mixer) {
+     //   this._mixer.update(timeInSeconds);
+     // }
     }
+  //   HeartBeat() {
+  //    // this.CLIGuy.Update();
+  //     console.log("hearbeat");
+  //    // super.Update(_);
+  // //    this._ui_controller.Update();
+  //   }
 
     _onMouseUp(event) {
       
