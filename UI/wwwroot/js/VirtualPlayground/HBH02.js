@@ -20,8 +20,22 @@ export const HBH02 = (() => {
       super();
       this.CLIGuy= new CLI_Guy.CLI_Guy();
       this._ui_controller = new ui_controller.UIController();
+      this._camera=params.camera;
+   
+      this._scene=params.scene;
+      this._BirdCam= params.BirdCam;
+
+      this._canvas = document.querySelector('#c');
+      this._view = document.querySelector('#view');
+      this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
+      this._threejs.antialias = true;
+      
       this._params = params;
+      
+      
+      
       this._Init();
+      
   
     }
   
@@ -39,7 +53,16 @@ export const HBH02 = (() => {
       };
       this._raycaster = new THREE.Raycaster();
       this._previousState=0;
-      
+
+
+      this._threejs.outputEncoding = THREE.sRGBEncoding;
+      this._threejs.gammaFactor = 2.2;
+      this._threejs.shadowMap.enabled = true;
+      this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
+
+
+
+
       // for input (using StInput)
       
       //this._input = new StInput(window);
@@ -153,8 +176,92 @@ export const HBH02 = (() => {
 
       
     }
+    
+    _resizeRendererToDisplaySize(renderer) {
+      const canvas = renderer.domElement;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      const needResize = canvas.width !== width || canvas.height !== height;
+      if (needResize) {
+     //   renderer.setSize(width, height, false);
+        //glideHero.mount();
+      }
+      return needResize;
+    }
     Update(timeInSeconds) {
-     this.CLIGuy.Update();
+
+       if (this._resizeRendererToDisplaySize( this._threejs)) {
+         // ui.UpdateGlider();
+      
+         const canvas =  this._threejs.domElement;
+         this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+         this._camera.updateProjectionMatrix();
+         this._BirdCam.aspect = canvas.clientWidth / canvas.clientHeight;
+         this._BirdCam.updateProjectionMatrix();
+         this._threejs.setSize(canvas.width, canvas.height, false);
+         this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdCam );
+         // ui.AddQuest(quest);
+         if (this._ui){
+      
+           this._ui.glideHero.Remount();
+         }
+      
+         // if (ui) {
+         //     ui.UIController.Isgliding = true;
+         // }
+      
+         // this._ui.UpdateGlider();
+       }
+
+      this._threejs.render(this._scene, this._BirdViewCAM);
+      
+    
+      //this._ui_controller._LoadUI();       // 
+      // 
+      // 
+      // if (this._resizeRendererToDisplaySize(  this._params.renderer)) {
+      //   this.CLIGuy.Update();
+      // if (this._resizeRendererToDisplaySize(this._threejs)) {
+      //   // ui.UpdateGlider();
+      //   const canvas = this._threejs.domElement;
+      //   this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      //   this._camera.updateProjectionMatrix();
+      //   this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
+      //   this._BirdViewCAM.updateProjectionMatrix();
+      //
+      //   // ui.AddQuest(quest);
+      //   if (this._ui){
+      //
+      //     this._ui.glideHero.Remount();
+      //   }     
+      // }
+      //
+
+
+
+      // this._ui_controller.UpdateGlider();
+      // }
+       //   // ui.UpdateGlider();
+       //   const canvas =  this._params.renderer;
+       //   this._params.aspect = canvas.clientWidth / canvas.clientHeight;
+       //   this._params.camera.updateProjectionMatrix();
+       //   this._params.camera.aspect = canvas.clientWidth / canvas.clientHeight;
+       //   this._params.camera.updateProjectionMatrix();
+       //
+       //   // ui.AddQuest(quest);
+       //   if (this._ui_controller){
+       //
+       //     //this._ui_controller.UpdateGlider();
+       //     //.glideHero.update();
+       //   }
+       //
+       //   // if (ui) {
+       //   //     ui.UIController.Isgliding = true;
+       //   // }
+       //
+       //   // this._ui.UpdateGlider();
+       // }
+    // this.CLIGuy.Update();
       
       
      // if (!this._stateMachine._currentState) {

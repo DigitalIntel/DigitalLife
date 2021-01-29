@@ -24,10 +24,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="refactor ui">
+    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="a">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" afterDir="false" />
@@ -99,8 +97,8 @@
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH01.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/CliGuy.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/ui-controller.js" />
-        <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" />
+        <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js" />
       </list>
     </option>
   </component>
@@ -198,7 +196,7 @@
       <workItem from="1611733299843" duration="33186000" />
       <workItem from="1611833093983" duration="19365000" />
       <workItem from="1611916524157" duration="93000" />
-      <workItem from="1611916653015" duration="1226000" />
+      <workItem from="1611916653015" duration="10528000" />
     </task>
     <task id="LOCAL-00001" summary="Good progress">
       <created>1611672686355</created>
@@ -228,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611877880898</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="a">
+      <created>1611918086166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611918086166</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +258,8 @@
     <MESSAGE value="Good progress" />
     <MESSAGE value="Refactor1" />
     <MESSAGE value="refactor ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor ui" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611191297013">
@@ -264,26 +270,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611180795334" />
-    <state width="1877" height="378" key="GridCell.Tab.0.bottom" timestamp="1611917841952">
+    <state width="1877" height="372" key="GridCell.Tab.0.bottom" timestamp="1611930047229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="378" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611917841952" />
-    <state width="1877" height="378" key="GridCell.Tab.0.center" timestamp="1611917841952">
+    <state width="1877" height="372" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611930047229" />
+    <state width="1877" height="372" key="GridCell.Tab.0.center" timestamp="1611930047228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="378" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611917841952" />
-    <state width="1877" height="378" key="GridCell.Tab.0.left" timestamp="1611917841952">
+    <state width="1877" height="372" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611930047228" />
+    <state width="1877" height="372" key="GridCell.Tab.0.left" timestamp="1611930047228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="378" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611917841952" />
-    <state width="1877" height="378" key="GridCell.Tab.0.right" timestamp="1611917841952">
+    <state width="1877" height="372" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611930047228" />
+    <state width="1877" height="372" key="GridCell.Tab.0.right" timestamp="1611930047229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="378" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611917841952" />
+    <state width="1877" height="372" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611930047229" />
     <state width="938" height="374" key="GridCell.Tab.1.bottom" timestamp="1611688045110">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -396,7 +402,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
-          <line>737</line>
+          <line>744</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -406,14 +412,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js</url>
-          <line>27</line>
+          <line>41</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground/HBH02.js</url>
-          <line>49</line>
+          <line>72</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js</url>
+          <line>669</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/UI/Pages/VirtualPlayground.razor</url>

@@ -253,18 +253,20 @@ export const ui_controller = (() => {
 
 
       // add content 
-      // if (this.glideHero) {
-      //
-      //   this.glideHero.destroy();
-      // }
-      // // this.glideHero = new Glide('.glide', {            type: 'carousel',
-      // //     animationDuration: 700,
-      // //     // autoplay: 10000,
-      // //     autoplay: false,
-      // //     startAt:0,
-      // //     perView: 2,
-      // // });
-      //
+       if (this.glideHero)
+      {
+
+        this.glideHero.destroy();
+      }
+       this.glideHero = new Glide('.glide', {            type: 'carousel',
+           animationDuration: 700,
+           // autoplay: 10000,
+           autoplay: false,
+           startAt:0,
+           perView: 2,
+       });
+      this.glideHero.mount();
+      this.glideHero.go('<');
       // this.glideHero = new Glide('.glide', {
       //   type: "carousel",
       //   touchAngle: 45,
@@ -286,13 +288,24 @@ export const ui_controller = (() => {
       //   
       //         alert("gello" +  this.glideHero.index );
       //     })
-      this.glideHero.mount();
+    //  this.glideHero.mount();
       //this.glideHero.go('<');
 
 
     }
 
 
+    Remount() {
+      //   if (this.Isgliding){
+      //  this.UpdateGlider();
+     // this.glideHero.mount();
+      //  // this.glideHero.mount();
+      // }
+      //this.glideHero.mount();
+      this.glideHero.update();
+    }
+    
+    
     Update(timeInSeconds) {
     //   if (this.Isgliding){
    //  this.UpdateGlider();

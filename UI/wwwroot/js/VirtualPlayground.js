@@ -115,11 +115,11 @@ class HackNSlashDemo {
         this._ui=null;
         this._cli=null;
         this.HBH01=null;
-   
-        this._canvas = document.querySelector('#c');
-        this._view = document.querySelector('#view');
-        this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
-        this._threejs.antialias = true;
+        //
+        // this._canvas = document.querySelector('#c');
+        // this._view = document.querySelector('#view');
+        // this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
+        // this._threejs.antialias = true;
      //   
         //this._LoadUI();
         this.Attention = "Canvas"
@@ -127,12 +127,12 @@ class HackNSlashDemo {
 
         this._lastTime = (new Date()).getTime();
 
-
-        this._threejs.outputEncoding = THREE.sRGBEncoding;
-        this._threejs.gammaFactor = 2.2;
-        this._threejs.shadowMap.enabled = true;
-        this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
-
+        //
+        // this._threejs.outputEncoding = THREE.sRGBEncoding;
+        // this._threejs.gammaFactor = 2.2;
+        // this._threejs.shadowMap.enabled = true;
+        // this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
+        //
 
         const fov = 60;
         const aspect = 1920 / 1080;
@@ -201,7 +201,7 @@ class HackNSlashDemo {
         this._BirdViewCAM.position.set(100, 100, 25);
         //  this._camera.position.set(100,100,100);
         this._BirdViewCAM.lookAt(new THREE.Vector3(0, 0, 0));
-        this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
+    //    this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
         
        // this._LoadTutorialGuy();
 
@@ -221,6 +221,7 @@ class HackNSlashDemo {
     _LoadControllers() {
         const params = {
             camera: this._camera,
+            BirdCam: this._BirdViewCAM,
             scene: this._scene,
             callback: this.BroadcastEvent,
             localInputs: this._input,
@@ -235,6 +236,8 @@ class HackNSlashDemo {
       //  this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
        
         this._entityManager.Add( this.HBH01,'HBH01');
+        
+        
         //this._ui =this._entityManager.Get ('HBH01').
        // this.HBH01.AddComponent(new player_entity.BasicCharacterController(params));
        // this.HBH01.AddComponent(new player_input.PickableComponent(params));
@@ -664,26 +667,30 @@ class HackNSlashDemo {
         
             
             this._RAF();
-             if (this._resizeRendererToDisplaySize(this._threejs)) {
-                // ui.UpdateGlider();
-                 const canvas = this._threejs.domElement;
-                 this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
-                 this._camera.updateProjectionMatrix();
-                 this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
-                 this._BirdViewCAM.updateProjectionMatrix();
-                 
-                 // ui.AddQuest(quest);
-                 if (this._ui){
-
-                     this._ui.glideHero.update();
-                 }
-                
-               // if (ui) {
-               //     ui.UIController.Isgliding = true;
+               // if (this._resizeRendererToDisplaySize(this._threejs)) {
+               //    // ui.UpdateGlider();
+               //     const canvas = this._threejs.domElement;
+               //     this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+               //     this._camera.updateProjectionMatrix();
+               //     this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
+               //     this._BirdViewCAM.updateProjectionMatrix();
+               //  
+               //     // ui.AddQuest(quest);
+               //     if (this._ui){
+               //
+               //         this._ui.glideHero.Remount();
+               //     }
+               // 
+               //   // if (ui) {
+               //   //     ui.UIController.Isgliding = true;
+               //   // }
+               //
+               //    // this._ui.UpdateGlider();
                // }
-               
-                // this._ui.UpdateGlider();
-             }
+              
+              
+              
+              
           //
           //   if (this._input.released('h')) {
           //       const h = (async () => {
@@ -808,7 +815,7 @@ class HackNSlashDemo {
           //   }
 
 
-            this._threejs.render(this._scene, this._BirdViewCAM);
+           // this._threejs.render(this._scene, this._BirdViewCAM);
             this._Step(t - this._previousRAF);
             this._previousRAF = t;
 
