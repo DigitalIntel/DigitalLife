@@ -175,6 +175,7 @@
             <e p="app.js" t="Include" />
             <e p="create.js" t="Include" />
             <e p="HBH01" t="Include">
+              <e p="3dGuy.js" t="Include" />
               <e p="CameraGuy.js" t="Include" />
               <e p="cli.js" t="Include" />
               <e p="CliGuy.js" t="Include" />
@@ -183,10 +184,12 @@
               <e p="entity.js" t="Include" />
               <e p="HBH02.js" t="Include" />
               <e p="math.js" t="Include" />
+              <e p="orbitctrl.js" t="Include" />
               <e p="spatial-grid-controller.js" t="Include" />
               <e p="spatial-hash-grid.js" t="Include" />
               <e p="third-person-camera.js" t="Include" />
               <e p="ui-controller.js" t="Include" />
+              <e p="UiGuy.js" t="Include" />
             </e>
             <e p="Splitmin.js" t="Include" />
             <e p="stInput.js" t="Include" />
@@ -214,7 +217,6 @@
               <e p="inventory-controller.js" t="Include" />
               <e p="level-up-component.js" t="Include" />
               <e p="npc-entity.js" t="Include" />
-              <e p="orbitctrl.js" t="Include" />
               <e p="particle-system.js" t="Include" />
               <e p="player-entity.js" t="Include" />
               <e p="player-input.js" t="Include" />

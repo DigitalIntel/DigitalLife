@@ -26,13 +26,20 @@ export const CLI_Guy = (() => {
 
       }}
     
- 
-    Update(timeInSeconds) {
+    Breathe(){
       const h = (async () => {
         this._cli.printPrompt()
-        await this._cli.type('echo "Creating Terminal"')
+        await this._cli.type('it Feels wonderful to be alive !')
 
       })()
+      
+    }
+    Update(timeInSeconds) {
+      // const h = (async () => {
+      //   this._cli.printPrompt()
+      //   await this._cli.type('echo "Creating Terminal"')
+      //
+      // })()
     }
   };
  

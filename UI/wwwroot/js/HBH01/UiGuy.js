@@ -1,9 +1,10 @@
 import {entity} from './entity.js';
 
 
-export const UI_Guy = (() => {
 
-  class UI_Guy extends entity.Component {
+export const Ui_Guy = (() => {
+
+  class Ui_Guy extends entity.Component {
     constructor(params) {
       super();
       this._params = params;
@@ -21,12 +22,12 @@ export const UI_Guy = (() => {
           before: 100,
           after: 50
         },
-     
+
       })
 
       this.InitComponent();
     }
-  
+
     InitComponent() {
       this._LoadUI();
 
@@ -42,10 +43,10 @@ export const UI_Guy = (() => {
       //  quests: document.getElementById('quest-journal'),
       //};
 
-     // this._iconBar.inventory.onclick = (m) => { this._OnInventoryClicked(m); };
-     // this._iconBar.stats.onclick = (m) => { this._OnStatsClicked(m); };
-     // this._iconBar.quests.onclick = (m) => { this._OnQuestsClicked(m); };
-     // this._HideUI();
+      // this._iconBar.inventory.onclick = (m) => { this._OnInventoryClicked(m); };
+      // this._iconBar.stats.onclick = (m) => { this._OnStatsClicked(m); };
+      // this._iconBar.quests.onclick = (m) => { this._OnQuestsClicked(m); };
+      // this._HideUI();
     }
     _LoadUI() {
 
@@ -146,7 +147,7 @@ export const UI_Guy = (() => {
 
       // document.getElementById('c').addEventListener('click', event => {
 
-        // this.Attention = "Canvas";
+      // this.Attention = "Canvas";
 
       //   this._cli.type("Attention : " + this.Attention)
       //   this._cli.println("");
@@ -171,11 +172,11 @@ export const UI_Guy = (() => {
       //   (function (index) {
       //     userSelection[index].addEventListener("mousedown", function () {
 
-            // // this.Attention = "Gutter";
-            // // this._cli.type("Attention : " + this.Attention)
-            // // this._cli.println();
-            // // this._cli.printPrompt();
-            // // this._cli.printCursor();
+      // // this.Attention = "Gutter";
+      // // this._cli.type("Attention : " + this.Attention)
+      // // this._cli.println();
+      // // this._cli.printPrompt();
+      // // this._cli.printCursor();
 
       //       //         this._input._resetAll();
       //     })
@@ -228,8 +229,8 @@ export const UI_Guy = (() => {
       this._ui.stats.style.visibility = 'hidden';
       this._ui.quests.style.visibility = 'hidden';
     }
-    
-    
+
+
     _OnQuestsClicked(msg) {
       const visibility = this._ui.quests.style.visibility;
       this._HideUI();
@@ -248,23 +249,23 @@ export const UI_Guy = (() => {
       this._ui.inventory.style.visibility = (visibility ? '' : 'hidden');
     }
 
-    
+
     UpdateGlider() {
 
 
       // add content 
-       if (this.glideHero)
+      if (this.glideHero)
       {
 
         this.glideHero.destroy();
       }
-       this.glideHero = new Glide('.glide', {            type: 'carousel',
-           animationDuration: 700,
-           // autoplay: 10000,
-           autoplay: false,
-           startAt:0,
-           perView: 2,
-       });
+      this.glideHero = new Glide('.glide', {            type: 'carousel',
+        animationDuration: 700,
+        // autoplay: 10000,
+        autoplay: false,
+        startAt:0,
+        perView: 2,
+      });
       this.glideHero.mount();
       this.glideHero.go('<');
       // this.glideHero = new Glide('.glide', {
@@ -288,7 +289,7 @@ export const UI_Guy = (() => {
       //   
       //         alert("gello" +  this.glideHero.index );
       //     })
-    //  this.glideHero.mount();
+      //  this.glideHero.mount();
       //this.glideHero.go('<');
 
 
@@ -298,25 +299,24 @@ export const UI_Guy = (() => {
     Remount() {
       //   if (this.Isgliding){
       //  this.UpdateGlider();
-     // this.glideHero.mount();
+      // this.glideHero.mount();
       //  // this.glideHero.mount();
       // }
       //this.glideHero.mount();
       this.glideHero.update();
     }
-    
-    
+
+
     Update(timeInSeconds) {
-    //   if (this.Isgliding){
-   //  this.UpdateGlider();
-    //  // this.glideHero.mount();
-    // }
-      
+      //   if (this.Isgliding){
+      //  this.UpdateGlider();
+      //  // this.glideHero.mount();
+      // }
     }
   };
-
+ 
   return {
-    UI_Guy: UI_Guy,
+    Ui_Guy: Ui_Guy,
   };
 
 })();

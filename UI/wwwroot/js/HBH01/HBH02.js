@@ -1,12 +1,14 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
+
 
  import {entity} from './entity.js';
  import {CLI_Guy} from './CliGuy.js';
-// import {ui_controller} from './ui-controller.js';
+ import {Ui_Guy} from './UiGuy.js';
+import {ThreeD_Guy} from './3dGuy.js';
 //
 // import {spatial_hash_grid} from "./spatial-hash-grid";
 import {entity_manager} from './entity-manager.js';
-// import {math} from './math.js';
+// import {CameraGuy} from "./CameraGuy";
+import {math} from './math.js';
 // import {spatial_grid_controller} from './spatial-grid-controller.js';
 
 export function init(reference){
@@ -45,16 +47,30 @@ class HBH01 {
 
   constructor() {
     this._Initialize();
+    
     console.log("I am alive ! ");
     this._entityManager = new entity_manager.EntityManager();
     this.TutorialGuy = new entity.Entity();
-    this.TutorialGuy.AddComponent(new TrueAI(),'TutorialGuy');
+   
+    this.TutorialGuy.AddComponent(new CLI_Guy.CLI_Guy(),'CliGuy');
+    this.TutorialGuy.AddComponent(new Ui_Guy.Ui_Guy(),'Ui_Guy');
+    this.TutorialGuy.AddComponent(new ThreeD_Guy.ThreeD_Guy(this._input),'3d_Guy');
+      
+      // Think of a cell and what it needs to function
+      // Need Energy ? - > Get Mitochondria and live together
+      // Need Processing power  ? - > Get Nvidia Guy and live together
+      
+  //  this.TutorialGuy.AddComponent(new TrueAI(),'TrueAI');
     this._entityManager.Add(this.TutorialGuy,'TutorialGuy');
-    this.CLIGuy= new CLI_Guy.CLI_Guy();
+    
+    //
 
     this._previousBeat = null;
      this._Beat();
 
+
+    // for input (using StInput)
+    
 
 
   }
@@ -67,6 +83,8 @@ class HBH01 {
 
       this._Beat();
 
+   
+     
      // this._threejs.render(this._scene, this._camera);
       this._Step(t - this._previousBeat);
       this._previousBeat = t;
@@ -75,10 +93,10 @@ class HBH01 {
 
   _Step(timeElapsed) {
     const timeElapsedS = Math.min(1.0 / 30.0, timeElapsed * 0.001);
+    
+    // this._UpdateSun();
 
-   // this._UpdateSun();
-
-    this._entityManager.Update(timeElapsedS);
+    this._entityManager.Update(timeElapsed);
   }  
   
   _Initialize() {
@@ -94,16 +112,42 @@ class TrueAI extends entity.Component {
      constructor(params) {
        super();
        this._HeartBeat();
+
+    
+       
+      
 }
     _HeartBeat(){
-       
-       
-       console.log("Beat! ");
+      //
+      // if (this._resizeRendererToDisplaySize(this._threejs)) {
+      //   // ui.UpdateGlider();
+      //   const canvas = this._threejs.domElement;
+      //   this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      //   this._camera.updateProjectionMatrix();
+      //   // this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
+      //   // this._BirdViewCAM.updateProjectionMatrix();
+      //
+      //   // ui.AddQuest(quest);
+      //   if (this._ui){
+      //
+      //     this._ui.glideHero.Remount();
+      //   }
+      //   this._threejs.render(this._scene, this._camera );
+      //   // if (ui) {
+      //   //     ui.UIController.Isgliding = true;
+      //   // }
+      //
+      //   // this._ui.UpdateGlider();
+      // }
+
+
+      // console.log("Beat! ");
     };
 
   Update(timeInSeconds) {
     this._HeartBeat();
   }
+
 }
 
 
@@ -414,7 +458,7 @@ class TrueAI extends entity.Component {
 //
 //       // for input (using StInput)
 //      
-//       //this._input = new StInput(window);
+//       this._input = new StInput(window);
 //       //document.addEventListener('keydown', (e) => this._onKeyDown(e), false);
 //       //document.addEventListener('keyup', (e) => this._onKeyUp(e), false);
 //       //document.addEventListener('mouseup', (e) => this._onMouseUp(e), false);
