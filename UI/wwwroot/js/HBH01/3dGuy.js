@@ -9,16 +9,48 @@ export const ThreeD_Guy = (() => {
     constructor(params) {
       super();
       this._input = new StInput(window);
-   
+     // this.UIguy = this.GetComponent('Ui_Guy');
       
-     // this.UIguy = this._parent.GetComponent('Ui_Guy');
-         
-      
+     // this.UIguy = this._entityManager.Get('HBH01').GetComponent('UIController');;
+      this.glideHero = new Glide('.glide', {
+        type: "carousel",
+        touchAngle: 45,
+        focusAt: 1,
+        startAt: 1,
+        perView: 1,
+        keyboard: false,
+        gap: 5,
+        autoplay: false,
+        peek: {
+          before: 100,
+          after: 50
+        },
+
+      })
+      this.glideHero.mount();
+
+
+
       this._quests = {};
       this._cli = new DemoCLI("#cliContainer");
       this._canvas = document.querySelector('#c');
       this._view = document.querySelector('#view');
       this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
+
+        Split(['#view', '#controls'], {  // eslint-disable-line new-cap
+          sizes: [10, 90],
+          minSize: 50,
+          elementStyle: (dimension, size, gutterSize) => {
+            return {
+              'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+            };
+          },
+          gutterStyle: (dimension, gutterSize) => {
+            return {
+              'flex-basis': `${gutterSize}px`,
+            };
+          },
+        });
 
       const fov = 60;
       const aspect = 1920 / 1080;
@@ -180,6 +212,8 @@ export const ThreeD_Guy = (() => {
       const needResize = canvas.width !== width || canvas.height !== height;
       if (needResize) {
           renderer.setSize(width, height, false);
+        this.glideHero.update();
+       // this.UIguy.Isgliding=true;
        //  this.UIguy.Remount();
         //glideHero.mount();
         // --> //  this._ui_controller.Remount();

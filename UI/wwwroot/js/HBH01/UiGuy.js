@@ -10,20 +10,20 @@ export const Ui_Guy = (() => {
       this._params = params;
       this._quests = {};
       this.Isgliding = true;
-      this.glideHero = new Glide('.glide', {        type: "carousel",
-        touchAngle: 45,
-        focusAt: 1,
-        startAt: 1,
-        perView: 1,
-        keyboard: false,
-        gap: 5,
-        autoplay: false,
-        peek: {
-          before: 100,
-          after: 50
-        },
-
-      })
+      // this.glideHero = new Glide('.glide', {        type: "carousel",
+      //   touchAngle: 45,
+      //   focusAt: 1,
+      //   startAt: 1,
+      //   perView: 1,
+      //   keyboard: false,
+      //   gap: 5,
+      //   autoplay: false,
+      //   peek: {
+      //     before: 100,
+      //     after: 50
+      //   },
+      //
+      // })
 
       this.InitComponent();
     }
@@ -58,21 +58,21 @@ export const Ui_Guy = (() => {
 
       // This code is only related to handling the split.
       // Our three.js code has not changed
-      Split(['#view', '#controls'], {  // eslint-disable-line new-cap
-        sizes: [10, 90],
-        minSize: 50,
-        elementStyle: (dimension, size, gutterSize) => {
-          return {
-            'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-          };
-        },
-        gutterStyle: (dimension, gutterSize) => {
-          return {
-            'flex-basis': `${gutterSize}px`,
-          };
-        },
-      });
-
+      //  Split(['#view', '#controls'], {  // eslint-disable-line new-cap
+      //    sizes: [10, 90],
+      //    minSize: 50,
+      //    elementStyle: (dimension, size, gutterSize) => {
+      //      return {
+      //        'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+      //      };
+      //    },
+      //    gutterStyle: (dimension, gutterSize) => {
+      //      return {
+      //        'flex-basis': `${gutterSize}px`,
+      //      };
+      //    },
+      //  });
+      //
 
       let ActiveFrames = document.getElementById("ActiveFrames");
       //
@@ -259,31 +259,31 @@ export const Ui_Guy = (() => {
 
         this.glideHero.destroy();
       }
-      this.glideHero = new Glide('.glide', {            type: 'carousel',
-        animationDuration: 700,
-        // autoplay: 10000,
-        autoplay: false,
-        startAt:0,
-        perView: 2,
-      });
-      this.glideHero.mount();
-      this.glideHero.go('<');
-      // this.glideHero = new Glide('.glide', {
-      //   type: "carousel",
-      //   touchAngle: 45,
-      //   focusAt: 1,
-      //   startAt: 1,
-      //   perView: 1,
-      //   keyboard: false,
-      //   gap: 5,
+      // this.glideHero = new Glide('.glide', {            type: 'carousel',
+      //   animationDuration: 700,
+      //   // autoplay: 10000,
       //   autoplay: false,
-      //   peek: {
-      //     before: 100,
-      //     after: 50
-      //   },
-      //
-      // })
+      //   startAt:0,
+      //   perView: 2,
+      // });
+      // this.glideHero.mount();
+      // this.glideHero.go('<');
+      this.glideHero = new Glide('.glide', {
+        type: "carousel",
+        touchAngle: 45,
+        focusAt: 1,
+        startAt: 1,
+        perView: 1,
+        keyboard: false,
+        gap: 5,
+        autoplay: false,
+        peek: {
+          before: 100,
+          after: 50
+        },
 
+      })
+      this.glideHero.mount();
 
       // this.glideHero.on(['mount.after', 'run'], function () {
       //   

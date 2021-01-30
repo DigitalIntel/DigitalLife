@@ -53,7 +53,7 @@ class HBH01 {
     this.TutorialGuy = new entity.Entity();
    
     this.TutorialGuy.AddComponent(new CLI_Guy.CLI_Guy(),'CliGuy');
-    this.TutorialGuy.AddComponent(new Ui_Guy.Ui_Guy(),'Ui_Guy');
+  // this.TutorialGuy.AddComponent(new Ui_Guy.Ui_Guy(),'Ui_Guy');
     this.TutorialGuy.AddComponent(new ThreeD_Guy.ThreeD_Guy(this._input),'3d_Guy');
       
       // Think of a cell and what it needs to function
