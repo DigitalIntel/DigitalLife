@@ -239,13 +239,13 @@
       "System.Private.CoreLib.dll": "sha256-4wsl1v32v74UB0CTQ6+AdUTdM+9C1VraomgeCjb4Wug=",
       "HBHplayground.Abstractions.dll": "sha256-VFNDoQdVLeyXACXKkeAu2MwJOvyzfgWjcVPqVS8voI4=",
       "HBHplayground.Client.dll": "sha256-cUpktDgC8fVYQhD8ud0k11li5\/8QpT0PbsRvcNxBSnI=",
-      "HBHplayground.UI.dll": "sha256-nL0\/MQ7pltMZLVn5stvsL9ND84Gyu+7ex6YRmOS1lfM="
+      "HBHplayground.UI.dll": "sha256-Wsingk52eGeuOX0hymUdqRJDJ\/NccsuNrlVqM+brCho="
     },
     "lazyAssembly": null,
     "pdb": {
       "HBHplayground.Abstractions.pdb": "sha256-sfNcDZeMU\/By3xLYuC4JppU5bxf1HoT164bZIOeAfyo=",
       "HBHplayground.Client.pdb": "sha256-wjtyDSOJOFWo9wwItfXdJt0Vrp4xQQZisfSYDMI6EIs=",
-      "HBHplayground.UI.pdb": "sha256-OoCZUalxUJ0jdDZ3JcCUlYpLVHCiIlsX7KEdmvjlxQQ="
+      "HBHplayground.UI.pdb": "sha256-I\/Vrp9meoPXe486M5wt68qeIgA7SgonjveoNgsOzOiY="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-nXByiCO4+RYyh+A88TSSZDwAJMF7M7Up\/h6dfAA19C8=",

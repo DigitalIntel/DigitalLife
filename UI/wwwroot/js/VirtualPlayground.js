@@ -1,62 +1,38 @@
-﻿import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118.1/build/three.module.js';
+﻿//import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118.1/build/three.module.js';
 
-import {third_person_camera} from '../js/VirtualPlayground/third-person-camera.js';
-import {entity_manager} from '../js/VirtualPlayground/entity-manager.js';
-import {player_entity} from '../js/VirtualPlayground/player-entity.js'
-import {remotePlayer_entity} from '../js/VirtualPlayground/remotePlayer-entity.js'
-import {entity} from '../js/VirtualPlayground/entity.js';
-import {gltf_component} from '../js/VirtualPlayground/gltf-component.js';
-import {health_component} from '../js/VirtualPlayground/health-component.js';
-import {player_input} from '../js/VirtualPlayground/player-input.js';
-
-import {remotePlayer_input} from '../js/VirtualPlayground/remotePlayer_input.js';
-
-import {npc_entity} from '../js/VirtualPlayground/npc-entity.js';
-import {math} from '../js/VirtualPlayground/math.js';
-import {spatial_hash_grid} from '../js/VirtualPlayground/spatial-hash-grid.js';
-//import {ui_controller} from '../js/VirtualPlayground/ui-controller.js';
-import {health_bar} from '../js/VirtualPlayground/health-bar.js';
-import {level_up_component} from '../js/VirtualPlayground/level-up-component.js';
-import {quest_component} from '../js/VirtualPlayground/quest-component.js';
-import {spatial_grid_controller} from '../js/VirtualPlayground/spatial-grid-controller.js';
-import {inventory_controller} from '../js/VirtualPlayground/inventory-controller.js';
-import {equip_weapon_component} from '../js/VirtualPlayground/equip-weapon-component.js';
-import {attack_controller} from '../js/VirtualPlayground/attacker-controller.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/controls/OrbitControls.js';
-import { SimpleOrbitControls } from '../js/VirtualPlayground/orbitctrl.js'
-
-//import {CLI_Guy} from "../js/VirtualPlayground/CliGuy.js";
-import TWEEN from "../js/tweenmin.js";
-//import {HBH00} from "../js/VirtualPlayground/HBH01.js";
+// import {third_person_camera} from '../js/VirtualPlayground/third-person-camera.js';
 //
+// import {player_entity} from '../js/VirtualPlayground/player-entity.js'
+// import {remotePlayer_entity} from '../js/VirtualPlayground/remotePlayer-entity.js'
+// import {entity} from '../js/VirtualPlayground/entity.js';
+// import {gltf_component} from '../js/VirtualPlayground/gltf-component.js';
+// import {health_component} from '../js/VirtualPlayground/health-component.js';
+// import {player_input} from '../js/VirtualPlayground/player-input.js';
 //
+// import {remotePlayer_input} from '../js/VirtualPlayground/remotePlayer_input.js';
+//
+// import {npc_entity} from '../js/VirtualPlayground/npc-entity.js';
+//
+// import {spatial_hash_grid} from '../js/VirtualPlayground/spatial-hash-grid.js';
+// //import {ui_controller} from '../js/VirtualPlayground/ui-controller.js';
+// import {health_bar} from '../js/VirtualPlayground/health-bar.js';
+// import {level_up_component} from '../js/VirtualPlayground/level-up-component.js';
+// import {quest_component} from '../js/VirtualPlayground/quest-component.js';
+// import {inventory_controller} from '../js/VirtualPlayground/inventory-controller.js';
+// import {equip_weapon_component} from '../js/VirtualPlayground/equip-weapon-component.js';
+// import {attack_controller} from '../js/VirtualPlayground/attacker-controller.js';
+// import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/controls/OrbitControls.js';
+// import { SimpleOrbitControls } from '../js/VirtualPlayground/orbitctrl.js'
+//
+// //import {CLI_Guy} from "../js/VirtualPlayground/CliGuy.js";
+// //import TWEEN from "../js/tweenmin.js";
+// //import {HBH00} from "../js/VirtualPlayground/HBH01.js";
+// //
+// //
 
-import { HBH02} from '../js/VirtualPlayground/HBH02.js';
+import { HBH02} from '../js/HBH01/HBH02.js';
 
 
-const _VS = `
-varying vec3 vWorldPosition;
-
-void main() {
-  vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
-  vWorldPosition = worldPosition.xyz;
-
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-}`;
-
-
-const _FS = `
-uniform vec3 topColor;
-uniform vec3 bottomColor;
-uniform float offset;
-uniform float exponent;
-
-varying vec3 vWorldPosition;
-
-void main() {
-  float h = normalize( vWorldPosition + offset ).y;
-  gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max( h , 0.0), exponent ), 0.0 ) ), 1.0 );
-}`;
 
 
 let caller;
@@ -65,16 +41,16 @@ export function init(reference){
     let _APP = null;
     
 
-    _APP = new HackNSlashDemo();
-    caller=reference;
-    caller.invokeMethodAsync('initializedfromJs');
- 
-    
-    
-  
-
-    
-    console.log("intialized from Js");
+    _APP = new HBH02.BasicCharacterControllerInput();
+   // caller=reference;
+   // caller.invokeMethodAsync('initializedfromJs');
+ //
+   // 
+   // 
+  //
+//
+   // 
+   // console.log("intialized from Js");
     return _APP;
 
 }
@@ -134,73 +110,7 @@ class HackNSlashDemo {
         // this._threejs.shadowMap.type = THREE.PCFSoftShadowMap;
         //
 
-        const fov = 60;
-        const aspect = 1920 / 1080;
-        const near = 1.0;
-        const far = 10000.0;
-        this._camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-        this._camera.position.set(25, 10, 25);
-        //  this._camera.position.set(100,100,100);
-        this._camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-
-        this._scene = new THREE.Scene();
-        this._scene.background = new THREE.Color(0x808080);
-        this._scene.fog = new THREE.FogExp2(0x808080, 0.002);
-
-        // create some random cubes
-        // create cube geometry
-        var geometry = new THREE.BoxGeometry(1, 1, 1);
-        for (var i = 0; i < 100; ++i) {
-            var material = new THREE.MeshBasicMaterial({color: Math.random() * 0xffffff});
-            var cube = new THREE.Mesh(geometry, material);
-            cube.position.set(Math.random() * 100 - 50, Math.random() * 10, Math.random() * 100 - 50);
-            cube.scale.set(1 + Math.random() * 5, 1 + Math.random() * 5, 1 + Math.random() * 5);
-            cube.castShadow = false;
-            cube.receiveShadow = true;
-            this._scene.add(cube);
-        }
-
-
-        let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
-        light.position.set(-100, 100, 100);
-        light.target.position.set(0, 0, 0);
-        light.castShadow = true;
-        light.shadow.bias = -0.001;
-        light.shadow.mapSize.width = 4096;
-        light.shadow.mapSize.height = 4096;
-        light.shadow.camera.near = 0.1;
-        light.shadow.camera.far = 500.0;
-        light.shadow.camera.near = 0.5;
-        light.shadow.camera.far = 500.0;
-        light.shadow.camera.left = 50;
-        light.shadow.camera.right = -50;
-        light.shadow.camera.top = 50;
-        light.shadow.camera.bottom = -50;
-        this._scene.add(light);
-
-        // 
-        this._sun = light;
-
-        const plane = new THREE.Mesh(
-            new THREE.PlaneGeometry(1000, 1000, 100, 100),
-            new THREE.MeshStandardMaterial({
-                color: 0x808080,
-            }));
-        plane.castShadow = false;
-        plane.receiveShadow = true;
-        plane.rotation.x = -Math.PI / 2;
-        this._scene.add(plane);
-
-        this._entityManager = new entity_manager.EntityManager();
-        this._grid = new spatial_hash_grid.SpatialHashGrid(
-            [[-1000, -1000], [1000, 1000]], [100, 100]);
-      //  this._cliGuy = new CLI_Guy.UIController();
-  
-        this._BirdViewCAM = new THREE.PerspectiveCamera(fov, aspect, near, far);
-        this._BirdViewCAM.position.set(100, 100, 25);
-        //  this._camera.position.set(100,100,100);
-        this._BirdViewCAM.lookAt(new THREE.Vector3(0, 0, 0));
+       
     //    this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
         
        // this._LoadTutorialGuy();
@@ -214,28 +124,19 @@ class HackNSlashDemo {
       // this._LoadClouds();
       // this._LoadSky();
 //
-        this._previousRAF = null;
-        this._RAF();
+     
     }
 
     _LoadControllers() {
-        const params = {
-            camera: this._camera,
-            BirdCam: this._BirdViewCAM,
-            scene: this._scene,
-            callback: this.BroadcastEvent,
-            localInputs: this._input,
-            renderer: this._threejs,
-            cli: this._cli,
-            csharp: this.caller,
-            SetAttention : this.SetAttention
+        const params = {           
+            csharp: this.caller,        
         };
-        this.HBH01 = new entity.Entity();
+        this.HBH01 =new  HBH02.BasicCharacterControllerInput(params);
 
-       this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
+        //this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
       //  this.HBH01.AddComponent(new HBH02.BasicCharacterControllerInput(params));
        
-        this._entityManager.Add( this.HBH01,'HBH01');
+       // this._entityManager.Add( this.HBH01,'HBH01');
         
         
         //this._ui =this._entityManager.Get ('HBH01').
@@ -659,180 +560,7 @@ class HackNSlashDemo {
     }
 
 
-    _RAF() {
-        requestAnimationFrame((t) => {
-            if (this._previousRAF === null) {
-                this._previousRAF = t;
-            }
-        
-            
-            this._RAF();
-               // if (this._resizeRendererToDisplaySize(this._threejs)) {
-               //    // ui.UpdateGlider();
-               //     const canvas = this._threejs.domElement;
-               //     this._camera.aspect = canvas.clientWidth / canvas.clientHeight;
-               //     this._camera.updateProjectionMatrix();
-               //     this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
-               //     this._BirdViewCAM.updateProjectionMatrix();
-               //  
-               //     // ui.AddQuest(quest);
-               //     if (this._ui){
-               //
-               //         this._ui.glideHero.Remount();
-               //     }
-               // 
-               //   // if (ui) {
-               //   //     ui.UIController.Isgliding = true;
-               //   // }
-               //
-               //    // this._ui.UpdateGlider();
-               // }
-              
-              
-              
-              
-          //
-          //   if (this._input.released('h')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('let cli= new cli()')
-          //           this._cli.printPrompt("cli : I exist !")
-          //           this._LoadPlayer();
-          //          
-          //           this._cli.println("Welcome to Digital Playground, A visual OS")
-          //           await this._cli.type('Version: 0.8 pre Alpha' + 'Build'+'00068');
-          //           this._cli.println("Press B to load the camera man")
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //       })()
-          //   }
-          //   if (this._input.released('c')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('Loading Camera man"')
-          //                      
-          //           this._LoadGlobalCamera();
-          //           this._cli.println("I am the camera man , I assist you with the views")
-          //           await this._cli.type('..... Loaded!')
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //       })()
-          //      
-          //   }
-          //   if (this._input.released('f')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('fps view"')
-          //
-          //          // this._LoadGlobalCamera();
-          //           this._cli.println("I am the camera man , I follow you")
-          //           await this._cli.type('..... Loaded!')
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //           this._LoadPlayer();
-          //           this._LoadFoliage();
-          //       })()
-          //
-          //   }
-          //
-          //
-          //   if (this._input.released('b')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('bird eye view view"')
-          //
-          //       // this._LoadGlobalCamera();
-          //           this._cli.println("I am the camera man , I follow you")
-          //           await this._cli.type('..... Loaded!')
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //
-          //           this._SimpleOrbitControls = new SimpleOrbitControls.SimpleOrbitControls(this._threejs, this._scene, this._BirdViewCAM );
-          //          
-          //          // this._registerPlayer("eros")
-          //        
-          //          
-          //           this._entityManager.Get('player-camera').remove();
-          //           this._scene.activeCamera= this._BirdViewCAM;
-          //         //  this._registerPlayer("eros")
-          //           //  this._LoadFoliage();
-          //       })()
-          //
-          //   }
-          //
-          //
-          //   if (this._input.released('t')) {
-          //
-          //       this._LoadTutorialGuy();
-          //      // this._scene.activeCamera= this._camera;
-          //      
-          //   }
-          //   if (this._input.released('r')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('bird eye view view"')
-          //
-          //           this._LoadGlobalCamera();
-          //           this._cli.println("I am the camera man , I follow you")
-          //           await this._cli.type('..... Loaded!')
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //           // this._LoadPlayer();
-          //           this._LoadRemotePlayer("erosine")
-          //           //  this._LoadFoliage();
-          //       })()
-          //
-          //   }
-          //
-          //
-          //
-          //   if (this._input.released('g')) {
-          //       const h = (async () => {
-          //           this._cli.printPrompt()
-          //           await this._cli.type('Loading Random "')
-          //
-          //           this._registerPlayer("ee");
-          //           this._cli.println("I am the random camera man , I follow you")
-          //           await this._cli.type('..... Loaded!')
-          //           this._cli.println("")
-          //           this._cli.printPrompt()
-          //           var elem = this._cli.container;
-          //           elem.scrollTop = elem.scrollHeight;
-          //           this._LoadPlayer();
-          //           this._LoadFoliage();
-          //       })()
-          //
-          //   }
-
-
-           // this._threejs.render(this._scene, this._BirdViewCAM);
-            this._Step(t - this._previousRAF);
-            this._previousRAF = t;
-
-            //  if (this._input.anyKeyDown){
-
-            //      const h = (async () => {
-            //          this._cli.printPrompt()
-            //        //  await this._cli.type(this._input.anyKeyDown2())
-
-            //      })()
-            //  }
-          
-            //this._inputCli.endFrame();
-
-
-        });
-    }
+ 
 
     _UpdateOrbitControls(timeElapsed) {
 
@@ -865,21 +593,7 @@ class HackNSlashDemo {
 
     }
 
-    _Step(timeElapsed) {
-        const timeElapsedS = Math.min(1.0 / 30.0, timeElapsed * 0.001);
-       // this.HBH01.BasicCharacterControllerInput().HeartBeat();
-
-        // 
-        
-    
-      //  this._UpdateOrbitControls(timeElapsed);
-     
-        this._UpdateSun();
-
-
-        this._entityManager.Update(timeElapsed);
-       // TWEEN.update(timeElapsed);
-    }
+   
     
 
     _registerPlayer(id) {

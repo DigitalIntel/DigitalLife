@@ -174,6 +174,20 @@
           <e p="js" t="Include">
             <e p="app.js" t="Include" />
             <e p="create.js" t="Include" />
+            <e p="HBH01" t="Include">
+              <e p="CameraGuy.js" t="Include" />
+              <e p="cli.js" t="Include" />
+              <e p="CliGuy.js" t="Include" />
+              <e p="ContextGuy.js" t="Include" />
+              <e p="entity-manager.js" t="Include" />
+              <e p="entity.js" t="Include" />
+              <e p="HBH02.js" t="Include" />
+              <e p="math.js" t="Include" />
+              <e p="spatial-grid-controller.js" t="Include" />
+              <e p="spatial-hash-grid.js" t="Include" />
+              <e p="third-person-camera.js" t="Include" />
+              <e p="ui-controller.js" t="Include" />
+            </e>
             <e p="Splitmin.js" t="Include" />
             <e p="stInput.js" t="Include" />
             <e p="tweenmin.js" t="Include" />
@@ -191,22 +205,14 @@
             </e>
             <e p="VirtualPlayground" t="Include">
               <e p="attacker-controller.js" t="Include" />
-              <e p="CameraGuy.js" t="Include" />
-              <e p="cli.js" t="Include" />
-              <e p="CliGuy.js" t="Include" />
-              <e p="ContextGuy.js" t="Include" />
-              <e p="entity-manager.js" t="Include" />
-              <e p="entity.js" t="Include" />
               <e p="equip-weapon-component.js" t="Include" />
               <e p="finite-state-machine.js" t="Include" />
               <e p="gltf-component.js" t="Include" />
               <e p="HBH01.js" t="Include" />
-              <e p="HBH02.js" t="Include" />
               <e p="health-bar.js" t="Include" />
               <e p="health-component.js" t="Include" />
               <e p="inventory-controller.js" t="Include" />
               <e p="level-up-component.js" t="Include" />
-              <e p="math.js" t="Include" />
               <e p="npc-entity.js" t="Include" />
               <e p="orbitctrl.js" t="Include" />
               <e p="particle-system.js" t="Include" />
@@ -216,11 +222,7 @@
               <e p="quest-component.js" t="Include" />
               <e p="remotePlayer-entity.js" t="Include" />
               <e p="remotePlayer_input.js" t="Include" />
-              <e p="spatial-grid-controller.js" t="Include" />
-              <e p="spatial-hash-grid.js" t="Include" />
               <e p="test.js" t="Include" />
-              <e p="third-person-camera.js" t="Include" />
-              <e p="ui-controller.js" t="Include" />
               <e p="WisdomBotJs.js" t="Include" />
             </e>
             <e p="VirtualPlayground.js" t="Include" />

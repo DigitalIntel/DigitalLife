@@ -209,7 +209,7 @@ using StackExchange.Redis.Extensions.Utf8Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 219 "C:\dev\recentHostable\UI\Pages\Chat.razor"
+#line 220 "C:\dev\recentHostable\UI\Pages\Chat.razor"
         
     
     
@@ -314,7 +314,7 @@ using StackExchange.Redis.Extensions.Utf8Json;
     {
         //mainDotnet.Create(this); 
         if (!firstRender) return;
-        RuntimeContainer = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "../js/VirtualPlayground.js");
+        RuntimeContainer = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "../js/HBH01/HBH02.js");
         mainJS = await RuntimeContainer.InvokeAsync<IJSObjectReference>("init", DotNetObjectReference.Create(this));
        
     }
