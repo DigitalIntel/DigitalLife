@@ -26,9 +26,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="3d">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net5.0/Server.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UI/obj/Debug/net5.0/UI.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/3dGuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/3dGuy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/HBH02.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/HBH02.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/UiGuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/wwwroot/js/HBH01/UiGuy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +98,8 @@
         <option value="$PROJECT_DIR$/UI/wwwroot/js/HBH01/ui-controller.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/VirtualPlayground.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/HBH01/UiGuy.js" />
-        <option value="$PROJECT_DIR$/UI/wwwroot/js/HBH01/HBH02.js" />
         <option value="$PROJECT_DIR$/UI/wwwroot/js/HBH01/3dGuy.js" />
+        <option value="$PROJECT_DIR$/UI/wwwroot/js/HBH01/HBH02.js" />
       </list>
     </option>
   </component>
@@ -198,7 +199,8 @@
       <workItem from="1611916524157" duration="93000" />
       <workItem from="1611916653015" duration="17153000" />
       <workItem from="1612006040501" duration="11841000" />
-      <workItem from="1612022887541" duration="14844000" />
+      <workItem from="1612022887541" duration="15203000" />
+      <workItem from="1612092184568" duration="1943000" />
     </task>
     <task id="LOCAL-00001" summary="Good progress">
       <created>1611672686355</created>
@@ -284,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612039949206</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="3d">
+      <created>1612050038510</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1612050038510</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,26 +335,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611180795334" />
-    <state width="1877" height="215" key="GridCell.Tab.0.bottom" timestamp="1612049861672">
+    <state width="1877" height="213" key="GridCell.Tab.0.bottom" timestamp="1612093702059">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="215" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612049861672" />
-    <state width="1877" height="215" key="GridCell.Tab.0.center" timestamp="1612049861671">
+    <state width="1877" height="213" key="GridCell.Tab.0.bottom/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612093702059" />
+    <state width="1877" height="213" key="GridCell.Tab.0.center" timestamp="1612093702058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="215" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612049861671" />
-    <state width="1877" height="215" key="GridCell.Tab.0.left" timestamp="1612049861671">
+    <state width="1877" height="213" key="GridCell.Tab.0.center/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612093702058" />
+    <state width="1877" height="213" key="GridCell.Tab.0.left" timestamp="1612093702058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="215" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612049861671" />
-    <state width="1877" height="215" key="GridCell.Tab.0.right" timestamp="1612049861672">
+    <state width="1877" height="213" key="GridCell.Tab.0.left/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612093702058" />
+    <state width="1877" height="213" key="GridCell.Tab.0.right" timestamp="1612093702058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1878" height="210" key="GridCell.Tab.0.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611748616104" />
-    <state width="1877" height="215" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612049861672" />
+    <state width="1877" height="213" key="GridCell.Tab.0.right/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612093702058" />
     <state width="1877" height="374" key="GridCell.Tab.1.bottom" timestamp="1612022608397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -443,10 +452,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="84" y="175" width="1546" height="859" key="dock-window-1/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611440356393" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1611876204237">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1612092861739">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611876204237" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612092861739" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611678386207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -470,12 +479,6 @@
           <url>file://$PROJECT_DIR$/UI/wwwroot/js/HBH01/HBH02.js</url>
           <line>328</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/UI/wwwroot/js/HBH01/3dGuy.js</url>
-          <line>181</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/UI/Pages/VirtualPlayground.razor</url>

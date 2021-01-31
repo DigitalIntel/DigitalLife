@@ -38,8 +38,8 @@ export const ThreeD_Guy = (() => {
       this._threejs = new THREE.WebGLRenderer({antialias: true, alpha: true, canvas: this._canvas});
 
         Split(['#view', '#controls'], {  // eslint-disable-line new-cap
-          sizes: [10, 90],
-          minSize: 50,
+          sizes: [0, 100],
+          minSize: 1,
           elementStyle: (dimension, size, gutterSize) => {
             return {
               'flex-basis': `calc(${size}% - ${gutterSize}px)`,
@@ -121,7 +121,7 @@ export const ThreeD_Guy = (() => {
     }
   
     InitComponent() {
-     // this._LoadUI();
+   //   this._LoadUI();
      
       if (this._cli) {
        // this._inputCli = new StInput(this._cli.container)
@@ -171,7 +171,151 @@ export const ThreeD_Guy = (() => {
 
 
     }
-    
+    _LoadUI() {
+
+
+      // tween.oncomplete(function(){
+      //    
+      //     alert("done tweening!")
+      // });
+
+      // This code is only related to handling the split.
+      // Our three.js code has not changed
+      //  Split(['#view', '#controls'], {  // eslint-disable-line new-cap
+      //    sizes: [10, 90],
+      //    minSize: 50,
+      //    elementStyle: (dimension, size, gutterSize) => {
+      //      return {
+      //        'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+      //      };
+      //    },
+      //    gutterStyle: (dimension, gutterSize) => {
+      //      return {
+      //        'flex-basis': `${gutterSize}px`,
+      //      };
+      //    },
+      //  });
+      //
+
+      let ActiveFrames = document.getElementById("ActiveFrames");
+      //
+      // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?tunisia" alt="img"></li> *@
+      // @* <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?earth" alt="img"></li> *@
+
+      // <li class="slider__frame glide__slide"><img src="https://source.unsplash.com/1600x900/?Germany" alt="img"></li>
+      let g = document.createElement('li');
+      g.setAttribute("class", "slider__frame glide__slide");
+      let div = document.createElement('img');
+
+
+      div.setAttribute("src", "https://source.unsplash.com/1600x900/?dna");
+      g.appendChild(div);
+
+      ActiveFrames.appendChild(g);
+
+
+      g = document.createElement('li');
+      g.setAttribute("class", "slider__frame glide__slide");
+      div = document.createElement('img');
+      div.setAttribute("src", "https://source.unsplash.com/1600x900/?Life");
+      g.appendChild(div);
+
+      ActiveFrames.appendChild(g);
+
+
+      g = document.createElement('li');
+      g.setAttribute("class", "slider__frame glide__slide");
+      div = document.createElement('img');
+      div.setAttribute("src", "https://source.unsplash.com/1600x900/?Space");
+      g.appendChild(div);
+
+      ActiveFrames.appendChild(g);
+
+      g = document.createElement('li');
+      g.setAttribute("class", "slider__frame glide__slide");
+      div = document.createElement('img');
+      div.setAttribute("src", "https://source.unsplash.com/1600x900/?Aliens");
+      g.appendChild(div);
+
+      ActiveFrames.appendChild(g);
+      this.glideHero.update();
+      //  var g = document.createElement('li');
+      //  g.setAttribute("class", "slider__frame glide__slide");
+      //  var div=document.createElement('div');
+      //
+      // div.setAttribute("id","cliContainer");
+      //  div.setAttribute("class","terminal");
+      //
+      //  g.appendChild(div);
+      //
+      //  ActiveFrames.appendChild(g);
+
+     // this.UpdateGlider();
+
+      // document.getElementById('cliContainer').addEventListener('keydown', event => {
+
+      //   this.Attention = "Cli";
+      //   this._input._resetAll();
+      //   if (this._cli) {
+      //     if (event.key === "Enter") {
+      //       this._cli.enterKey();
+      //       this._cli.println("");
+      //       return;
+      //     }
+      //     this._cli.type(event.key);
+      //     // this._cli.printPrompt();
+      //     //   alert(event.key);
+      //   }
+      // })
+
+      // document.getElementById('c').addEventListener('click', event => {
+
+      // this.Attention = "Canvas";
+
+      //   this._cli.type("Attention : " + this.Attention)
+      //   this._cli.println("");
+      //   this._cli.printPrompt();
+      //   this._cli.printCursor();
+      //   // this._input._resetAll();
+      // })
+
+      // document.getElementById('controls').addEventListener('mousedown', event => {
+
+      //   this.Attention = "Controls";
+      //   this._cli.type("Attention : " + this.Attention);
+      //   this._cli.println("");
+      //   this._cli.printPrompt();
+      //   this._cli.printCursor();
+      //   this._input._resetAll();
+      // })
+
+
+      // var userSelection = document.getElementsByClassName('gutter');
+      // for (var i = 0; i < userSelection.length; i++) {
+      //   (function (index) {
+      //     userSelection[index].addEventListener("mousedown", function () {
+
+      // // this.Attention = "Gutter";
+      // // this._cli.type("Attention : " + this.Attention)
+      // // this._cli.println();
+      // // this._cli.printPrompt();
+      // // this._cli.printCursor();
+
+      //       //         this._input._resetAll();
+      //     })
+      //   })(i);
+      // }
+      // document.getElementById('cliContainer').addEventListener('mousedown', event => {
+
+      //   this.Attention = "Cli";
+      //   this._input._resetAll();
+      // })
+
+
+      /* global Split */
+
+
+    }
     Update(timeInSeconds) {
       // const h = (async () => {
       //   this._cli.printPrompt()
@@ -187,21 +331,10 @@ export const ThreeD_Guy = (() => {
          this._BirdViewCAM.aspect = canvas.clientWidth / canvas.clientHeight;
          this._BirdViewCAM.updateProjectionMatrix();
 
-        // ui.AddQuest(quest);
-        if (this._ui){
 
-          this._ui.glideHero.Remount();
-        }
-    
-        // if (ui) {
-        //     ui.UIController.Isgliding = true;
-        // }
-
-        // this._ui.UpdateGlider();
       }
 
-      this._threejs.render(this._scene, this._BirdViewCAM );
-     // this._input.endFrame();
+      this._threejs.render(this._scene, this._BirdViewCAM );    
       this._input.endFrame();
       
     }
@@ -212,12 +345,7 @@ export const ThreeD_Guy = (() => {
       const needResize = canvas.width !== width || canvas.height !== height;
       if (needResize) {
           renderer.setSize(width, height, false);
-        this.glideHero.update();
-       // this.UIguy.Isgliding=true;
-       //  this.UIguy.Remount();
-        //glideHero.mount();
-        // --> //  this._ui_controller.Remount();
-
+        this.glideHero.update();    
      
 
 
