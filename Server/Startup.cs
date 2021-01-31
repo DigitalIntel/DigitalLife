@@ -77,7 +77,7 @@ namespace HBHplayground.Server
             {
                 services.AddDbContextFactory<AppDbContext>(b => {
                        b.UseSqlite($"Data Source={dbPath}", sqlite => { });
-                   // b.UseNpgsql(GetHerokuConnectionString());
+                  // b.UseNpgsql(GetHerokuConnectionString());
                     // services.AddDbContextFactory<AppDbContext>(options => options.UseNpgsql(GetHerokuConnectionString()));
                 });
 
