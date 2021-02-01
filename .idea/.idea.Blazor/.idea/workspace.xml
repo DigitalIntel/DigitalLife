@@ -24,7 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="trying to add clouds , and sky" />
+    <list default="true" id="2fbd01ea-fa24-47d7-8429-eb347b8a5a2f" name="Default Changelist" comment="trying to add clouds , and sky">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blazor/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,8 +40,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -198,7 +205,7 @@
       <workItem from="1612092184568" duration="3501000" />
       <workItem from="1612120208456" duration="2766000" />
       <workItem from="1612136536836" duration="2093000" />
-      <workItem from="1612190673542" duration="3624000" />
+      <workItem from="1612190673542" duration="4184000" />
     </task>
     <task id="LOCAL-00001" summary="Good progress">
       <created>1611672686355</created>
@@ -473,14 +480,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611364864442" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1612193677913">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1612196911884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612138557744" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612196911884" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612193677913" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612193722825">
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612196921893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612196921893" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1612193722825" />
     <state x="84" y="175" width="1546" height="859" key="dock-window-1" timestamp="1611440356393">
       <screen x="0" y="0" width="1920" height="1040" />
