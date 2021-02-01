@@ -8,7 +8,7 @@ import {ThreeD_Guy} from './3dGuy.js';
 // import {spatial_hash_grid} from "./spatial-hash-grid";
 import {entity_manager} from './entity-manager.js';
 // import {CameraGuy} from "./CameraGuy";
-import {math} from './math.js';
+
 // import {spatial_grid_controller} from './spatial-grid-controller.js';
 
 export function init(reference){
@@ -19,30 +19,6 @@ export function init(reference){
 
 
 
-const _VS = `
-varying vec3 vWorldPosition;
-
-void main() {
-  vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
-  vWorldPosition = worldPosition.xyz;
-
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-}`;
-
-
-const _FS = `
-uniform vec3 topColor;
-uniform vec3 bottomColor;
-uniform float offset;
-uniform float exponent;
-
-varying vec3 vWorldPosition;
-
-void main() {
-  float h = normalize( vWorldPosition + offset ).y;
-  gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max( h , 0.0), exponent ), 0.0 ) ), 1.0 );
-}`;
-
 class HBH01 {
 
   constructor() {
@@ -51,10 +27,10 @@ class HBH01 {
     console.log("I am alive ! ");
     this._entityManager = new entity_manager.EntityManager();
     this.TutorialGuy = new entity.Entity();
-   
-           this.TutorialGuy.AddComponent(new CLI_Guy.CLI_Guy(),'CliGuy');
+     
+         this.TutorialGuy.AddComponent(new CLI_Guy.CLI_Guy(),'CliGuy');
            this.TutorialGuy.AddComponent(new Ui_Guy.Ui_Guy(),'Ui_Guy');
-    this.TutorialGuy.AddComponent(new ThreeD_Guy.ThreeD_Guy(this._input),'3d_Guy');
+    this.TutorialGuy.AddComponent(new ThreeD_Guy.ThreeD_Guy( {input:this._input, entitymanager: this._entityManager}),'3d_Guy');
       
       // Think of a cell and what it needs to function
       // Need Energy ? - > Get Mitochondria and live together
