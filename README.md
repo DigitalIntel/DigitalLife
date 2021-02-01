@@ -1,4 +1,4 @@
-consciousness 2.0 Awesome real world applications  ! 
+consciousness 2.0 with awesome real world applications  ! 
 Towards the *Digital Age*
 
 This is a openSource, A digital entity
