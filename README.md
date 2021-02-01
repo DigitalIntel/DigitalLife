@@ -32,6 +32,7 @@ This is an idea, that will continue to evolve as more timelines are created. Thi
 As you follow the tutorial, you will have a grasp of what I am trying to do
 
 Code is openSource, fork and be creative, earn money by maintaining timelines-> being useful.
+https://trello.com/invite/digitallife19/11125c18410d85fb28344fea26c9e384
 
 ![alt text](https://source.unsplash.com/1600x900/?life)
 
