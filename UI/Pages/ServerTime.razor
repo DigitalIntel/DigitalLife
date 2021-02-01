@@ -17,7 +17,7 @@
 @*     </div> *@
 @* } *@
 
- @time
+ @time 
 
 @* <button class="btn btn-primary" @onclick="() => State.CancelUpdateDelay()">Diconnect</button> *@
 
@@ -33,4 +33,5 @@
 
     protected override Task<DateTime> ComputeStateAsync(CancellationToken cancellationToken)
         => Time.GetTimeAsync(cancellationToken);
+
 }

@@ -217,6 +217,7 @@ using System.Threading;
     protected override Task<DateTime> ComputeStateAsync(CancellationToken cancellationToken)
         => Time.GetTimeAsync(cancellationToken);
 
+
 #line default
 #line hidden
 #nullable disable
